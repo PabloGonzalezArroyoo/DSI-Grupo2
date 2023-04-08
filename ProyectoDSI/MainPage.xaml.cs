@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.Devices.Enumeration;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -25,6 +26,12 @@ namespace ProyectoDSI
         public MainPage()
         {
             this.InitializeComponent();
+        }
+
+        private void MapButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            // Use Frame.Navigate to go to the next page.
+            Frame.Navigate(typeof(Mapa));
         }
     }
 }

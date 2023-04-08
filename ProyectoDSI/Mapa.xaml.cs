@@ -26,5 +26,32 @@ namespace ProyectoDSI
         {
             this.InitializeComponent();
         }
+
+        private void AgentsButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            // Use Frame.Navigate to go to the next page.
+            Frame.Navigate(typeof(Agentes));
+        }
+
+        private void RecruitmentButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            // Use Frame.Navigate to go to the next page.
+            Frame.Navigate(typeof(Reclutamiento));
+        }
+
+        private void BackButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            if (rootFrame.CanGoBack)
+            {
+                rootFrame.GoBack();
+            }
+        }
+
+        private void OptionsButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            // Use Frame.Navigate to go to the next page.
+            Frame.Navigate(typeof(Opciones));
+        }
     }
 }

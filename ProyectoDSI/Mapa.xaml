@@ -6,9 +6,100 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="Black">
+    
+    <Page.Resources>
+        <FontFamily x:Key="Alata" >ms-appx:///Assets/Alata-Regular.ttf#Alata</FontFamily>
+        <Style x:Key="StraightButton" TargetType="Button">
+            <Setter Property="FontFamily" Value="Alata"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Background" Value="Black"/>
+            <Setter Property="Width" Value="210"/>
+            <Setter Property="Height" Value="45"/>
+        </Style>
+        <!-- BOTÓN CIRCULAR NO ACTIVO -->
+        <Style x:Key="CircleButtonNotSelected" TargetType="Button">
+            <Setter Property="Background" Value="Black"/>
+            <Setter Property="CornerRadius" Value="60"/>
+            <Setter Property="Width" Value="50"/>
+            <Setter Property="Height" Value="50"/>
+        </Style>
+        <!-- BOTÓN CIRCULAR ACTIVO -->
+        <Style x:Key="CircleButtonSelected" TargetType="Button">
+            <Setter Property="Background" Value="Black"/>
+            <Setter Property="CornerRadius" Value="60"/>
+            <Setter Property="Width" Value="70"/>
+            <Setter Property="Height" Value="70"/>
+        </Style>
+    </Page.Resources>
 
     <Grid>
+        <!-- Imagen de fondo -->
+        <Grid.Background>
+            <ImageBrush Stretch="Fill" ImageSource="Assets/Mapa/mapUpscaled.jpeg"></ImageBrush>
+        </Grid.Background>
+        
+        <!-- Zona (grid) de botones superiores -->
+        <Grid>
+            <!-- Definiciones de filas y columnas -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="70"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="80"/>
+            </Grid.ColumnDefinitions>
 
+            <!-- BOTONES -->
+            <!-- Botón atrás -->
+            <Button Style="{StaticResource CircleButtonNotSelected}"
+                    Grid.Column="0"
+                    HorizontalAlignment="Center"
+                    Click="BackButton_OnClick">
+                <Image Source="Assets/backButton.png"></Image>
+            </Button>
+            <!-- Botón agentes -->
+            <Button Style="{StaticResource StraightButton}"
+                    Content="AGENTES"
+                    Click="AgentsButton_OnClick"
+                    Grid.Column="1"
+                    HorizontalAlignment="Right"/>
+            <!-- Botón mapa -->
+            <Button Style="{StaticResource CircleButtonSelected}"
+                    Grid.Column="2"
+                    HorizontalAlignment="Center"
+                    Click="BackButton_OnClick">
+                <Image Source="Assets/Mapa/mapButton.png"
+                       Width="60"
+                       Height="60"
+                       HorizontalAlignment="Center"></Image>
+            </Button>
+            <!-- Botón reclutamiento -->
+            <Button Style="{StaticResource StraightButton}"
+                    Content="RECLUTAMIENTO"
+                    Click="RecruitmentButton_OnClick"
+                    Grid.Column="3"/>
+            <!-- Botón opciones -->
+            <Button Style="{StaticResource CircleButtonNotSelected}"
+                    Grid.Column="4"
+                    HorizontalAlignment="Center"
+                    Click="OptionsButton_OnClick">
+                <Image Source="Assets/optionsButton.png"></Image>
+            </Button>
+        </Grid>
+
+        <!-- Niveles -->
+        <Image Source="Assets/Mapa/location.png" Width="100" Height="100" Margin="17,310,1163,310"></Image>
+        <Image Source="Assets/Mapa/location.png" Width="100" Height="100" Margin="314,161,866,459"></Image>
+        <Image Source="Assets/Mapa/location.png" Width="100" Height="100" Margin="363,597,817,23"></Image>
+        <Image Source="Assets/Mapa/location.png" Width="100" Height="100" Margin="673,540,507,80"></Image>
+        <Image Source="Assets/Mapa/location.png" Width="100" Height="100" Margin="638,238,542,382"></Image>
+        <Image Source="Assets/Mapa/location.png" Width="100" Height="100" Margin="830,73,350,547"></Image>
+        <Image Source="Assets/Mapa/location.png" Width="100" Height="100" Margin="1127,232,53,388"></Image>
     </Grid>
 </Page>

@@ -9,6 +9,10 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-
+        <Button Content="Go To Map"
+                Click="MapButton_OnClick"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Margin="20"/>
     </Grid>
 </Page>
