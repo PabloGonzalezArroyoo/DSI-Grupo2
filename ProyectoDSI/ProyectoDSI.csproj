@@ -151,6 +151,9 @@
     <Content Include="Assets\backButton.png" />
     <Content Include="Assets\Enfrentamiento\handcuffs.png" />
     <Content Include="Assets\Enfrentamiento\incognito white.png" />
+    <Content Include="Assets\Engranaje.png" />
+    <Content Include="Assets\EscudoPolicia.png" />
+    <Content Include="Assets\IconoSalida.png" />
     <Content Include="Assets\Inicio\clipboard.png" />
     <Content Include="Assets\Inicio\coffee.png" />
     <Content Include="Assets\Inicio\Fondo.png" />
