@@ -28,7 +28,7 @@ namespace ProyectoDSI
             this.InitializeComponent();
         }
 
-        private void MapButton_OnClick(object sender, RoutedEventArgs e)
+        private void PlayButton_OnClick(object sender, RoutedEventArgs e)
         {
             // Use Frame.Navigate to go to the next page.
             Frame.Navigate(typeof(Mapa));

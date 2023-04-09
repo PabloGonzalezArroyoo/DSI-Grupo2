@@ -54,7 +54,8 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Button Grid.Row="0" Grid.Column="0"
-                        Style="{StaticResource MenuButon}">
+                        Style="{StaticResource MenuButon}"
+                        Click="PlayButton_OnClick">
                     <StackPanel Orientation="Horizontal">
                         <Image  Margin="0,0,50,0" Source="/Assets/EscudoPolicia.png"/>
                         <TextBlock Style="{StaticResource MenuText}" Text="JUGAR"/>

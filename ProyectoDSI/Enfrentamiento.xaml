@@ -9,6 +9,9 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-
+        <!-- Imagen de fondo -->
+        <Grid.Background>
+            <ImageBrush Stretch="Fill" ImageSource="Assets/Enfrentamiento/background.png"></ImageBrush>
+        </Grid.Background>
     </Grid>
 </Page>

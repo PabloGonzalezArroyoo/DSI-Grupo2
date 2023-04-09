@@ -53,5 +53,11 @@ namespace ProyectoDSI
             // Use Frame.Navigate to go to the next page.
             Frame.Navigate(typeof(Opciones));
         }
+
+        private void LevelButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            // Use Frame.Navigate to go to the next page.
+            Frame.Navigate(typeof(Sigilo));
+        }
     }
 }

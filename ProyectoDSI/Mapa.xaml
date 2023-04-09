@@ -37,7 +37,7 @@
     <Grid>
         <!-- Imagen de fondo -->
         <Grid.Background>
-            <ImageBrush Stretch="Fill" ImageSource="Assets/Mapa/mapUpscaled.jpeg"></ImageBrush>
+            <ImageBrush Stretch="Fill" ImageSource="Assets/Mapa/mapUpscaled.jpeg"/>
         </Grid.Background>
         
         <!-- Zona (grid) de botones superiores -->
@@ -61,7 +61,7 @@
                     Grid.Column="0"
                     HorizontalAlignment="Center"
                     Click="BackButton_OnClick">
-                <Image Source="Assets/backButton.png"></Image>
+                <Image Source="Assets/backButton.png"/>
             </Button>
             <!-- Botón agentes -->
             <Button Style="{StaticResource StraightButton}"
@@ -77,7 +77,7 @@
                 <Image Source="Assets/Mapa/mapButton.png"
                        Width="60"
                        Height="60"
-                       HorizontalAlignment="Center"></Image>
+                       HorizontalAlignment="Center"/>
             </Button>
             <!-- Botón reclutamiento -->
             <Button Style="{StaticResource StraightButton}"
@@ -89,17 +89,59 @@
                     Grid.Column="4"
                     HorizontalAlignment="Center"
                     Click="OptionsButton_OnClick">
-                <Image Source="Assets/optionsButton.png"></Image>
+                <Image Source="Assets/optionsButton.png"/>
             </Button>
         </Grid>
 
-        <!-- Niveles -->
-        <Image Source="Assets/Mapa/location.png" Width="100" Height="100" Margin="17,310,1163,310"></Image>
-        <Image Source="Assets/Mapa/location.png" Width="100" Height="100" Margin="314,161,866,459"></Image>
-        <Image Source="Assets/Mapa/location.png" Width="100" Height="100" Margin="363,597,817,23"></Image>
-        <Image Source="Assets/Mapa/location.png" Width="100" Height="100" Margin="673,540,507,80"></Image>
-        <Image Source="Assets/Mapa/location.png" Width="100" Height="100" Margin="638,238,542,382"></Image>
-        <Image Source="Assets/Mapa/location.png" Width="100" Height="100" Margin="830,73,350,547"></Image>
-        <Image Source="Assets/Mapa/location.png" Width="100" Height="100" Margin="1127,232,53,388"></Image>
+        <!-- NIVELES -->
+        <!-- Nivel 1 -->
+        <Button Click="LevelButton_OnClick"
+                Width="100" 
+                Height="100" 
+                Margin="17,310,1163,310">
+            <Image Source="Assets/Mapa/location.png"/>
+        </Button>
+        <!-- Nivel 2 -->
+        <Button Click="LevelButton_OnClick"
+                Width="100" 
+                Height="100" 
+                Margin="314,161,866,459">
+            <Image Source="Assets/Mapa/location.png"/>
+        </Button>
+        <!-- Nivel 3 -->
+        <Button Click="LevelButton_OnClick"
+                Width="100" 
+                Height="100" 
+                Margin="363,597,817,23">
+            <Image Source="Assets/Mapa/location.png"/>
+        </Button>
+        <!-- Nivel 4 -->
+        <Button Click="LevelButton_OnClick"
+                Width="100"
+                Height="100"
+                Margin="673,540,507,80">
+            <Image Source="Assets/Mapa/location.png"/>
+        </Button>
+        <!-- Nivel 5 -->
+        <Button Click="LevelButton_OnClick"
+                Width="100" 
+                Height="100" 
+                Margin="638,238,542,382">
+            <Image Source="Assets/Mapa/location.png"/>
+        </Button>
+        <!-- Nivel 6 -->
+        <Button Click="LevelButton_OnClick"
+                Width="100"
+                Height="100" 
+                Margin="830,73,350,547">
+            <Image Source="Assets/Mapa/location.png" />
+        </Button>
+        <!-- Nivel 7 -->
+        <Button Click="LevelButton_OnClick"
+                Width="100" 
+                Height="100" 
+                Margin="1127,232,53,388">
+            <Image Source="Assets/Mapa/location.png"/>
+        </Button>
     </Grid>
 </Page>
