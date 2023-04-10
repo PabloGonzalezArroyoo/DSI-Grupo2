@@ -32,6 +32,12 @@
             <Setter Property="Width" Value="70"/>
             <Setter Property="Height" Value="70"/>
         </Style>
+        <!-- BOTÓN DE NIVEL -->
+        <Style x:Key="LevelButton" TargetType="Button">
+            <Setter Property="CornerRadius" Value="60"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Height" Value="100"/>
+        </Style>
     </Page.Resources>
 
     <Grid>
@@ -96,50 +102,43 @@
         <!-- NIVELES -->
         <!-- Nivel 1 -->
         <Button Click="LevelButton_OnClick"
-                Width="100" 
-                Height="100" 
+                Style="{StaticResource LevelButton}"
                 Margin="17,310,1163,310">
             <Image Source="Assets/Mapa/location.png"/>
         </Button>
         <!-- Nivel 2 -->
         <Button Click="LevelButton_OnClick"
-                Width="100" 
-                Height="100" 
+                Style="{StaticResource LevelButton}"
                 Margin="314,161,866,459">
             <Image Source="Assets/Mapa/location.png"/>
         </Button>
         <!-- Nivel 3 -->
         <Button Click="LevelButton_OnClick"
-                Width="100" 
-                Height="100" 
+                Style="{StaticResource LevelButton}"
                 Margin="363,597,817,23">
             <Image Source="Assets/Mapa/location.png"/>
         </Button>
         <!-- Nivel 4 -->
         <Button Click="LevelButton_OnClick"
-                Width="100"
-                Height="100"
+                Style="{StaticResource LevelButton}"
                 Margin="673,540,507,80">
             <Image Source="Assets/Mapa/location.png"/>
         </Button>
         <!-- Nivel 5 -->
         <Button Click="LevelButton_OnClick"
-                Width="100" 
-                Height="100" 
+                Style="{StaticResource LevelButton}"
                 Margin="638,238,542,382">
             <Image Source="Assets/Mapa/location.png"/>
         </Button>
         <!-- Nivel 6 -->
         <Button Click="LevelButton_OnClick"
-                Width="100"
-                Height="100" 
+                Style="{StaticResource LevelButton}"
                 Margin="830,73,350,547">
             <Image Source="Assets/Mapa/location.png" />
         </Button>
         <!-- Nivel 7 -->
         <Button Click="LevelButton_OnClick"
-                Width="100" 
-                Height="100" 
+                Style="{StaticResource LevelButton}" 
                 Margin="1127,232,53,388">
             <Image Source="Assets/Mapa/location.png"/>
         </Button>

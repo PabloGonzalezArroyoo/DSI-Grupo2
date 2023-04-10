@@ -149,12 +149,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\backButton.png" />
-    <Content Include="Assets\Enfrentamiento\background.png" />
-    <Content Include="Assets\Enfrentamiento\handcuffs.png" />
-    <Content Include="Assets\Enfrentamiento\incognito white.png" />
     <Content Include="Assets\Engranaje.png" />
     <Content Include="Assets\EscudoPolicia.png" />
     <Content Include="Assets\IconoSalida.png" />
+    <Content Include="Assets\InGame\backgroundEnfrentamiento.png" />
+    <Content Include="Assets\InGame\backgroundSigilo.png" />
+    <Content Include="Assets\InGame\eye.png" />
+    <Content Include="Assets\InGame\handcuffs.png" />
+    <Content Include="Assets\InGame\heart.png" />
+    <Content Include="Assets\InGame\incognito white.png" />
+    <Content Include="Assets\InGame\melee.png" />
+    <Content Include="Assets\InGame\range.png" />
     <Content Include="Assets\Inicio\clipboard.png" />
     <Content Include="Assets\Inicio\coffee.png" />
     <Content Include="Assets\Inicio\Fondo.png" />
@@ -169,7 +174,6 @@
     <Content Include="Assets\Mapa\mapUpscaled.jpeg" />
     <Content Include="Assets\optionsButton.png" />
     <Content Include="Assets\Reclutamiento\medalsIcon.png" />
-    <Content Include="Assets\Sigilo\background.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

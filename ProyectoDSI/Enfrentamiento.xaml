@@ -8,10 +8,208 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+    <!-- RECURSOS -->
+    <Page.Resources>
+        <Style x:Key="ProgressBarStyle" TargetType="ProgressBar">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="CornerRadius" Value="20"/>
+            <Setter Property="Value" Value="20"/>
+            <Setter Property="Margin" Value="20"/>
+        </Style>
+
+        <!-- Template de los elementos del ListView -->
+        <DataTemplate x:Key="ListView_DataTemplate">
+            <!-- Grid y definición -->
+            <Grid Height="45" Width="137">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.5*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <!-- Imagen lateral -->
+                <Image Source="Assets/Square150x150Logo.scale-200.png"
+                   Grid.RowSpan="2"/>
+                <!-- Texto de nombre -->
+                <TextBlock Text="Nombre" FontSize="9"
+                           VerticalAlignment="Center" HorizontalAlignment="Center"
+                           Grid.Column="1" Grid.ColumnSpan="2"/>
+                <!-- Imagenes derechas -->
+                <Image Source="Assets/Square150x150Logo.scale-200.png"
+                   Grid.Column="3"/>
+                <Image Source="Assets/Square150x150Logo.scale-200.png"
+                   Grid.Column="4"/>
+                <Image Source="Assets/Square150x150Logo.scale-200.png"
+                   Grid.Column="5"/>
+                <Image Source="Assets/Square150x150Logo.scale-200.png"
+                   Grid.Column="6"/>
+                <!-- Barra de vida -->
+                <ProgressBar HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                         Height="20" Margin="5" CornerRadius="20"
+                         Foreground="White"
+                         Value="20"
+                         Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="6"/>
+                <TextBlock Text="20" FontSize="8"
+                           HorizontalAlignment="Left" VerticalAlignment="Center"
+                           Foreground="Black"
+                           Margin="10, 0, 0, 0"
+                           Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="6"/>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+
     <Grid>
         <!-- Imagen de fondo -->
         <Grid.Background>
-            <ImageBrush Stretch="Fill" ImageSource="Assets/Enfrentamiento/background.png"></ImageBrush>
+            <ImageBrush Stretch="Fill" ImageSource="Assets/InGame/backgroundEnfrentamiento.png"></ImageBrush>
         </Grid.Background>
+
+        <!-- IINFORMACIÓN INFERIOR IZQUIERDA -->
+        <Polygon Points="216,720 300,720, 216,595" Fill="Black"/>
+        <!-- Grid y definición -->
+        <Grid Background="Black"
+              Width="216" Height="125"
+              HorizontalAlignment="Left"
+              VerticalAlignment="Bottom">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <!-- Imagen lateral -->
+            <Image Source="Assets/Square150x150Logo.scale-200.png"
+                   Grid.RowSpan="2"
+                   Margin="5"/>
+            <!-- Texto de nombre -->
+            <TextBlock Text="Nombre" FontSize="20"
+                       HorizontalAlignment="Left" VerticalAlignment="Center"
+                       Margin="5"
+                       Grid.Column="1" Grid.ColumnSpan="3"/>
+            <!-- Imágenes derechas -->
+            <Image Source="Assets/Square150x150Logo.scale-200.png"
+                   Grid.Row="1" Grid.Column="1"
+                   Margin="5"/>
+            <Image Source="Assets/Square150x150Logo.scale-200.png"
+                   Grid.Row="1" Grid.Column="2"
+                   Margin="5"/>
+            <Image Source="Assets/Square150x150Logo.scale-200.png"
+                   Grid.Row="1" Grid.Column="3"
+                   Margin="5"/>
+            <Image Source="Assets/Square150x150Logo.scale-200.png"
+                   Grid.Row="1" Grid.Column="4"
+                   Margin="5"/>
+            <!-- Barra de vida -->
+            <ProgressBar HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                         Height="20" CornerRadius="5" Margin="5"
+                         Foreground="White"
+                         Value="20"
+                         Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="4"/>
+            <TextBlock Text="20" FontSize="12"
+                       HorizontalAlignment="Left" VerticalAlignment="Center"
+                       Foreground="Black"
+                       Margin="10, 0, 0, 0"
+                       Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="4"/>
+            <Image Source="Assets/InGame/heart.png"
+                   Grid.Row="2"
+                   Margin="5"/>
+        </Grid>
+
+        <!-- INFORMACIÓN SUPERIOR DERECHA -->
+        <!-- Grid y definición -->
+        <Grid Background="Black"
+              Width="190" Height="90"
+              HorizontalAlignment="Right"
+              VerticalAlignment="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <!-- Icono sospechosos -->
+            <Image Source="Assets/InGame/incognito white.png"
+                   Margin="10"/>
+            <!-- Texto de restantes -->
+            <TextBlock Text="0/10" FontSize="40"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"
+                       Margin="10"
+                       Grid.Column="1"/>
+        </Grid>
+
+        <!-- INFORMACIÓN INFERIOR DERECHA -->
+        <Polygon Points="1045,720 1129,720, 1129,612" Fill="Black" Margin="-51,0,51,0"/>
+        <!-- Grid y definición -->
+        <Grid Background="Black"
+              Width="202" Height="108"
+              HorizontalAlignment="Right"
+              VerticalAlignment="Bottom">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="0.75*"/>
+            </Grid.ColumnDefinitions>
+            <!-- Botón de ataque melee -->
+            <Button Width="60" Height="60"
+                    HorizontalAlignment="Center"
+                    BorderBrush="DarkGray"
+                    Grid.RowSpan="2">
+                <Image Source="Assets/InGame/melee.png"/>
+            </Button>
+            <TextBlock Text="Ataq. mel." FontSize="12"
+                       HorizontalAlignment="Center"
+                       Grid.Row="2"/>
+            <!-- Botón de ataque a distancia -->
+            <Button Width="60" Height="60"
+                    HorizontalAlignment="Center"
+                    BorderBrush="DarkGray"
+                    Grid.Column="1" Grid.RowSpan="2">
+                <Image Source="Assets/InGame/range.png"/>
+            </Button>
+            <TextBlock Text="Atq. dis." FontSize="12"
+                       HorizontalAlignment="Center"
+                       Grid.Row="2" Grid.Column="1"/>
+            <!-- Botón observar -->
+            <Button Width="40" Height="40"
+                    HorizontalAlignment="Center"
+                    BorderBrush="DarkGray"
+                    Grid.Row="1" Grid.Column="2"
+                    Click="Back">
+                <Image Source="Assets/InGame/eye.png"/>
+            </Button>
+            <TextBlock Text="Observar" FontSize="10"
+                       HorizontalAlignment="Center"
+                       Grid.Row="2" Grid.Column="2"/>
+        </Grid>
+
+        <!-- INFORMACIÓN SUPERIOR IZQUIERDA -->
+        <ListView x:Name="AgentsListView"
+                  VerticalAlignment="Top" HorizontalAlignment="Left"
+                  Background="Black"
+                  Width="160" Height="181"
+                  ItemsSource="ABCD"
+                  ItemTemplate="{StaticResource ListView_DataTemplate}"/>
     </Grid>
 </Page>

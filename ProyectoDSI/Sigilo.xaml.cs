@@ -26,5 +26,20 @@ namespace ProyectoDSI
         {
             this.InitializeComponent();
         }
+
+        // ESTOS MÉTODOS SE DEBEN BORRAR O RENOMBRAR, SON SOLO PARA PROBAR EL CAMBIO DE ESCENA
+        private void ChangeScene(object sender, RoutedEventArgs e)
+        {
+            // Use Frame.Navigate to go to the next page.
+            Frame.Navigate(typeof(Enfrentamiento));
+        }
+        private void Back(object sender, RoutedEventArgs e)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            if (rootFrame.CanGoBack)
+            {
+                rootFrame.GoBack();
+            }
+        }
     }
 }
