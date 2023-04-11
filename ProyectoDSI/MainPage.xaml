@@ -37,7 +37,7 @@
                    Margin="8"
                    VerticalAlignment="Bottom"
                    HorizontalAlignment="Left"/>
-        <StackPanel Orientation="Vertical" Margin="420,150,400,-100" RenderTransformOrigin="0.5,0.5" Background="GhostWhite">
+        <StackPanel Orientation="Vertical" Margin="495,50,320,-5" Background="GhostWhite">
             <StackPanel.RenderTransform>
                 <CompositeTransform Rotation="9"/>
             </StackPanel.RenderTransform>

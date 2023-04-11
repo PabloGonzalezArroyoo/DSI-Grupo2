@@ -6,9 +6,181 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="DimGray">
+
+    <Page.Resources>
+        <FontFamily x:Key="Alata" >ms-appx:///Assets/Alata-Regular.ttf#Alata</FontFamily>
+        <Style x:Key="StraightButton" TargetType="Button">
+            <Setter Property="FontFamily" Value="Alata"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Background" Value="Black"/>
+            <Setter Property="Width" Value="210"/>
+            <Setter Property="Height" Value="45"/>
+        </Style>
+        <!-- BOTÓN CIRCULAR NO ACTIVO -->
+        <Style x:Key="CircleButtonNotSelected" TargetType="Button">
+            <Setter Property="Background" Value="Black"/>
+            <Setter Property="CornerRadius" Value="60"/>
+            <Setter Property="Width" Value="50"/>
+            <Setter Property="Height" Value="50"/>
+        </Style>
+        <!-- BOTÓN CIRCULAR ACTIVO -->
+        <Style x:Key="CircleButtonSelected" TargetType="Button">
+            <Setter Property="Background" Value="Black"/>
+            <Setter Property="CornerRadius" Value="60"/>
+            <Setter Property="Width" Value="70"/>
+            <Setter Property="Height" Value="70"/>
+        </Style>
+      
+        <Style x:Key="TitleText" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontFamily" Value="Alata"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="FontWeight" Value="ExtraBlack"/>
+        </Style>
+        <Style x:Key="NormalText" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+        <Style x:Key="Bars" TargetType="ProgressBar">
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Foreground" Value="#FFD8026D"/>
+            <Setter Property="Background" Value="LightGray"/>
+        </Style>
+    </Page.Resources>
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="80"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="70"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="80"/>
+        </Grid.ColumnDefinitions>
+        <Button Style="{StaticResource CircleButtonNotSelected}"
+                    Grid.Column="0"
+                    HorizontalAlignment="Center"
+                    Click="BackButton_OnClick">
+            <Image Source="Assets/backButton.png"/>
+        </Button>
+        <!-- Botón agentes -->
+        <Button Style="{StaticResource StraightButton}"
+                    Content="AGENTES"
+                    Click="AgentsButton_OnClick"
+                    Grid.Column="1"
+                    HorizontalAlignment="Right"/>
+        <!-- Botón mapa -->
+        <Button Style="{StaticResource CircleButtonSelected}"
+                    Grid.Column="2"
+                    HorizontalAlignment="Center"
+                    Click="BackButton_OnClick">
+            <Image Source="Assets/Mapa/mapButton.png"
+                       Width="60"
+                       Height="60"
+                       HorizontalAlignment="Center"/>
+        </Button>
+        <!-- Botón reclutamiento -->
+        <Button Style="{StaticResource StraightButton}"
+                    Content="RECLUTAMIENTO"
+                    Click="RecruitmentButton_OnClick"
+                    Grid.Column="3"/>
+        <!-- Botón opciones -->
+        <Button Style="{StaticResource CircleButtonNotSelected}"
+                    Grid.Column="4"
+                    HorizontalAlignment="Center"
+                    Click="OptionsButton_OnClick">
+            <Image Source="Assets/optionsButton.png"/>
+        </Button>
+        <StackPanel Background="Gray" Grid.Column="1" Grid.Row="1" Margin="0,0,0,80">
+
+        </StackPanel>
+        <Grid Background="Gray" Grid.Column="3" Grid.Row="1" Margin="0,0,0,80">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20*"/>
+                <RowDefinition Height="5*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="15*"/>
+                <ColumnDefinition Width="20*"/>
+            </Grid.ColumnDefinitions>
+            
+            <Image Grid.Column="0" Grid.Row="0" Stretch="Fill" Source="Assets/Square44x44Logo.scale-200.png"/>
+
+            <StackPanel CornerRadius="20" Margin="20" Background="White" Grid.Row="0" Grid.Column="1" Orientation="Vertical">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource TitleText}" Text="Tipo"/>
+                    <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource NormalText}" Text="Lorem ipsum"/>
+                    <TextBlock Grid.Row="2" Grid.Column="0" Style="{StaticResource TitleText}" Text="Arma Principal"/>
+                    <TextBlock Grid.Row="3" Grid.Column="0" Style="{StaticResource NormalText}" Text="Lorem ipsum"/>
+                    <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource TitleText}" Text="Nivel"/>
+                    <TextBlock Grid.Row="1" Grid.Column="1" Style="{StaticResource NormalText}" Text=" 12"/>
+                    <ProgressBar Background="LightGray" Margin="5" CornerRadius="3" Foreground="Blue" Value="20" Grid.Row="2" Grid.Column="1"/>
+                </Grid>
+                <TextBlock Style="{StaticResource TitleText}" Text="Arma Secundaria"/>
+                <TextBlock Style="{StaticResource NormalText}" Text="Lorem ipsum"/>
+                <TextBlock Style="{StaticResource TitleText}" Text="Descripción"/>
+                <TextBlock Style="{StaticResource NormalText}" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit.&#x0a;Nulla quam velit, vulputate eu pharetra nec, mattis ac neque.&#x0a;Duis vulputate commodo lectus, ac blandit elit tincidunt id.&#x0a;Sed rhoncus, tortor sed eleifend tristique, tortor mauris &#x0a;molestie elit, et lacinia ipsum quam nec dui."/>
+                <TextBlock Style="{StaticResource TitleText}" Text="Estadísticas"/>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25*"/>
+                        <RowDefinition Height="25*"/>
+                        <RowDefinition Height="25*"/>
+                        <RowDefinition Height="25*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="7*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="0" Grid.Row="0" Source="Assets/Reclutamiento/Heart.png" Height="50" Margin="10"/>
+                    <ProgressBar Grid.Column="1" Grid.Row="0" Style="{StaticResource Bars}" Width="300" Value="20"/>
+                    <Image Grid.Column="0" Grid.Row="1" Source="Assets/Reclutamiento/Dash.png" Height="50" Margin="10"/>
+                    <ProgressBar Grid.Column="1" Grid.Row="1" Style="{StaticResource Bars}" Width="300" Value="50"/>
+                    <Image Grid.Column="0" Grid.Row="2" Source="Assets/Reclutamiento/Shield.png" Height="50" Margin="10"/>
+                    <ProgressBar Grid.Column="1" Grid.Row="2" Style="{StaticResource Bars}" Width="300" Value="30"/>
+                    <Image Grid.Column="0" Grid.Row="3" Source="Assets/Reclutamiento/Compass.png" Height="50" Margin="10"/>
+                    <ProgressBar Grid.Column="1" Grid.Row="3" Style="{StaticResource Bars}" Width="300" Value="80"/>
+                </Grid>
+            </StackPanel>
+            <Grid Grid.Row="1" Grid.Column="0" Background="Black" Margin="20,50,20,50" CornerRadius="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="7*"/>
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="0" Source="Assets/Reclutamiento/InvertedMedal.png" HorizontalAlignment="Right" Margin="5"/>
+                <TextBlock Grid.Column="1" Text="250" Foreground="Yellow" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" FontSize="40" FontFamily="Alata" />
+            </Grid>
+            <Button Grid.Row="1" Grid.Column="1" Background="Black" CornerRadius="10" Margin="20,50,20,50" HorizontalAlignment="Center">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition Width="7*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image HorizontalAlignment="Right" Grid.Column="0" Margin="5" Source="/Assets/Reclutamiento/medalsIcon.png"/>
+                    <TextBlock Grid.Column="1" Foreground="Yellow" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" FontSize="30" FontFamily="Alata" Text="COMPRAR"/>
+                </Grid>
+            </Button>
+        </Grid>
 
     </Grid>
 </Page>
