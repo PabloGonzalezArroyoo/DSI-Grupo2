@@ -52,6 +52,13 @@
             <Setter Property="Foreground" Value="#FF4A4AFF"/>
             <Setter Property="Background" Value="LightGray"/>
         </Style>
+        <Style x:Key="NameText" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="FontFamily" Value="Alata"/>
+            <Setter Property="FontSize" Value="15"/>
+        </Style>
     </Page.Resources>
 
     <Grid>
@@ -100,9 +107,88 @@
                     Click="OptionsButton_OnClick">
             <Image Source="Assets/optionsButton.png"/>
         </Button>
-        <StackPanel Background="Gray" Grid.Column="1" Grid.Row="1" Margin="0,0,0,80">
-
-        </StackPanel>
+        <Grid Background="Gray" Grid.Column="1" Grid.Row="1" Margin="0,0,0,80">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="10*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Style="{StaticResource TitleText}" HorizontalAlignment="Center" FontSize="30" Text="ESCUADRÓN"/>
+            <Grid Grid.Row="1" HorizontalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Margin="15" Orientation="Vertical" Grid.Column="0">
+                    <Image Source="Assets/LockScreenLogo.scale-200.png"/>
+                    <TextBlock  Style="{StaticResource NameText}" Text="Nombre"/>
+                </StackPanel>
+                <StackPanel Margin="15" Orientation="Vertical" Grid.Column="1">
+                    <Image Source="Assets/LockScreenLogo.scale-200.png"/>
+                    <TextBlock  Style="{StaticResource NameText}" Text="Nombre"/>
+                </StackPanel>
+                <StackPanel Margin="15" Orientation="Vertical" Grid.Column="2">
+                    <Image Source="Assets/LockScreenLogo.scale-200.png"/>
+                    <TextBlock  Style="{StaticResource NameText}" Text="Nombre"/>
+                </StackPanel>
+                <StackPanel Margin="15" Orientation="Vertical" Grid.Column="3">
+                    <Image Source="Assets/LockScreenLogo.scale-200.png"/>
+                    <TextBlock  Style="{StaticResource NameText}" Text="Nombre"/>
+                </StackPanel>
+            </Grid>
+            <Line HorizontalAlignment="Center" Stroke="Black" Height="10" X1="0" X2="500" Grid.Row="2"/>
+            <TextBlock Style="{StaticResource TitleText}" HorizontalAlignment="Center" FontSize="30" Text="CUARTEL" Grid.Row="3"/>
+            <Grid Grid.Row="4">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Margin="15" Orientation="Vertical" Grid.Column="0">
+                    <Image Source="Assets/LockScreenLogo.scale-200.png"/>
+                    <TextBlock  Style="{StaticResource NameText}" Text="Nombre"/>
+                </StackPanel>
+                <StackPanel Margin="15" Orientation="Vertical" Grid.Column="1">
+                    <Image Source="Assets/LockScreenLogo.scale-200.png"/>
+                    <TextBlock  Style="{StaticResource NameText}" Text="Nombre"/>
+                </StackPanel>
+                <StackPanel Margin="15" Orientation="Vertical" Grid.Column="2">
+                    <Image Source="Assets/LockScreenLogo.scale-200.png"/>
+                    <TextBlock  Style="{StaticResource NameText}" Text="Nombre"/>
+                </StackPanel>
+                <StackPanel Margin="15" Orientation="Vertical" Grid.Column="3">
+                    <Image Source="Assets/LockScreenLogo.scale-200.png"/>
+                    <TextBlock  Style="{StaticResource NameText}" Text="Nombre"/>
+                </StackPanel>
+                <StackPanel Margin="15" Orientation="Vertical" Grid.Column="4">
+                    <Image Source="Assets/LockScreenLogo.scale-200.png"/>
+                    <TextBlock  Style="{StaticResource NameText}" Text="Nombre"/>
+                </StackPanel>
+                <StackPanel Margin="15" Orientation="Vertical" Grid.Row="1" Grid.Column="0">
+                    <Image Source="Assets/LockScreenLogo.scale-200.png"/>
+                    <TextBlock  Style="{StaticResource NameText}" Text="Nombre"/>
+                </StackPanel>
+                <StackPanel Margin="15" Orientation="Vertical" Grid.Row="1" Grid.Column="1">
+                    <Image Source="Assets/LockScreenLogo.scale-200.png"/>
+                    <TextBlock  Style="{StaticResource NameText}" Text="Nombre"/>
+                </StackPanel>
+                <StackPanel Margin="15" Orientation="Vertical" Grid.Row="1" Grid.Column="2">
+                    <Image Source="Assets/LockScreenLogo.scale-200.png"/>
+                    <TextBlock  Style="{StaticResource NameText}" Text="Nombre"/>
+                </StackPanel>
+            </Grid>
+            
+        </Grid>
         <Grid Background="Gray" Grid.Column="3" Grid.Row="1" Margin="0,0,0,80">
             <Grid.RowDefinitions>
                 <RowDefinition Height="20*"/>
