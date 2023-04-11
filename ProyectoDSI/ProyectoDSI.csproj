@@ -180,6 +180,7 @@
     <Content Include="Assets\Reclutamiento\Dash.png" />
     <Content Include="Assets\Reclutamiento\Heart.png" />
     <Content Include="Assets\Reclutamiento\InvertedMedal.png" />
+    <Content Include="Assets\Reclutamiento\Medal.png" />
     <Content Include="Assets\Reclutamiento\medalsIcon.png" />
     <Content Include="Assets\Reclutamiento\Shield.png" />
     <Content Include="Assets\Reclutamiento\Update.png" />
