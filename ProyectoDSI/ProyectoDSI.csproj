@@ -173,6 +173,8 @@
     <Content Include="Assets\Mapa\location.png" />
     <Content Include="Assets\Mapa\mapButton.png" />
     <Content Include="Assets\Mapa\mapUpscaled.jpeg" />
+    <Content Include="Assets\Opciones\cross.png" />
+    <Content Include="Assets\Opciones\save.png" />
     <Content Include="Assets\optionsButton.png" />
     <Content Include="Assets\Reclutamiento\Compass.png" />
     <Content Include="Assets\Reclutamiento\Dash.png" />
@@ -228,9 +230,7 @@
       <Version>6.2.14</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets\Opciones\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Assets\Alata-Regular.ttf" />
   </ItemGroup>

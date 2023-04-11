@@ -7,8 +7,10 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+    
+    <!-- RESOURCES -->
     <Page.Resources>
+        <!-- Botón de menú -->
         <Style x:Name="MenuButon" TargetType="Button">
             <Setter Property="Background" Value="Black"/>
             <Setter Property="CornerRadius" Value="30"/>
@@ -47,7 +49,8 @@
         <Grid.Background>
             <ImageBrush Stretch="Fill" ImageSource="Assets/Inicio/Fondo.png"></ImageBrush>
         </Grid.Background>
-
+        
+        <!-- Hoja de papel -->
         <StackPanel Orientation="Vertical" Background="GhostWhite"
                     Margin="350,68,350,-55" RenderTransformOrigin="0.5,0.5" 
                     UseLayoutRounding="False" d:LayoutRounding="Auto">
@@ -80,7 +83,7 @@
                         Style="{StaticResource MenuButon}">
                     <StackPanel Orientation="Horizontal">
                         <Image HorizontalAlignment="Left" VerticalAlignment="Center"
-                               Margin="0, 0, 10, 0" Source="/Assets/EscudoPolicia.png"/>
+                               Margin="0, 0, 10, 0" Source="/Assets/Opciones/cross.png"/>
                         <TextBlock Style="{StaticResource MenuText}" Text="PANTALLA COMPLETA"/>
                     </StackPanel>
                 </Button>
@@ -88,18 +91,19 @@
                 <Border Background="Black"
                         Grid.Row="2" Grid.Column="1"
                         Margin="15" CornerRadius="20"/>
-                <TextBlock Text="Música" FontSize="25"
+                <TextBlock Text="MÚSICA" FontSize="25"
                            Grid.Row="2" Grid.Column="1"
                            Foreground="White"
                            VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 <Slider Grid.Row="2" Grid.Column="2"
-                        Margin="1, 10"
+                        Margin="1,0,1,0"
+                        
                         Style="{StaticResource SoundSlider}"/>
                 <!-- Efectos -->
                 <Border Background="Black"
                         Grid.Row="3" Grid.Column="1"
                         Margin="15" CornerRadius="20"/>
-                <TextBlock Text="Efectos" FontSize="25"
+                <TextBlock Text="EFECTOS" FontSize="25"
                            Grid.Row="3" Grid.Column="1"
                            Foreground="White"
                            VerticalAlignment="Center" HorizontalAlignment="Center"/>
@@ -109,11 +113,20 @@
                 <!-- Botón guardar -->
                 <Button Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2"
                         Style="{StaticResource MenuButon}">
-                    <StackPanel Orientation="Horizontal">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
                         <Image HorizontalAlignment="Left" VerticalAlignment="Center"
-                               Margin="0, 0, 10, 0" Source="/Assets/EscudoPolicia.png"/>
-                        <TextBlock Style="{StaticResource MenuText}" Text="GUARDAR"/>
-                    </StackPanel>
+                               Margin="0, 0, 20, 0" Source="Assets/Opciones/save.png"
+                               Grid.Column="0"/>
+                        <TextBlock Style="{StaticResource MenuText}" Text="GUARDAR"
+                                   Grid.Column="1"/>
+                    </Grid>
                 </Button>
             </Grid>
 

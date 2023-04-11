@@ -75,10 +75,8 @@
         </Grid.Background>
 
         <!-- IINFORMACIÓN INFERIOR IZQUIERDA -->
-        <Polygon Points="216,720 300,720, 216,595" Fill="Black"/>
         <!-- Grid y definición -->
-        <Grid Background="Black"
-              Width="216" Height="125"
+        <Grid Width="216" Height="125"
               HorizontalAlignment="Left"
               VerticalAlignment="Bottom">
             <Grid.RowDefinitions>
@@ -133,8 +131,7 @@
 
         <!-- INFORMACIÓN SUPERIOR DERECHA -->
         <!-- Grid y definición -->
-        <Grid Background="Black"
-              Width="190" Height="90"
+        <Grid Width="190" Height="90"
               HorizontalAlignment="Right"
               VerticalAlignment="Top">
             <Grid.RowDefinitions>
@@ -155,10 +152,8 @@
         </Grid>
 
         <!-- INFORMACIÓN INFERIOR DERECHA -->
-        <Polygon Points="1045,720 1129,720, 1129,612" Fill="Black"/>
         <!-- Grid y definición -->
-        <Grid Background="Black"
-              Width="151" Height="108"
+        <Grid Width="151" Height="108"
               HorizontalAlignment="Right"
               VerticalAlignment="Bottom">
             <Grid.RowDefinitions>
@@ -195,7 +190,6 @@
         <!-- INFORMACIÓN SUPERIOR IZQUIERDA -->
         <ListView x:Name="AgentsListView"
                   VerticalAlignment="Top" HorizontalAlignment="Left"
-                  Background="Black"
                   Width="160" Height="181"
                   ItemsSource="ABCD"
                   ItemTemplate="{StaticResource ListView_DataTemplate}"/>
