@@ -148,6 +148,7 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Agentes\Estrella.png" />
     <Content Include="Assets\backButton.png" />
     <Content Include="Assets\Engranaje.png" />
     <Content Include="Assets\EscudoPolicia.png" />
@@ -173,7 +174,12 @@
     <Content Include="Assets\Mapa\mapButton.png" />
     <Content Include="Assets\Mapa\mapUpscaled.jpeg" />
     <Content Include="Assets\optionsButton.png" />
+    <Content Include="Assets\Reclutamiento\Compass.png" />
+    <Content Include="Assets\Reclutamiento\Dash.png" />
+    <Content Include="Assets\Reclutamiento\Heart.png" />
+    <Content Include="Assets\Reclutamiento\InvertedMedal.png" />
     <Content Include="Assets\Reclutamiento\medalsIcon.png" />
+    <Content Include="Assets\Reclutamiento\Shield.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -223,7 +229,6 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Assets\Agentes\" />
     <Folder Include="Assets\Opciones\" />
   </ItemGroup>
   <ItemGroup>
