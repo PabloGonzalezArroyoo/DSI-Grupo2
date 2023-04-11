@@ -143,7 +143,7 @@
                     <Image Source="Assets/LockScreenLogo.scale-200.png"/>
                     <TextBlock  Style="{StaticResource NameText}" Text="Nombre"/>
                 </StackPanel>
-                <StackPanel Margin="15" Orientation="Vertical" Grid.Row="1" Grid.Column="0">
+                <StackPanel BorderBrush="#FFD8026D" BorderThickness="1" Margin="15" Orientation="Vertical" Grid.Row="1" Grid.Column="0">
                     <Image Source="Assets/LockScreenLogo.scale-200.png"/>
                     <TextBlock  Style="{StaticResource NameText}" Text="Nombre"/>
                 </StackPanel>
@@ -253,7 +253,7 @@
                     <Image Grid.Column="0" Grid.Row="1" Source="Assets/Reclutamiento/Dash.png" Height="50" Margin="10"/>
                     <ProgressBar Grid.Column="1" Grid.Row="1" Style="{StaticResource Bars}" Width="300" Value="50"/>
                     <Image Grid.Column="0" Grid.Row="2" Source="Assets/Reclutamiento/Shield.png" Height="50" Margin="10"/>
-                    <ProgressBar Grid.Column="1" Grid.Row="2" Style="{StaticResource Bars}" Width="300" Value="30"/>
+                    <ProgressBar Grid.Column="1" Grid.Row="2" Style="{StaticResource Bars}" Width="300" Value="30" Margin="5,0,0,25" VerticalAlignment="Bottom"/>
                     <Image Grid.Column="0" Grid.Row="3" Source="Assets/Reclutamiento/Compass.png" Height="50" Margin="10"/>
                     <ProgressBar Grid.Column="1" Grid.Row="3" Style="{StaticResource Bars}" Width="300" Value="80"/>
                 </Grid>
