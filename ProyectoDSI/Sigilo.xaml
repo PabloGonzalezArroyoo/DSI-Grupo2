@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    
+
     <!-- RECURSOS -->
     <Page.Resources>
         <Style x:Key="ProgressBarStyle" TargetType="ProgressBar">
@@ -19,7 +19,7 @@
             <Setter Property="Value" Value="20"/>
             <Setter Property="Margin" Value="20"/>
         </Style>
-        
+
         <!-- Template de los elementos del ListView -->
         <DataTemplate x:Key="ListView_DataTemplate">
             <!-- Grid y definición -->
@@ -73,7 +73,7 @@
         <Grid.Background>
             <ImageBrush Stretch="Fill" ImageSource="Assets/InGame/backgroundSigilo.png"></ImageBrush>
         </Grid.Background>
-        
+
         <!-- IINFORMACIÓN INFERIOR IZQUIERDA -->
         <Polygon Points="216,720 300,720, 216,595" Fill="Black"/>
         <!-- Grid y definición -->
@@ -162,8 +162,8 @@
               HorizontalAlignment="Right"
               VerticalAlignment="Bottom">
             <Grid.RowDefinitions>
-                <RowDefinition Height="3*"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="80.8"/>
+                <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -191,7 +191,7 @@
                        HorizontalAlignment="Center"
                        Grid.Row="1" Grid.Column="1"/>
         </Grid>
-        
+
         <!-- INFORMACIÓN SUPERIOR IZQUIERDA -->
         <ListView x:Name="AgentsListView"
                   VerticalAlignment="Top" HorizontalAlignment="Left"

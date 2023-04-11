@@ -26,5 +26,14 @@ namespace ProyectoDSI
         {
             this.InitializeComponent();
         }
+
+        private void BackButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            if (rootFrame.CanGoBack)
+            {
+                rootFrame.GoBack();
+            }
+        }
     }
 }
