@@ -62,7 +62,8 @@
                     </StackPanel>
                 </Button>
                 <Button Grid.Row="0" Grid.Column="1" 
-                        Style="{StaticResource MenuButon}">
+                        Style="{StaticResource MenuButon}"
+                        Click="OptionsButton_OnClick">
                     <StackPanel Orientation="Horizontal">
                         <Image  Margin="0,0,50,0" Source="/Assets/Engranaje.png"/>
                         <TextBlock Style="{StaticResource MenuText}" Text="AJUSTES"/>
@@ -70,7 +71,8 @@
                 </Button>
                 <Image Source="Assets/Inicio/wanted.png" Width="300" Grid.Row="1" Grid.Column="0"/>
                 <Button Grid.Row="1" Grid.Column="1" 
-                        Style="{StaticResource MenuButon}">
+                        Style="{StaticResource MenuButon}"
+                        Click="ExitButton_OnClick">
                     <StackPanel Orientation="Horizontal">
                         <Image  Margin="0,0,50,0" Source="/Assets/IconoSalida.png"/>
                         <TextBlock Style="{StaticResource MenuText}" Text="SALIR"/>

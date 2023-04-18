@@ -33,5 +33,16 @@ namespace ProyectoDSI
             // Use Frame.Navigate to go to the next page.
             Frame.Navigate(typeof(Mapa));
         }
+
+        private void OptionsButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            // Use Frame.Navigate to go to the next page.
+            Frame.Navigate(typeof(Opciones));
+        }
+
+        private void ExitButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Exit();
+        }
     }
 }

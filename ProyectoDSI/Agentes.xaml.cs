@@ -26,11 +26,6 @@ namespace ProyectoDSI
         {
             this.InitializeComponent();
         }
-        private void AgentsButton_OnClick(object sender, RoutedEventArgs e)
-        {
-            // Use Frame.Navigate to go to the next page.
-            Frame.Navigate(typeof(Agentes));
-        }
 
         private void RecruitmentButton_OnClick(object sender, RoutedEventArgs e)
         {
@@ -40,23 +35,14 @@ namespace ProyectoDSI
 
         private void BackButton_OnClick(object sender, RoutedEventArgs e)
         {
-            Frame rootFrame = Window.Current.Content as Frame;
-            if (rootFrame.CanGoBack)
-            {
-                rootFrame.GoBack();
-            }
+            // Use Frame.Navigate to go to the next page.
+            Frame.Navigate(typeof(Mapa));
         }
 
         private void OptionsButton_OnClick(object sender, RoutedEventArgs e)
         {
             // Use Frame.Navigate to go to the next page.
             Frame.Navigate(typeof(Opciones));
-        }
-
-        private void LevelButton_OnClick(object sender, RoutedEventArgs e)
-        {
-            // Use Frame.Navigate to go to the next page.
-            Frame.Navigate(typeof(Sigilo));
         }
     }
 }

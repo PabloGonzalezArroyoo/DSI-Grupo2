@@ -131,6 +131,8 @@
     <Compile Include="Mapa.xaml.cs">
       <DependentUpon>Mapa.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model.cs" />
+    <Compile Include="MySquad.cs" />
     <Compile Include="Opciones.xaml.cs">
       <DependentUpon>Opciones.xaml</DependentUpon>
     </Compile>
@@ -173,6 +175,7 @@
     <Content Include="Assets\Mapa\location.png" />
     <Content Include="Assets\Mapa\mapButton.png" />
     <Content Include="Assets\Mapa\mapUpscaled.jpeg" />
+    <Content Include="Assets\mapButtonGrey.png" />
     <Content Include="Assets\Opciones\cross.png" />
     <Content Include="Assets\Opciones\save.png" />
     <Content Include="Assets\optionsButton.png" />

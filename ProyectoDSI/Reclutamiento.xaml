@@ -98,9 +98,10 @@
         </Button>
         <!-- Botón reclutamiento -->
         <Button Style="{StaticResource StraightButton}"
-                    Content="RECLUTAMIENTO"
-                    Click="RecruitmentButton_OnClick"
-                    Grid.Column="3"/>
+                Foreground="DimGray"
+                Background="Black"
+                Content="RECLUTAMIENTO"
+                Grid.Column="3" IsEnabled="False"/>
         <!-- Botón opciones -->
         <Button Style="{StaticResource CircleButtonNotSelected}"
                     Grid.Column="4"
