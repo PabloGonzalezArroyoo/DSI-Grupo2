@@ -132,7 +132,6 @@
       <DependentUpon>Mapa.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model.cs" />
-    <Compile Include="MySquad.cs" />
     <Compile Include="Opciones.xaml.cs">
       <DependentUpon>Opciones.xaml</DependentUpon>
     </Compile>
@@ -150,6 +149,10 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Agentes\Agente1.png" />
+    <Content Include="Assets\Agentes\Agente2.png" />
+    <Content Include="Assets\Agentes\Agente3.png" />
+    <Content Include="Assets\Agentes\Agente4.png" />
     <Content Include="Assets\Agentes\Estrella.png" />
     <Content Include="Assets\backButton.png" />
     <Content Include="Assets\Engranaje.png" />

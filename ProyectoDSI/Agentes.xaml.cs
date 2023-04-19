@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -22,9 +23,21 @@ namespace ProyectoDSI
     /// </summary>
     public sealed partial class Agentes : Page
     {
+        public ObservableCollection<Agente> ListaAgentes { get; } = new ObservableCollection<Agente>();
+        public ObservableCollection<Agente> ListaSquad { get; } = new ObservableCollection<Agente>();
+
         public Agentes()
         {
             this.InitializeComponent();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            if (ListaAgentes != null)
+            {
+                foreach (Agente ag in Model.GetAllAgentes()) ListaAgentes.Add(ag);
+                foreach (Agente ag in Model.GetAllSquad()) ListaSquad.Add(ag);
+            }
         }
 
         private void RecruitmentButton_OnClick(object sender, RoutedEventArgs e)

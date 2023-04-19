@@ -10,6 +10,7 @@ namespace ProyectoDSI
     {
         public int[] estados = new int[4];
 
+        public int Id { get; set; }
         public string Nombre { get; set; }
         public string Imagen { get; set; }
         public string Tipo { get; set; }
@@ -24,8 +25,9 @@ namespace ProyectoDSI
         public int CasillasMovimiento { get; set; }
 
         public Agente(int id) {
+            Id = id;
             Nombre = "Agente" + id.ToString();
-            Imagen = "Assets\\Agentes\\Agente" + id.ToString() + ".jpg";
+            Imagen = "Assets\\Agentes\\Agente" + id.ToString() + ".png";
             Descripcion = "Descripción" + id.ToString();
             Nivel = 10;
             Experiencia = 50;
@@ -41,8 +43,6 @@ namespace ProyectoDSI
 
     public class Model
     {
-        public List<Agente> Squad = new List<Agente>();
-
         public static List<Agente> ListaAgentes = new List<Agente>()
         {
             new Agente(1),
@@ -55,10 +55,22 @@ namespace ProyectoDSI
             new Agente(8)
         };
 
+        public static List<Agente> ListaSquad = new List<Agente>()
+        {
+            ListaAgentes[0],
+            ListaAgentes[1],
+            ListaAgentes[2],
+            ListaAgentes[3]
+        };
 
         public static IList<Agente> GetAllAgentes()
         {
             return ListaAgentes;
+        }
+
+        public static IList<Agente> GetAllSquad()
+        {
+            return ListaSquad;
         }
 
         public static Agente GetAgenteById(int id)
