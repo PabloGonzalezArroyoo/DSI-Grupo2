@@ -141,7 +141,7 @@
             <!-- ESCUADRON -->
             <TextBlock Style="{StaticResource TitleText}" HorizontalAlignment="Center" FontSize="30" Text="ESCUADRÓN"/>
             <GridView Grid.Row="1"
-                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                      HorizontalAlignment="Center" VerticalAlignment="Stretch"
                       ItemsSource="{x:Bind ListaSquad}"
                       ItemTemplate="{StaticResource ImageGridView_DefaultItemTemplate}">
                 <GridView.ItemsPanel>
@@ -156,7 +156,7 @@
             <!-- CUARTEL -->
             <TextBlock Style="{StaticResource TitleText}" HorizontalAlignment="Center" FontSize="30" Text="CUARTEL" Grid.Row="3"/>
             <GridView Grid.Row="4"
-                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                      HorizontalAlignment="Center" VerticalAlignment="Center"
                       ItemsSource="{x:Bind ListaAgentes}"
                       ItemTemplate="{StaticResource ImageGridView_DefaultItemTemplate}">
                 <GridView.ItemsPanel>
