@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
+    NavigationCacheMode="Enabled"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     
     <!-- RESOURCES -->
@@ -97,7 +98,6 @@
                            VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 <Slider Grid.Row="2" Grid.Column="2"
                         Margin="1,0,1,0"
-                        
                         Style="{StaticResource SoundSlider}"/>
                 <!-- Efectos -->
                 <Border Background="Black"

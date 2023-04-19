@@ -96,50 +96,75 @@
                     Click="OptionsButton_OnClick">
                 <Image Source="Assets/optionsButton.png"/>
             </Button>
-        </Grid>
-
-        <!-- NIVELES -->
+        
+        <Grid Grid.Row="1" Grid.ColumnSpan="5">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <!-- NIVELES -->
         <!-- Nivel 1 -->
         <Button Click="LevelButton_OnClick"
-                Style="{StaticResource LevelButton}"
-                Margin="17,310,1163,310">
+                Style="{StaticResource LevelButton}">
             <Image Source="Assets/Mapa/location.png"/>
         </Button>
         <!-- Nivel 2 -->
         <Button Click="LevelButton_OnClick"
                 Style="{StaticResource LevelButton}"
-                Margin="314,161,866,459">
+                Grid.Column="2"
+                Grid.Row="1">
             <Image Source="Assets/Mapa/location.png"/>
         </Button>
         <!-- Nivel 3 -->
         <Button Click="LevelButton_OnClick"
                 Style="{StaticResource LevelButton}"
-                Margin="363,597,817,23">
+                Grid.Column="1"
+                Grid.Row="3">
             <Image Source="Assets/Mapa/location.png"/>
         </Button>
         <!-- Nivel 4 -->
         <Button Click="LevelButton_OnClick"
                 Style="{StaticResource LevelButton}"
-                Margin="673,540,507,80">
+                Grid.Column="4"
+                Grid.Row="2">
             <Image Source="Assets/Mapa/location.png"/>
         </Button>
         <!-- Nivel 5 -->
         <Button Click="LevelButton_OnClick"
                 Style="{StaticResource LevelButton}"
-                Margin="638,238,542,382">
+                Grid.Column="6"
+                Grid.Row="1">
             <Image Source="Assets/Mapa/location.png"/>
         </Button>
         <!-- Nivel 6 -->
         <Button Click="LevelButton_OnClick"
                 Style="{StaticResource LevelButton}"
-                Margin="830,73,350,547">
+                Grid.Column="7"
+                Grid.Row="3">
             <Image Source="Assets/Mapa/location.png" />
         </Button>
         <!-- Nivel 7 -->
         <Button Click="LevelButton_OnClick"
                 Style="{StaticResource LevelButton}" 
-                Margin="1127,232,53,388">
+                Grid.Column="8">
             <Image Source="Assets/Mapa/location.png"/>
         </Button>
+        </Grid>
+        </Grid>
     </Grid>
 </Page>
