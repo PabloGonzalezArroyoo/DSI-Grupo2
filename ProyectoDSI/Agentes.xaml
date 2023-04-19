@@ -137,9 +137,9 @@
                 <RowDefinition Height="2*"/>
                 <RowDefinition Height="10*"/>
             </Grid.RowDefinitions>
-            <TextBlock Style="{StaticResource TitleText}" HorizontalAlignment="Center" FontSize="30" Text="ESCUADRÓN"/>
             
             <!-- ESCUADRON -->
+            <TextBlock Style="{StaticResource TitleText}" HorizontalAlignment="Center" FontSize="30" Text="ESCUADRÓN"/>
             <GridView Grid.Row="1"
                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                       ItemsSource="{x:Bind ListaSquad}"
@@ -151,55 +151,21 @@
                 </GridView.ItemsPanel>
             </GridView>
 
-
             <Line HorizontalAlignment="Center" Stroke="Black" Height="10" X1="0" X2="500" Grid.Row="2"/>
-            <TextBlock Style="{StaticResource TitleText}" HorizontalAlignment="Center" FontSize="30" Text="CUARTEL" Grid.Row="3"/>
-            <Grid Grid.Row="4">
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <StackPanel BorderBrush="Blue" BorderThickness="1" Margin="15" Orientation="Vertical" Grid.Column="0">
-                    <Image Source="Assets/LockScreenLogo.scale-200.png"/>
-                    <TextBlock  Style="{StaticResource NameText}" Text="Nombre"/>
-                </StackPanel>
-                <StackPanel Margin="15" Orientation="Vertical" Grid.Column="1">
-                    <Image Source="Assets/LockScreenLogo.scale-200.png"/>
-                    <TextBlock  Style="{StaticResource NameText}" Text="Nombre"/>
-                </StackPanel>
-                <StackPanel Margin="15" Orientation="Vertical" Grid.Column="2">
-                    <Image Source="Assets/LockScreenLogo.scale-200.png"/>
-                    <TextBlock  Style="{StaticResource NameText}" Text="Nombre"/>
-                </StackPanel>
-                <StackPanel Margin="15" Orientation="Vertical" Grid.Column="3">
-                    <Image Source="Assets/LockScreenLogo.scale-200.png"/>
-                    <TextBlock  Style="{StaticResource NameText}" Text="Nombre"/>
-                </StackPanel>
-                <StackPanel Margin="15" Orientation="Vertical" Grid.Column="4">
-                    <Image Source="Assets/LockScreenLogo.scale-200.png"/>
-                    <TextBlock  Style="{StaticResource NameText}" Text="Nombre"/>
-                </StackPanel>
-                <StackPanel Margin="15" Orientation="Vertical" Grid.Row="1" Grid.Column="0">
-                    <Image Source="Assets/LockScreenLogo.scale-200.png"/>
-                    <TextBlock  Style="{StaticResource NameText}" Text="Nombre"/>
-                </StackPanel>
-                <StackPanel Margin="15" Orientation="Vertical" Grid.Row="1" Grid.Column="1">
-                    <Image Source="Assets/LockScreenLogo.scale-200.png"/>
-                    <TextBlock  Style="{StaticResource NameText}" Text="Nombre"/>
-                </StackPanel>
-                <StackPanel Margin="15" Orientation="Vertical" Grid.Row="1" Grid.Column="2">
-                    <Image Source="Assets/LockScreenLogo.scale-200.png"/>
-                    <TextBlock  Style="{StaticResource NameText}" Text="Nombre"/>
-                </StackPanel>
-            </Grid>
             
+            <!-- CUARTEL -->
+            <TextBlock Style="{StaticResource TitleText}" HorizontalAlignment="Center" FontSize="30" Text="CUARTEL" Grid.Row="3"/>
+            <GridView Grid.Row="4"
+                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                      ItemsSource="{x:Bind ListaAgentes}"
+                      ItemTemplate="{StaticResource ImageGridView_DefaultItemTemplate}">
+                <GridView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapGrid Orientation="Horizontal" MaximumRowsOrColumns="4"/>
+                    </ItemsPanelTemplate>
+                </GridView.ItemsPanel>
+            </GridView>
+
         </Grid>
         <Grid Background="Gray" Grid.Column="3" Grid.Row="1" Margin="0,0,0,80">
             <Grid.RowDefinitions>
