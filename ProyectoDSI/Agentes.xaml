@@ -182,7 +182,7 @@
                                VerticalAlignment="Center"/>
                     <TextBlock Grid.Row="1" Grid.ColumnSpan="2"
                                Style="{StaticResource NormalText}" x:Name="Clase"
-                               Text="Lorem ipsum" VerticalAlignment="Center"/>
+                               VerticalAlignment="Center"/>
                 </Grid>
                 <!-- Arma principal-->
                 <Grid Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3">
@@ -193,7 +193,7 @@
                     <TextBlock Grid.ColumnSpan="2"
                                Text="Arma Principal" Style="{StaticResource TitleText}"/>
                     <TextBlock Grid.Row="1" Grid.ColumnSpan="2" x:Name="MainGun"
-                               Style="{StaticResource NormalText}" Text="Lorem ipsum"/>
+                               Style="{StaticResource NormalText}"/>
                 </Grid>
                 <!-- Arma secundaria -->
                 <Grid Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3">
@@ -203,7 +203,7 @@
                     </Grid.RowDefinitions>
                     <TextBlock Style="{StaticResource TitleText}" Text="Arma Secundaria"/>
                     <TextBlock Grid.Row="1" x:Name="SecondaryGun"
-                               Style="{StaticResource NormalText}" Text="Lorem ipsum"/>
+                               Style="{StaticResource NormalText}"/>
                 </Grid>
                 <!-- Descripción -->
                 <Grid Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="3">
@@ -213,8 +213,7 @@
                     </Grid.RowDefinitions>
                     <TextBlock Style="{StaticResource TitleText}" Text="Descripción"/>
                     <TextBlock Grid.Row="1"
-                               Style="{StaticResource NormalText}" x:Name="Description"
-                               Text="Descripción"/>
+                               Style="{StaticResource NormalText}" x:Name="Description"/>
                 </Grid>
                 <!-- Nivel -->
                 <Grid Grid.Row="1" Grid.Column="3">
@@ -228,11 +227,11 @@
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Row="0" Style="{StaticResource TitleText}" 
                                Text="Nivel" Margin="5,5,5,4"/>
-                    <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource NormalText}" x:Name="Level"
-                               Text="12" HorizontalAlignment="Center"/>
+                    <TextBlock Grid.Row="0" Grid.Column="1" x:Name="Level"
+                               Style="{StaticResource NormalText}" HorizontalAlignment="Center"/>
                     <ProgressBar Grid.Row="2" Grid.ColumnSpan="2" x:Name="LevelBar" 
                                  Background="LightGray" CornerRadius="3" Foreground="Blue"
-                                 Value="20" Margin="10,0,11,0" Height="10"/>
+                                 Margin="10,0,11,0" Height="10"/>
                 </Grid>
                 <!-- Estadisticas -->
                 <Grid Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="3">
@@ -253,19 +252,19 @@
                     <!-- Vida -->
                     <Image Grid.Row="1" Source="Assets/Reclutamiento/Heart.png" Margin="5"/>
                     <ProgressBar Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" x:Name="LifeStat"
-                                 Style="{StaticResource Bars}" HorizontalAlignment="Stretch" Value="20"/>
+                                 Style="{StaticResource Bars}" HorizontalAlignment="Stretch"/>
                     <!-- Ataque melee -->
                     <Image Grid.Row="2" Source="Assets/Reclutamiento/Dash.png" Margin="5"/>
                     <ProgressBar Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" x:Name="DistanceStat"
-                                 Style="{StaticResource Bars}" HorizontalAlignment="Stretch" Value="50"/>
+                                 Style="{StaticResource Bars}" HorizontalAlignment="Stretch"/>
                     <!-- Ataque distancia -->
                     <Image Grid.Row="3" Source="Assets/Reclutamiento/Shield.png" Margin="5"/>
                     <ProgressBar Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" x:Name="MeleeStat" 
-                                 Style="{StaticResource Bars}" HorizontalAlignment="Stretch" Value="30"/>
+                                 Style="{StaticResource Bars}" HorizontalAlignment="Stretch"/>
                     <!-- Movimiento -->
                     <Image Grid.Row="4" Source="Assets/Reclutamiento/Compass.png" Margin="5"/>
                     <ProgressBar Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" x:Name="MovementStat"
-                                 Style="{StaticResource Bars}" HorizontalAlignment="Stretch" Value="80"/>
+                                 Style="{StaticResource Bars}" HorizontalAlignment="Stretch"/>
                 </Grid>
             </Grid>
 
