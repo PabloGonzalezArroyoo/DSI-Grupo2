@@ -103,7 +103,7 @@ namespace ProyectoDSI
                 Model.ListaAgentes.Add(currentSel);
                 gridViewReclutas.ItemsSource = null;
                 gridViewReclutas.ItemsSource = Model.ListaReclutas;
-                
+                BotonComprar.IsEnabled= false;
             }
         }
     }
