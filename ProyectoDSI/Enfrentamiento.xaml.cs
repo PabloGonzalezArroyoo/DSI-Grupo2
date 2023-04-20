@@ -60,7 +60,6 @@ namespace ProyectoDSI
             BitmapImage imageBitmap = new BitmapImage(imageUri);
             Image myImage = new Image();
             SelectedPortrait.Source = imageBitmap;
-
         }
     }
 }

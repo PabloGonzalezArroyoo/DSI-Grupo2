@@ -74,24 +74,30 @@ namespace ProyectoDSI
         private void gridViewReclutas_ItemClick(object sender, ItemClickEventArgs e)
         {
             BotonComprar.IsEnabled = true;
-            Agente Sel = e.ClickedItem as Agente;
-            currentSel= Sel;
-            Clase.Text = Sel.Clase;
-            MainGun.Text = Sel.ArmaPrincipal;
-            SecondaryGun.Text = Sel.ArmaSecundaria;
-            Description.Text = Sel.Descripcion;
-            Level.Text = Sel.Nivel.ToString();
-            LevelBar.Value = Sel.Experiencia;
-            LifeStat.Value = Sel.Vida;
-            DistanceStat.Value = Sel.AtaqueDistancia * 100 / Constants.MAX_DIST_ATTACK;
-            MeleeStat.Value = Sel.AtaqueMelee * 100 / Constants.MAX_MELEE_ATTACK;
-            MovementStat.Value = Sel.CasillasMovimiento * 100 / Constants.MAX_MOVEMENT;
-            Precio.Text = Sel.Precio.ToString();
-            string stringPath = Sel.Imagen;
+            Agente agente = e.ClickedItem as Agente;
+            currentSel= agente;
+            Clase.Text = agente.Clase;
+            MainGun.Text = agente.ArmaPrincipal;
+            SecondaryGun.Text = agente.ArmaSecundaria;
+            Description.Text = agente.Descripcion;
+            Level.Text = agente.Nivel.ToString();
+            LevelBar.Value = agente.Experiencia;
+            LifeStat.Value = agente.Vida;
+            DistanceStat.Value = (agente.AtaqueDistancia * 100) / Constants.MAX_DIST_ATTACK;
+            MeleeStat.Value = (agente.AtaqueMelee * 100) / Constants.MAX_MELEE_ATTACK;
+            MovementStat.Value = (agente.CasillasMovimiento * 100) / Constants.MAX_MOVEMENT;
+            Precio.Text = agente.Precio.ToString();
+            string stringPath = agente.Imagen;
             Uri imageUri = new Uri(stringPath, UriKind.RelativeOrAbsolute);
             BitmapImage imageBitmap = new BitmapImage(imageUri);
             Image myImage = new Image();
             AgentImage.Source = imageBitmap;
+
+            // Puntos sobre barras de progreso
+            HealthPoints.Text = agente.Vida.ToString();
+            MeleePoints.Text = agente.AtaqueMelee.ToString();
+            DistPoints.Text = agente.AtaqueDistancia.ToString();
+            MovPoints.Text = agente.CasillasMovimiento.ToString();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

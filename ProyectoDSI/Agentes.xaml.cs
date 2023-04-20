@@ -83,9 +83,9 @@ namespace ProyectoDSI
             Level.Text = agente.Nivel.ToString();
             LevelBar.Value = agente.Experiencia;
             LifeStat.Value = agente.Vida;
-            DistanceStat.Value = agente.AtaqueDistancia * 100 / Constants.MAX_DIST_ATTACK;
-            MeleeStat.Value = agente.AtaqueMelee * 100 / Constants.MAX_MELEE_ATTACK;
-            MovementStat.Value = agente.CasillasMovimiento * 100 / Constants.MAX_MOVEMENT;
+            DistanceStat.Value = (agente.AtaqueDistancia * 100) / Constants.MAX_DIST_ATTACK;
+            MeleeStat.Value = (agente.AtaqueMelee * 100) / Constants.MAX_MELEE_ATTACK;
+            MovementStat.Value = (agente.CasillasMovimiento * 100) / Constants.MAX_MOVEMENT;
             string stringPath = agente.Imagen;
             Uri imageUri = new Uri(stringPath, UriKind.RelativeOrAbsolute);
             BitmapImage imageBitmap = new BitmapImage(imageUri);
@@ -93,6 +93,11 @@ namespace ProyectoDSI
             AgentImage.Source = imageBitmap;
             if(currentCuartelSel != null && currentEscuadronSel != null)
             BotonAsignar.IsEnabled = true;
+
+            HealthPoints.Text = agente.Vida.ToString();
+            MeleePoints.Text = agente.AtaqueMelee.ToString();
+            DistPoints.Text = agente.AtaqueDistancia.ToString();
+            MovPoints.Text = agente.CasillasMovimiento.ToString();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

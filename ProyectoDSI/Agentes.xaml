@@ -36,7 +36,8 @@
                 <StackPanel Orientation="Vertical" Margin="25">
                     <Image Source="{x:Bind Imagen}" HorizontalAlignment="Center" VerticalAlignment="Center"
                            Width="60" Height="60"/>
-                    <TextBlock Text="{x:Bind Nombre}" FontSize="{Binding Value, ElementName=FontSlider}" VerticalAlignment="Center"/>
+                    <TextBlock Text="{x:Bind Nombre}" FontSize="{Binding Value, ElementName=FontSlider}"
+                               VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 </StackPanel>
             </Grid>
         </DataTemplate>
@@ -45,7 +46,9 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="80"/>
+            <RowDefinition Height="0.04*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="0.04*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="80"/>
@@ -87,7 +90,7 @@
                     Click="OptionsButton_OnClick">
             <Image Source="Assets/optionsButton.png"/>
         </Button>
-        <Grid Background="Gray" Grid.Column="1" Grid.Row="1" Margin="0,0,0,80">
+        <Grid Background="Gray" Grid.Column="1" Grid.Row="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="2*"/>
                 <RowDefinition Height="5*"/>
@@ -129,10 +132,10 @@
                     </ItemsPanelTemplate>
                 </GridView.ItemsPanel>
             </GridView>
-
         </Grid>
+        
         <!-- Info recluta -->
-        <Grid Background="Gray" Grid.Column="3" Grid.Row="1" Margin="0,0,0,80">
+        <Grid Background="Gray" Grid.Column="3" Grid.Row="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.05*"/>
                 <RowDefinition Height="4*"/>
@@ -148,9 +151,11 @@
             </Grid.ColumnDefinitions>
 
             <!-- Imagen agente -->
-            <Image x:Name="AgentImage" Grid.Column="1" Grid.Row="1"
+            <Grid Grid.Column="1" Grid.Row="1" CornerRadius="20" Background="White">
+                <Image x:Name="AgentImage" Grid.Column="1" Grid.Row="1"
                    VerticalAlignment="Center" HorizontalAlignment="Center"
-                   Source="Assets/Square44x44Logo.scale-200.png"/>
+                   Source="Assets/Agentes/AgenteQ.png"/>
+            </Grid>
 
             <!-- Marco de estadísitca -->
             <Border Grid.Column="3" Grid.Row="1" CornerRadius="20" Background="White"/>
@@ -253,18 +258,26 @@
                     <Image Grid.Row="1" Source="Assets/Reclutamiento/Heart.png" Margin="5"/>
                     <ProgressBar Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" x:Name="LifeStat"
                                  Style="{StaticResource Bars}" HorizontalAlignment="Stretch"/>
+                    <TextBlock x:Name="HealthPoints" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"
+                               VerticalAlignment="Center" HorizontalAlignment="Left" Margin="15"/>
                     <!-- Ataque melee -->
                     <Image Grid.Row="2" Source="Assets/Reclutamiento/Dash.png" Margin="5"/>
-                    <ProgressBar Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" x:Name="DistanceStat"
+                    <ProgressBar Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" x:Name="MeleeStat"
                                  Style="{StaticResource Bars}" HorizontalAlignment="Stretch"/>
+                    <TextBlock x:Name="MeleePoints" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"
+                               VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10"/>
                     <!-- Ataque distancia -->
                     <Image Grid.Row="3" Source="Assets/Reclutamiento/Shield.png" Margin="5"/>
-                    <ProgressBar Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" x:Name="MeleeStat" 
+                    <ProgressBar Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" x:Name="DistanceStat" 
                                  Style="{StaticResource Bars}" HorizontalAlignment="Stretch"/>
+                    <TextBlock x:Name="DistPoints" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2"
+                               VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10"/>
                     <!-- Movimiento -->
                     <Image Grid.Row="4" Source="Assets/Reclutamiento/Compass.png" Margin="5"/>
                     <ProgressBar Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" x:Name="MovementStat"
                                  Style="{StaticResource Bars}" HorizontalAlignment="Stretch"/>
+                    <TextBlock x:Name="MovPoints" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2"
+                               VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10"/>
                 </Grid>
             </Grid>
 
@@ -283,7 +296,7 @@
             </Grid>
 
             <!-- Botón de compra -->
-            <Button x:Name="BotonAsignar" IsEnabled="False" Grid.Row="2" Grid.Column="3"
+            <Button x:Name="BotonAsignar" IsEnabled="False" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3"
                     Background="Black" CornerRadius="10" Margin="20,20,20,20" HorizontalAlignment="Center"
                     Click="Button_Click">
                 <Grid>
