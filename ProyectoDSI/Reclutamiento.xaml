@@ -9,10 +9,9 @@
     Background="DimGray">
 
     <Page.Resources>
-        <FontFamily x:Key="Alata" >ms-appx:///Assets/Alata-Regular.ttf#Alata</FontFamily>
         <Style x:Key="TitleText" TargetType="TextBlock">
             <Setter Property="Foreground" Value="Black"/>
-            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontSize" Value="18"/>
             <Setter Property="FontFamily" Value="Alata"/>
             <Setter Property="Margin" Value="5"/>
             <Setter Property="FontWeight" Value="ExtraBlack"/>
@@ -30,13 +29,7 @@
             <Setter Property="Foreground" Value="#FFD8026D"/>
             <Setter Property="Background" Value="LightGray"/>
         </Style>
-        <Style x:Key="NameText" TargetType="TextBlock">
-            <Setter Property="Foreground" Value="Black"/>
-            <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="FontFamily" Value="Alata"/>
-            <Setter Property="FontSize" Value="15"/>
-        </Style>
+
         <!-- Template para el ListView -->
         <DataTemplate x:Key="ImageGridView_DefaultItemTemplate"
                       x:DataType="local:Agente">
@@ -105,7 +98,8 @@
             <Image Grid.Column="0" Source="Assets/Reclutamiento/Medal.png" HorizontalAlignment="Right" Margin="5"/>
             <TextBlock x:Name="MoneyText" Grid.Column="1" Text="150" Foreground="Black" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" FontSize="40" FontFamily="Alata" />
         </Grid>
-
+        
+        <!-- Agentes de reclutamiento -->
         <Grid Background="Gray" Grid.Column="1" Grid.Row="1" Margin="0,0,0,80">
             <Grid>
                 <Grid.RowDefinitions>
@@ -127,34 +121,106 @@
                 <Button Margin="0,20,20,20" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="2"
                         Background="Black" CornerRadius="10"  HorizontalAlignment="Right"
                         Click="Actualizar_OnClick">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="4*"/>
-                        <ColumnDefinition Width="7*"/>
-                    </Grid.ColumnDefinitions>
-                    <Image HorizontalAlignment="Right" Grid.Column="0" Margin="5" Source="/Assets/Reclutamiento/Update.png"/>
-                    <TextBlock Grid.Column="1" Foreground="Gray" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" FontSize="20" FontFamily="Alata" Text="ACTUALIZAR"/>
-                </Grid>
-            </Button>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="4*"/>
+                            <ColumnDefinition Width="7*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image HorizontalAlignment="Right" Grid.Column="0" Margin="5" Source="/Assets/Reclutamiento/Update.png"/>
+                        <TextBlock Grid.Column="1" Foreground="Gray" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" FontSize="20" FontFamily="Alata" Text="ACTUALIZAR"/>
+                    </Grid>
+                </Button>
             </Grid>
         </Grid>
+        
+        <!-- Info recluta -->
         <Grid Background="Gray" Grid.Column="3" Grid.Row="1" Margin="0,0,0,80">
             <Grid.RowDefinitions>
-                <RowDefinition Height="20*"/>
-                <RowDefinition Height="5*"/>
+                <RowDefinition Height="0.05*"/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="0.05*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="15*"/>
-                <ColumnDefinition Width="20*"/>
+                <ColumnDefinition Width="0.05*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="0.05*"/>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="0.06*"/>
             </Grid.ColumnDefinitions>
-
-            <Image x:Name="AgentImage" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0" Source="Assets/Square44x44Logo.scale-200.png"/>
-
-            <StackPanel CornerRadius="20" Margin="20" Background="White" Grid.Row="0" Grid.Column="1" Orientation="Vertical">
-                <Grid>
+            
+            <!-- Imagen agente -->
+            <Image x:Name="AgentImage" Grid.Column="1" Grid.Row="1"
+                   VerticalAlignment="Center" HorizontalAlignment="Center"
+                   Source="Assets/Square44x44Logo.scale-200.png"/>
+            
+            <!-- Marco de estadísitca -->
+            <Border Grid.Column="3" Grid.Row="1" CornerRadius="20" Background="White"/>
+            <Grid Grid.Column="3" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.1*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="0.1*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.05*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="0.05*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="0.05*"/>
+                </Grid.ColumnDefinitions>
+                <!-- Clase -->
+                <Grid Grid.Column="1" Grid.Row="1">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.ColumnSpan="2"
+                               Text="Clase" Style="{StaticResource TitleText}"
+                               VerticalAlignment="Center"/>
+                    <TextBlock Grid.Row="1" Grid.ColumnSpan="2"
+                               Style="{StaticResource NormalText}" x:Name="Clase"
+                               Text="Lorem ipsum" VerticalAlignment="Center"/>
+                </Grid>
+                <!-- Arma principal-->
+                <Grid Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.ColumnSpan="2"
+                               Text="Arma Principal" Style="{StaticResource TitleText}"/>
+                    <TextBlock Grid.Row="1" Grid.ColumnSpan="2" x:Name="MainGun"
+                               Style="{StaticResource NormalText}" Text="Lorem ipsum"/>
+                </Grid>
+                <!-- Arma secundaria -->
+                <Grid Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Style="{StaticResource TitleText}" Text="Arma Secundaria"/>
+                    <TextBlock Grid.Row="1" x:Name="SecondaryGUn"
+                               Style="{StaticResource NormalText}" Text="Lorem ipsum"/>
+                </Grid>
+                <!-- Descripción -->
+                <Grid Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Style="{StaticResource TitleText}" Text="Descripción"/>
+                    <TextBlock Grid.Row="1"
+                               Style="{StaticResource NormalText}" x:Name="Description"
+                               Text="Descripción"/>
+                </Grid>
+                <!-- Nivel -->
+                <Grid Grid.Row="1" Grid.Column="3">
+                    <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
@@ -162,56 +228,87 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource TitleText}" Text="Clase"/>
-                    <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource NormalText}" x:Name="Clase" Text="Lorem ipsum"/>
-                    <TextBlock Grid.Row="2" Grid.Column="0" Style="{StaticResource TitleText}" Text="Arma Principal"/>
-                    <TextBlock Grid.Row="3" Grid.Column="0" Style="{StaticResource NormalText}" x:Name="MainGun" Text="Lorem ipsum"/>
-                    <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource TitleText}" Text="Nivel"/>
-                    <TextBlock Grid.Row="1" Grid.Column="1" Style="{StaticResource NormalText}" x:Name="Level" Text=" 12"/>
-                    <ProgressBar x:Name="LevelBar" Background="LightGray" Margin="5" CornerRadius="3" Foreground="Blue" Value="20" Grid.Row="2" Grid.Column="1"/>
+                    <TextBlock Grid.Row="0" Style="{StaticResource TitleText}" 
+                               Text="Nivel" Margin="5,5,5,4"/>
+                    <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource NormalText}" x:Name="Level"
+                               Text="12" HorizontalAlignment="Center"/>
+                    <ProgressBar Grid.Row="2" Grid.ColumnSpan="2" x:Name="LevelBar" 
+                                 Background="LightGray" CornerRadius="3" Foreground="Blue"
+                                 Value="20" Margin="10,0,11,0" Height="10"/>
                 </Grid>
-                <TextBlock Style="{StaticResource TitleText}" Text="Arma Secundaria"/>
-                <TextBlock Style="{StaticResource NormalText}" x:Name="SecondaryGUn" Text="Lorem ipsum"/>
-                <TextBlock Style="{StaticResource TitleText}" Text="Descripción"/>
-                <TextBlock Style="{StaticResource NormalText}" x:Name="Description" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit.&#x0a;Nulla quam velit, vulputate eu pharetra nec, mattis ac neque.&#x0a;Duis vulputate commodo lectus, ac blandit elit tincidunt id.&#x0a;Sed rhoncus, tortor sed eleifend tristique, tortor mauris &#x0a;molestie elit, et lacinia ipsum quam nec dui."/>
-                <TextBlock Style="{StaticResource TitleText}" Text="Estadísticas"/>
-                <Grid>
+                <!-- Estadisticas -->
+                <Grid Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="3">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="25*"/>
-                        <RowDefinition Height="25*"/>
-                        <RowDefinition Height="25*"/>
-                        <RowDefinition Height="25*"/>
+                        <RowDefinition Height="0.9*"/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="7*"/>
+                        <ColumnDefinition Width="0.4*"/>
+                        <ColumnDefinition Width="0.5*"/>
+                        <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <Image Grid.Column="0" Grid.Row="0" Source="Assets/Reclutamiento/Heart.png" Height="50" Margin="10"/>
-                    <ProgressBar Grid.Column="1" Grid.Row="0" Style="{StaticResource Bars}" x:Name="LifeStat" Width="300" Value="20"/>
-                    <Image Grid.Column="0" Grid.Row="1" Source="Assets/Reclutamiento/Dash.png" Height="50" Margin="10"/>
-                    <ProgressBar Grid.Column="1" Grid.Row="1" Style="{StaticResource Bars}" x:Name="DistanceStat" Width="300" Value="50"/>
-                    <Image Grid.Column="0" Grid.Row="2" Source="Assets/Reclutamiento/Shield.png" Height="50" Margin="10"/>
-                    <ProgressBar Grid.Column="1" Grid.Row="2" Style="{StaticResource Bars}" x:Name="MeleeStat" Width="300" Value="30"/>
-                    <Image Grid.Column="0" Grid.Row="3" Source="Assets/Reclutamiento/Compass.png" Height="50" Margin="10"/>
-                    <ProgressBar Grid.Column="1" Grid.Row="3" Style="{StaticResource Bars}" x:Name="MovementStat" Width="300" Value="80"/>
+                    <TextBlock Grid.ColumnSpan="3"
+                               Style="{StaticResource TitleText}" Text="Estadísticas"/>
+                    <!-- Vida -->
+                    <Image Grid.Row="1" Source="Assets/Reclutamiento/Heart.png" Margin="5"/>
+                    <ProgressBar Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" x:Name="LifeStat"
+                                 Style="{StaticResource Bars}" HorizontalAlignment="Stretch" Value="20"/>
+                    <!-- Ataque melee -->
+                    <Image Grid.Row="2" Source="Assets/Reclutamiento/Dash.png" Margin="5"/>
+                    <ProgressBar Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" x:Name="DistanceStat"
+                                 Style="{StaticResource Bars}" HorizontalAlignment="Stretch" Value="50"/>
+                    <!-- Ataque distancia -->
+                    <Image Grid.Row="3" Source="Assets/Reclutamiento/Shield.png" Margin="5"/>
+                    <ProgressBar Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" x:Name="MeleeStat" 
+                                 Style="{StaticResource Bars}" HorizontalAlignment="Stretch" Value="30"/>
+                    <!-- Movimiento -->
+                    <Image Grid.Row="4" Source="Assets/Reclutamiento/Compass.png" Margin="5"/>
+                    <ProgressBar Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" x:Name="MovementStat"
+                                 Style="{StaticResource Bars}" HorizontalAlignment="Stretch" Value="80"/>
                 </Grid>
-            </StackPanel>
-            <Grid Grid.Row="1" Grid.Column="0" Background="Black" Margin="20,50,20,50" CornerRadius="10">
+            </Grid>
+            
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25*"/>
+                    <RowDefinition Height="25*"/>
+                    <RowDefinition Height="25*"/>
+                    <RowDefinition Height="25*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="7*"/>
+                </Grid.ColumnDefinitions>
+                
+            </Grid>
+            
+            <!-- Precio agente -->
+            <Grid Grid.Row="2" Grid.Column="1" Background="Black" Margin="20,20,20,20" CornerRadius="10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="4*"/>
                     <ColumnDefinition Width="7*"/>
                 </Grid.ColumnDefinitions>
-                <Image Grid.Column="0" Source="Assets/Reclutamiento/InvertedMedal.png" HorizontalAlignment="Right" Margin="5"/>
-                <TextBlock x:Name="Precio" Grid.Column="1" Text="250" Foreground="Yellow" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" FontSize="40" FontFamily="Alata" />
+                <Image Source="Assets/Reclutamiento/InvertedMedal.png" HorizontalAlignment="Right" Margin="5"/>
+                <TextBlock x:Name="Precio" Grid.Column="1"
+                           Text="250" Margin="10" FontSize="40" FontFamily="Alata"
+                           Foreground="Yellow" VerticalAlignment="Center" HorizontalAlignment="Left"/>
             </Grid>
-            <Button x:Name="BotonComprar" IsEnabled="False" Click="Button_Click" Grid.Row="1" Grid.Column="1" Background="Black" CornerRadius="10" Margin="20,50,20,50" HorizontalAlignment="Center">
+
+            <!-- Botón de compra -->
+            <Button x:Name="BotonComprar" IsEnabled="False" Grid.Row="2" Grid.Column="3"
+                    Background="Black" CornerRadius="10" Margin="20,20,20,20" HorizontalAlignment="Center"
+                    Click="Button_Click">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="4*"/>
                         <ColumnDefinition Width="7*"/>
                     </Grid.ColumnDefinitions>
-                    <Image HorizontalAlignment="Right" Grid.Column="0" Margin="5" Source="/Assets/Reclutamiento/medalsIcon.png"/>
-                    <TextBlock Grid.Column="1" Foreground="Gray" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" FontSize="20" FontFamily="Alata" Text="COMPRAR"/>
+                    <Image HorizontalAlignment="Right" Margin="5" Source="/Assets/Reclutamiento/medalsIcon.png"/>
+                    <TextBlock Grid.Column="1" Margin="10" FontSize="20" FontFamily="Alata" Text="COMPRAR"
+                               Foreground="Gray" VerticalAlignment="Center" HorizontalAlignment="Left"/>
                 </Grid>
             </Button>
         </Grid>

@@ -31,13 +31,26 @@
                 <Setter Property="Width" Value="210"/>
                 <Setter Property="Height" Value="45"/>
             </Style>
-            <!-- Botón de menú -->
+            
+            <!-- Botón de menú activo -->
             <Style x:Name="MenuButon" TargetType="Button">
                 <Setter Property="Background" Value="Black"/>
                 <Setter Property="CornerRadius" Value="30"/>
                 <Setter Property="Margin" Value="10, 40, 10, 40"/>
                 <Setter Property="HorizontalAlignment" Value="Stretch"/>
                 <Setter Property="VerticalAlignment" Value="Center"/>
+            </Style>
+            
+            <!-- Botón de menú inactivo -->
+            <Style x:Key="StraightButtonInactive" TargetType="Button">
+                <Setter Property="FontFamily" Value="Alata"/>
+                <Setter Property="IsEnabled" Value="False"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="BorderThickness" Value="2"/>
+                <Setter Property="Background" Value="Black"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Width" Value="210"/>
+                <Setter Property="Height" Value="45"/>
             </Style>
 
             <!-- TEXTOS -->
