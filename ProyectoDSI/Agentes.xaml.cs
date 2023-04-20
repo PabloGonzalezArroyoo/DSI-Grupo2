@@ -57,5 +57,20 @@ namespace ProyectoDSI
             // Use Frame.Navigate to go to the next page.
             Frame.Navigate(typeof(Opciones));
         }
+
+        private void CuartelGridView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Agente Sel = e.ClickedItem as Agente;
+
+            Tipo.Text = Sel.Nombre.ToString();
+            MainGun.Text = Sel.ArmaPrincipal.ToString();
+            Description.Text=Sel.Descripcion.ToString();
+            Level.Text = Sel.Nivel.ToString();
+            LevelBar.Value = Sel.Nivel;
+            LifeStat.Value = Sel.Vida;
+            DistanceStat.Value = Sel.AtaqueDistancia;
+            MeleeStat.Value = Sel.AtaqueMelee;
+            MovementStat.Value = Sel.CasillasMovimiento;
+        }
     }
 }

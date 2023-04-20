@@ -143,7 +143,9 @@
             <GridView Grid.Row="1"
                       HorizontalAlignment="Center" VerticalAlignment="Stretch"
                       ItemsSource="{x:Bind ListaSquad}"
-                      ItemTemplate="{StaticResource ImageGridView_DefaultItemTemplate}">
+                      ItemTemplate="{StaticResource ImageGridView_DefaultItemTemplate}"
+                      IsItemClickEnabled="True"
+                      ItemClick="CuartelGridView_ItemClick">
                 <GridView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <StackPanel Orientation="Horizontal"/>
@@ -158,7 +160,9 @@
             <GridView Grid.Row="4"
                       HorizontalAlignment="Center" VerticalAlignment="Center"
                       ItemsSource="{x:Bind ListaAgentes}"
-                      ItemTemplate="{StaticResource ImageGridView_DefaultItemTemplate}">
+                      ItemTemplate="{StaticResource ImageGridView_DefaultItemTemplate}"
+                      IsItemClickEnabled="True"
+                      ItemClick="CuartelGridView_ItemClick">
                 <GridView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapGrid Orientation="Horizontal" MaximumRowsOrColumns="4"/>
@@ -192,17 +196,17 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource TitleText}" Text="Tipo"/>
-                    <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource NormalText}" Text="Lorem ipsum"/>
+                    <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource NormalText}" x:Name="Tipo" Text="Lorem ipsum"/>
                     <TextBlock Grid.Row="2" Grid.Column="0" Style="{StaticResource TitleText}" Text="Arma Principal"/>
-                    <TextBlock Grid.Row="3" Grid.Column="0" Style="{StaticResource NormalText}" Text="Lorem ipsum"/>
+                    <TextBlock Grid.Row="3" Grid.Column="0" Style="{StaticResource NormalText}" x:Name="MainGun" Text="Lorem ipsum"/>
                     <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource TitleText}" Text="Nivel"/>
-                    <TextBlock Grid.Row="1" Grid.Column="1" Style="{StaticResource NormalText}" Text=" 12"/>
-                    <ProgressBar Background="LightGray" Margin="5" CornerRadius="3" Foreground="Green" Value="20" Grid.Row="2" Grid.Column="1"/>
+                    <TextBlock Grid.Row="1" Grid.Column="1" Style="{StaticResource NormalText}" x:Name="Level" Text=" 12"/>
+                    <ProgressBar x:Name="LevelBar" Background="LightGray" Margin="5" CornerRadius="3" Foreground="Green" Value="20" Grid.Row="2" Grid.Column="1"/>
                 </Grid>
                 <TextBlock Style="{StaticResource TitleText}" Text="Arma Secundaria"/>
-                <TextBlock Style="{StaticResource NormalText}" Text="Lorem ipsum"/>
+                <TextBlock Style="{StaticResource NormalText}" x:Name="SecondaryGUn" Text="Lorem ipsum"/>
                 <TextBlock Style="{StaticResource TitleText}" Text="Descripción"/>
-                <TextBlock Style="{StaticResource NormalText}" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit.&#x0a;Nulla quam velit, vulputate eu pharetra nec, mattis ac neque.&#x0a;Duis vulputate commodo lectus, ac blandit elit tincidunt id.&#x0a;Sed rhoncus, tortor sed eleifend tristique, tortor mauris &#x0a;molestie elit, et lacinia ipsum quam nec dui."/>
+                <TextBlock Style="{StaticResource NormalText}" x:Name="Description" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit.&#x0a;Nulla quam velit, vulputate eu pharetra nec, mattis ac neque.&#x0a;Duis vulputate commodo lectus, ac blandit elit tincidunt id.&#x0a;Sed rhoncus, tortor sed eleifend tristique, tortor mauris &#x0a;molestie elit, et lacinia ipsum quam nec dui."/>
                 <TextBlock Style="{StaticResource TitleText}" Text="Estadísticas"/>
                 <Grid>
                     <Grid.RowDefinitions>
@@ -216,13 +220,13 @@
                         <ColumnDefinition Width="7*"/>
                     </Grid.ColumnDefinitions>
                     <Image Grid.Column="0" Grid.Row="0" Source="Assets/Reclutamiento/Heart.png" Height="50" Margin="10"/>
-                    <ProgressBar Grid.Column="1" Grid.Row="0" Style="{StaticResource Bars}" Width="300" Value="20"/>
+                    <ProgressBar Grid.Column="1" Grid.Row="0" Style="{StaticResource Bars}" x:Name="LifeStat" Width="300" Value="20"/>
                     <Image Grid.Column="0" Grid.Row="1" Source="Assets/Reclutamiento/Dash.png" Height="50" Margin="10"/>
-                    <ProgressBar Grid.Column="1" Grid.Row="1" Style="{StaticResource Bars}" Width="300" Value="50"/>
+                    <ProgressBar Grid.Column="1" Grid.Row="1" Style="{StaticResource Bars}" x:Name="DistanceStat" Width="300" Value="50"/>
                     <Image Grid.Column="0" Grid.Row="2" Source="Assets/Reclutamiento/Shield.png" Height="50" Margin="10"/>
-                    <ProgressBar Grid.Column="1" Grid.Row="2" Style="{StaticResource Bars}" Width="300" Value="30"/>
+                    <ProgressBar Grid.Column="1" Grid.Row="2" Style="{StaticResource Bars}" x:Name="MeleeStat" Width="300" Value="30"/>
                     <Image Grid.Column="0" Grid.Row="3" Source="Assets/Reclutamiento/Compass.png" Height="50" Margin="10"/>
-                    <ProgressBar Grid.Column="1" Grid.Row="3" Style="{StaticResource Bars}" Width="300" Value="80"/>
+                    <ProgressBar Grid.Column="1" Grid.Row="3" Style="{StaticResource Bars}" x:Name="MovementStat" Width="300" Value="80"/>
                 </Grid>
             </StackPanel>
             <Button Grid.Row="1" Grid.Column="1" Background="Black" CornerRadius="10" Margin="20,50,20,50" HorizontalAlignment="Center">
