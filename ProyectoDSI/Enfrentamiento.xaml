@@ -21,7 +21,8 @@
         </Style>
 
         <!-- Template de los elementos del ListView -->
-        <DataTemplate x:Key="ListView_DataTemplate">
+        <DataTemplate x:Key="ListView_DataTemplate"
+                      x:DataType="local:Agente">
             <!-- Grid y definición -->
             <Grid Height="45" Width="137">
                 <Grid.RowDefinitions>
@@ -38,10 +39,10 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <!-- Imagen lateral -->
-                <Image Source="Assets/Square150x150Logo.scale-200.png"
+                <Image Source="{x:Bind Imagen}"
                    Grid.RowSpan="2"/>
                 <!-- Texto de nombre -->
-                <TextBlock Text="Nombre" FontSize="9"
+                <TextBlock Text="{x:Bind Nombre}" FontSize="9"
                            VerticalAlignment="Center" HorizontalAlignment="Center"
                            Grid.Column="1" Grid.ColumnSpan="2"/>
                 <!-- Imagenes derechas -->
@@ -57,9 +58,9 @@
                 <ProgressBar HorizontalAlignment="Stretch" VerticalAlignment="Center"
                          Height="20" Margin="5" CornerRadius="20"
                          Foreground="White"
-                         Value="20"
+                         Value="{x:Bind Vida}"
                          Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="6"/>
-                <TextBlock Text="20" FontSize="8"
+                <TextBlock Text="{x:Bind Vida}" FontSize="8"
                            HorizontalAlignment="Left" VerticalAlignment="Center"
                            Foreground="Black"
                            Margin="10, 0, 0, 0"
@@ -203,7 +204,7 @@
         <ListView x:Name="AgentsListView"
                   VerticalAlignment="Top" HorizontalAlignment="Left"
                   Width="160" Height="181"
-                  ItemsSource="ABCD"
+                  ItemsSource="{x:Bind ListaSquad}"
                   ItemTemplate="{StaticResource ListView_DataTemplate}"/>
     </Grid>
 </Page>

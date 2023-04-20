@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -22,9 +23,19 @@ namespace ProyectoDSI
     /// </summary>
     public sealed partial class Enfrentamiento : Page
     {
+        public ObservableCollection<Agente> ListaSquad { get; } = new ObservableCollection<Agente>();
+
         public Enfrentamiento()
         {
             this.InitializeComponent();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            if (ListaSquad != null)
+            {
+                foreach (Agente ag in Model.GetAllSquad()) ListaSquad.Add(ag);
+            }
         }
 
         // ESTOS MÉTODOS SE DEBEN BORRAR O RENOMBRAR, SON SOLO PARA PROBAR EL CAMBIO DE ESCENA
