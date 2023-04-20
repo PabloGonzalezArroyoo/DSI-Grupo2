@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // La plantilla de elemento Página en blanco está documentada en https://go.microsoft.com/fwlink/?LinkId=234238
@@ -51,6 +52,19 @@ namespace ProyectoDSI
             {
                 rootFrame.GoBack();
             }
+        }
+
+        private void AgentsListView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Agente Sel = e.ClickedItem as Agente;
+            SelectedName.Text = Sel.Nombre;
+            LifeSelected.Value = Sel.Vida;
+            SelectedLifeValue.Text = Sel.Vida.ToString();
+            string stringPath = Sel.Imagen;
+            Uri imageUri = new Uri(stringPath, UriKind.RelativeOrAbsolute);
+            BitmapImage imageBitmap = new BitmapImage(imageUri);
+            Image myImage = new Image();
+            SelectedPortrait.Source = imageBitmap;
         }
     }
 }
