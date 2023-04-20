@@ -6,7 +6,7 @@
 
     <Application.Resources>
         <ResourceDictionary>
-            <!-- BOTÓN CIRCULAR NO ACTIVO -->
+            <!-- Botones circulares no activos -->
             <Style x:Key="CircleButtonNotSelected" TargetType="Button">
                 <Setter Property="Background" Value="Black"/>
                 <Setter Property="CornerRadius" Value="60"/>
@@ -14,7 +14,7 @@
                 <Setter Property="Height" Value="50"/>
             </Style>
 
-            <!-- BOTÓN CIRCULAR ACTIVO -->
+            <!-- Botones circulares activos -->
             <Style x:Key="CircleButtonSelected" TargetType="Button">
                 <Setter Property="Background" Value="Black"/>
                 <Setter Property="CornerRadius" Value="60"/>
@@ -22,7 +22,7 @@
                 <Setter Property="Height" Value="70"/>
             </Style>
             
-            <!-- BOTONES RECTOS (BARRA INTERFAZ) -->
+            <!-- Botones barra de interfaz -->
             <Style x:Key="StraightButton" TargetType="Button">
                 <Setter Property="FontFamily" Value="Alata"/>
                 <Setter Property="FontSize" Value="20"/>
@@ -30,6 +30,25 @@
                 <Setter Property="Background" Value="Black"/>
                 <Setter Property="Width" Value="210"/>
                 <Setter Property="Height" Value="45"/>
+            </Style>
+            <!-- Botón de menú -->
+            <Style x:Name="MenuButon" TargetType="Button">
+                <Setter Property="Background" Value="Black"/>
+                <Setter Property="CornerRadius" Value="30"/>
+                <Setter Property="Margin" Value="10, 40, 10, 40"/>
+                <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+            </Style>
+
+            <!-- TEXTOS -->
+            <!-- Menú de texto -->
+            <Style x:Name="MenuText" TargetType="TextBlock">
+                <Setter Property="FontFamily" Value="Amarnath"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="FontWeight" Value="SemiBold"/>
+                <Setter Property="FontSize" Value="30"/>
+                <Setter Property="Margin" Value="20, 20, 20, 20"/>
             </Style>
         </ResourceDictionary>
     </Application.Resources>

@@ -118,7 +118,6 @@
         </Button>
         <!-- Botón reclutamiento -->
         <Button Style="{StaticResource StraightButton}"
-                Foreground="DimGray"
                 Content="RECLUTAMIENTO"
                 Click="RecruitmentButton_OnClick"
                 Grid.Column="3"/>

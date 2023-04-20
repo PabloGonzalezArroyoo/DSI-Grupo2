@@ -23,6 +23,8 @@
             <Setter Property="CornerRadius" Value="60"/>
             <Setter Property="Width" Value="100"/>
             <Setter Property="Height" Value="100"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
         </Style>
     </Page.Resources>
 
@@ -85,69 +87,77 @@
         
         <Grid Grid.Row="1" Grid.ColumnSpan="5">
             <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <!-- NIVELES -->
         <!-- Nivel 1 -->
         <Button Click="LevelButton_OnClick"
-                Style="{StaticResource LevelButton}">
+                Style="{StaticResource LevelButton}"
+                Grid.Column="1" Grid.Row="1">
             <Image Source="Assets/Mapa/location.png"/>
         </Button>
         <!-- Nivel 2 -->
         <Button Click="LevelButton_OnClick"
                 Style="{StaticResource LevelButton}"
-                Grid.Column="2"
-                Grid.Row="1">
+                Grid.Column="3"
+                Grid.Row="2">
             <Image Source="Assets/Mapa/location.png"/>
         </Button>
         <!-- Nivel 3 -->
         <Button Click="LevelButton_OnClick"
                 Style="{StaticResource LevelButton}"
-                Grid.Column="1"
-                Grid.Row="3">
+                Grid.Column="2"
+                Grid.Row="4">
             <Image Source="Assets/Mapa/location.png"/>
         </Button>
         <!-- Nivel 4 -->
         <Button Click="LevelButton_OnClick"
                 Style="{StaticResource LevelButton}"
                 Grid.Column="4"
-                Grid.Row="2">
+                Grid.Row="1">
             <Image Source="Assets/Mapa/location.png"/>
         </Button>
         <!-- Nivel 5 -->
         <Button Click="LevelButton_OnClick"
                 Style="{StaticResource LevelButton}"
-                Grid.Column="6"
-                Grid.Row="1">
+                Grid.Column="5"
+                Grid.Row="3">
             <Image Source="Assets/Mapa/location.png"/>
         </Button>
         <!-- Nivel 6 -->
         <Button Click="LevelButton_OnClick"
                 Style="{StaticResource LevelButton}"
-                Grid.Column="7"
-                Grid.Row="3">
+                Grid.Column="6"
+                Grid.Row="1">
             <Image Source="Assets/Mapa/location.png" />
         </Button>
         <!-- Nivel 7 -->
         <Button Click="LevelButton_OnClick"
                 Style="{StaticResource LevelButton}" 
-                Grid.Column="8">
+                Grid.Column="7" Grid.Row="4">
+            <Image Source="Assets/Mapa/location.png"/>
+        </Button>
+        <!-- Nivel 8 -->
+        <Button Click="LevelButton_OnClick"
+                Style="{StaticResource LevelButton}" 
+                Grid.Column="8" Grid.Row="2">
             <Image Source="Assets/Mapa/location.png"/>
         </Button>
         </Grid>
