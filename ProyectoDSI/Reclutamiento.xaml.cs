@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -22,9 +23,22 @@ namespace ProyectoDSI
     /// </summary>
     public sealed partial class Reclutamiento : Page
     {
+        public ObservableCollection<Agente> ListaAgentes { get; } = new ObservableCollection<Agente>();
+        public ObservableCollection<Agente> ListaReclutas { get; } = new ObservableCollection<Agente>();
+
         public Reclutamiento()
         {
             this.InitializeComponent();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            if (ListaAgentes != null)
+            {
+                foreach (Agente ag in Model.GetAllAgentes()) ListaAgentes.Add(ag);
+                Model.shuffleReclutas();
+                foreach (Agente ag in Model.GetAllReclutas()) ListaReclutas.Add(ag);
+            }
         }
 
         private void AgentsButton_OnClick(object sender, RoutedEventArgs e)
@@ -43,6 +57,12 @@ namespace ProyectoDSI
         {
             // Use Frame.Navigate to go to the next page.
             Frame.Navigate(typeof(Opciones));
+        }
+
+        private void Actualizar_OnClick(object sender, RoutedEventArgs e)
+        {
+            gridViewReclutas.ItemsSource = null;
+            gridViewReclutas.ItemsSource = Model.shuffleReclutas();
         }
     }
 }

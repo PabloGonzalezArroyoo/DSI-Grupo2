@@ -10,29 +10,6 @@
 
     <Page.Resources>
         <FontFamily x:Key="Alata" >ms-appx:///Assets/Alata-Regular.ttf#Alata</FontFamily>
-        <Style x:Key="StraightButton" TargetType="Button">
-            <Setter Property="FontFamily" Value="Alata"/>
-            <Setter Property="FontSize" Value="20"/>
-            <Setter Property="BorderThickness" Value="2"/>
-            <Setter Property="Background" Value="Black"/>
-            <Setter Property="Width" Value="210"/>
-            <Setter Property="Height" Value="45"/>
-        </Style>
-        <!-- BOTÓN CIRCULAR NO ACTIVO -->
-        <Style x:Key="CircleButtonNotSelected" TargetType="Button">
-            <Setter Property="Background" Value="Black"/>
-            <Setter Property="CornerRadius" Value="60"/>
-            <Setter Property="Width" Value="50"/>
-            <Setter Property="Height" Value="50"/>
-        </Style>
-        <!-- BOTÓN CIRCULAR ACTIVO -->
-        <Style x:Key="CircleButtonSelected" TargetType="Button">
-            <Setter Property="Background" Value="Black"/>
-            <Setter Property="CornerRadius" Value="60"/>
-            <Setter Property="Width" Value="70"/>
-            <Setter Property="Height" Value="70"/>
-        </Style>
-      
         <Style x:Key="TitleText" TargetType="TextBlock">
             <Setter Property="Foreground" Value="Black"/>
             <Setter Property="FontSize" Value="20"/>
@@ -60,6 +37,17 @@
             <Setter Property="FontFamily" Value="Alata"/>
             <Setter Property="FontSize" Value="15"/>
         </Style>
+        <!-- Template para el ListView -->
+        <DataTemplate x:Key="ImageGridView_DefaultItemTemplate"
+                      x:DataType="local:Agente">
+            <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="8">
+                <StackPanel Orientation="Vertical" Margin="25">
+                    <Image Source="{x:Bind Imagen}" HorizontalAlignment="Center" VerticalAlignment="Center"
+                           Width="60" Height="60"/>
+                    <TextBlock Text="{x:Bind Nombre}" FontSize="{Binding Value, ElementName=FontSlider}" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
     </Page.Resources>
 
     <Grid>
@@ -91,7 +79,7 @@
                     Grid.Column="2"
                     HorizontalAlignment="Center"
                     Click="BackButton_OnClick">
-            <Image Source="Assets/Mapa/mapButton.png"
+            <Image Source="Assets/mapButtonGrey.png"
                        Width="60"
                        Height="60"
                        HorizontalAlignment="Center"/>
@@ -121,84 +109,22 @@
         <Grid Background="Gray" Grid.Column="1" Grid.Row="1" Margin="0,0,0,80">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
+                    <RowDefinition Height="5*"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <StackPanel Margin="15" Orientation="Vertical" Grid.Row="0" Grid.Column="0">
-                    <Image Source="Assets/LockScreenLogo.scale-200.png"/>
-                    <TextBlock  Style="{StaticResource NameText}" Text="Nombre"/>
-                </StackPanel>
-                <StackPanel Margin="15" Orientation="Vertical" Grid.Row="0" Grid.Column="1">
-                    <Image Source="Assets/LockScreenLogo.scale-200.png"/>
-                    <TextBlock  Style="{StaticResource NameText}" Text="Nombre"/>
-                </StackPanel>
-                <StackPanel Margin="15" Orientation="Vertical" Grid.Row="0" Grid.Column="2">
-                    <Image Source="Assets/LockScreenLogo.scale-200.png"/>
-                    <TextBlock  Style="{StaticResource NameText}" Text="Nombre"/>
-                </StackPanel>
-                <StackPanel Margin="15" Orientation="Vertical" Grid.Row="0" Grid.Column="3">
-                    <Image Source="Assets/LockScreenLogo.scale-200.png"/>
-                    <TextBlock  Style="{StaticResource NameText}" Text="Nombre"/>
-                </StackPanel>
-                <StackPanel Margin="15" Orientation="Vertical" Grid.Row="0" Grid.Column="4">
-                    <Image Source="Assets/LockScreenLogo.scale-200.png"/>
-                    <TextBlock  Style="{StaticResource NameText}" Text="Nombre"/>
-                </StackPanel>
-                <StackPanel BorderBrush="#FFD8026D" BorderThickness="1" Margin="15" Orientation="Vertical" Grid.Row="1" Grid.Column="0">
-                    <Image Source="Assets/LockScreenLogo.scale-200.png"/>
-                    <TextBlock  Style="{StaticResource NameText}" Text="Nombre"/>
-                </StackPanel>
-                <StackPanel Margin="15" Orientation="Vertical" Grid.Row="1" Grid.Column="1">
-                    <Image Source="Assets/LockScreenLogo.scale-200.png"/>
-                    <TextBlock  Style="{StaticResource NameText}" Text="Nombre"/>
-                </StackPanel>
-                <StackPanel Margin="15" Orientation="Vertical" Grid.Row="1" Grid.Column="2">
-                    <Image Source="Assets/LockScreenLogo.scale-200.png"/>
-                    <TextBlock  Style="{StaticResource NameText}" Text="Nombre"/>
-                </StackPanel>
-                <StackPanel Margin="15" Orientation="Vertical" Grid.Row="1" Grid.Column="3">
-                    <Image Source="Assets/LockScreenLogo.scale-200.png"/>
-                    <TextBlock  Style="{StaticResource NameText}" Text="Nombre"/>
-                </StackPanel>
-                <StackPanel Margin="15" Orientation="Vertical" Grid.Row="1" Grid.Column="4">
-                    <Image Source="Assets/LockScreenLogo.scale-200.png"/>
-                    <TextBlock  Style="{StaticResource NameText}" Text="Nombre"/>
-                </StackPanel>
-                <StackPanel Margin="15" Orientation="Vertical" Grid.Row="2" Grid.Column="0">
-                    <Image Source="Assets/LockScreenLogo.scale-200.png"/>
-                    <TextBlock  Style="{StaticResource NameText}" Text="Nombre"/>
-                </StackPanel>
-                <StackPanel Margin="15" Orientation="Vertical" Grid.Row="2" Grid.Column="1">
-                    <Image Source="Assets/LockScreenLogo.scale-200.png"/>
-                    <TextBlock  Style="{StaticResource NameText}" Text="Nombre"/>
-                </StackPanel>
-                <StackPanel Margin="15" Orientation="Vertical" Grid.Row="2" Grid.Column="2">
-                    <Image Source="Assets/LockScreenLogo.scale-200.png"/>
-                    <TextBlock  Style="{StaticResource NameText}" Text="Nombre"/>
-                </StackPanel>
-                <StackPanel Margin="15" Orientation="Vertical" Grid.Row="2" Grid.Column="3">
-                    <Image Source="Assets/LockScreenLogo.scale-200.png"/>
-                    <TextBlock  Style="{StaticResource NameText}" Text="Nombre"/>
-                </StackPanel>
-                <StackPanel Margin="15" Orientation="Vertical" Grid.Row="2" Grid.Column="4">
-                    <Image Source="Assets/LockScreenLogo.scale-200.png"/>
-                    <TextBlock  Style="{StaticResource NameText}" Text="Nombre"/>
-                </StackPanel>
-                <StackPanel Margin="15" Orientation="Vertical" Grid.Row="3" Grid.Column="0">
-                    <Image Source="Assets/LockScreenLogo.scale-200.png"/>
-                    <TextBlock  Style="{StaticResource NameText}" Text="Nombre"/>
-                </StackPanel>
-            
-            <Button Margin="0,90,0,50" Grid.Column="3" Grid.Row="3" Grid.ColumnSpan="2" Background="Black" CornerRadius="10"  HorizontalAlignment="Center">
+                <GridView x:Name="gridViewReclutas"
+                      HorizontalAlignment="Center" VerticalAlignment="Center"
+                      ItemsSource="{x:Bind ListaReclutas}"
+                      ItemTemplate="{StaticResource ImageGridView_DefaultItemTemplate}">
+                    <GridView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapGrid Orientation="Horizontal" MaximumRowsOrColumns="4"/>
+                        </ItemsPanelTemplate>
+                    </GridView.ItemsPanel>
+                </GridView>
+                <Button Margin="0,20,20,20" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="2"
+                        Background="Black" CornerRadius="10"  HorizontalAlignment="Right"
+                        Click="Actualizar_OnClick">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="4*"/>

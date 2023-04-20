@@ -4,4 +4,33 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:ProyectoDSI">
 
+    <Application.Resources>
+        <ResourceDictionary>
+            <!-- BOTÓN CIRCULAR NO ACTIVO -->
+            <Style x:Key="CircleButtonNotSelected" TargetType="Button">
+                <Setter Property="Background" Value="Black"/>
+                <Setter Property="CornerRadius" Value="60"/>
+                <Setter Property="Width" Value="50"/>
+                <Setter Property="Height" Value="50"/>
+            </Style>
+
+            <!-- BOTÓN CIRCULAR ACTIVO -->
+            <Style x:Key="CircleButtonSelected" TargetType="Button">
+                <Setter Property="Background" Value="Black"/>
+                <Setter Property="CornerRadius" Value="60"/>
+                <Setter Property="Width" Value="70"/>
+                <Setter Property="Height" Value="70"/>
+            </Style>
+            
+            <!-- BOTONES RECTOS (BARRA INTERFAZ) -->
+            <Style x:Key="StraightButton" TargetType="Button">
+                <Setter Property="FontFamily" Value="Alata"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="BorderThickness" Value="2"/>
+                <Setter Property="Background" Value="Black"/>
+                <Setter Property="Width" Value="210"/>
+                <Setter Property="Height" Value="45"/>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
 </Application>

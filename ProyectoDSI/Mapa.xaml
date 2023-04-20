@@ -18,20 +18,6 @@
             <Setter Property="Width" Value="210"/>
             <Setter Property="Height" Value="45"/>
         </Style>
-        <!-- BOTÓN CIRCULAR NO ACTIVO -->
-        <Style x:Key="CircleButtonNotSelected" TargetType="Button">
-            <Setter Property="Background" Value="Black"/>
-            <Setter Property="CornerRadius" Value="60"/>
-            <Setter Property="Width" Value="50"/>
-            <Setter Property="Height" Value="50"/>
-        </Style>
-        <!-- BOTÓN CIRCULAR ACTIVO -->
-        <Style x:Key="CircleButtonSelected" TargetType="Button">
-            <Setter Property="Background" Value="Black"/>
-            <Setter Property="CornerRadius" Value="60"/>
-            <Setter Property="Width" Value="70"/>
-            <Setter Property="Height" Value="70"/>
-        </Style>
         <!-- BOTÓN DE NIVEL -->
         <Style x:Key="LevelButton" TargetType="Button">
             <Setter Property="CornerRadius" Value="60"/>
