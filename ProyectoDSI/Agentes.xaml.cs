@@ -78,13 +78,14 @@ namespace ProyectoDSI
         {
             Clase.Text = agente.Clase;
             MainGun.Text = agente.ArmaPrincipal;
+            SecondaryGun.Text = agente.ArmaSecundaria;
             Description.Text = agente.Descripcion;
             Level.Text = agente.Nivel.ToString();
-            LevelBar.Value = agente.Nivel;
+            LevelBar.Value = agente.Experiencia;
             LifeStat.Value = agente.Vida;
-            DistanceStat.Value = agente.AtaqueDistancia;
-            MeleeStat.Value = agente.AtaqueMelee;
-            MovementStat.Value = agente.CasillasMovimiento;
+            DistanceStat.Value = agente.AtaqueDistancia * 100 / Constants.MAX_DIST_ATTACK;
+            MeleeStat.Value = agente.AtaqueMelee * 100 / Constants.MAX_MELEE_ATTACK;
+            MovementStat.Value = agente.CasillasMovimiento * 100 / Constants.MAX_MOVEMENT;
             string stringPath = agente.Imagen;
             Uri imageUri = new Uri(stringPath, UriKind.RelativeOrAbsolute);
             BitmapImage imageBitmap = new BitmapImage(imageUri);
@@ -106,8 +107,7 @@ namespace ProyectoDSI
                 EscuadronGrid.ItemsSource = Model.ListaSquad;
                 currentEscuadronSel= null;
                 currentCuartelSel= null;
-            BotonAsignar.IsEnabled = false;
-
+                BotonAsignar.IsEnabled = false;
         }
     }
 }

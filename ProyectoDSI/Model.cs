@@ -34,14 +34,14 @@ namespace ProyectoDSI
             Nombre = "Agente" + id.ToString();
             Imagen = "ms-appx:///Assets/Agentes/Agente" + id.ToString() + ".png";
             Descripcion = "Descripción" + id.ToString();
-            Nivel = random.Next(1, 20);
+            Nivel = random.Next(1, Constants.MAX_LEVEL);
             Experiencia = random.Next(0, 100);
             ArmaPrincipal = "ArmaPrincipal" + id.ToString();
             ArmaSecundaria = "ArmaSecundaria" + id.ToString();
-            Vida = random.Next(0, 100);
-            AtaqueMelee = random.Next(1, 10);
-            AtaqueDistancia = random.Next(1, 50);
-            CasillasMovimiento = random.Next(2, 8);
+            Vida = random.Next(Constants.MIN_LIFE, 100);
+            AtaqueMelee = random.Next(1, Constants.MAX_MELEE_ATTACK);
+            AtaqueDistancia = random.Next(1, Constants.MAX_DIST_ATTACK);
+            CasillasMovimiento = random.Next(2, Constants.MAX_MOVEMENT);
             Precio = random.Next(150, 251);
             for (int i = 0; i < 4; i++) { estados[i] = 0; }
         }

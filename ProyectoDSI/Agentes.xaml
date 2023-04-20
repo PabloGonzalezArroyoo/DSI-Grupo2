@@ -202,7 +202,7 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <TextBlock Style="{StaticResource TitleText}" Text="Arma Secundaria"/>
-                    <TextBlock Grid.Row="1" x:Name="SecondaryGUn"
+                    <TextBlock Grid.Row="1" x:Name="SecondaryGun"
                                Style="{StaticResource NormalText}" Text="Lorem ipsum"/>
                 </Grid>
                 <!-- Descripción -->
