@@ -180,7 +180,7 @@
                 <ColumnDefinition Width="20*"/>
             </Grid.ColumnDefinitions>
 
-            <Image Grid.Column="0" Grid.Row="0" Stretch="Fill" Source="Assets/Square44x44Logo.scale-200.png"/>
+            <Image x:Name="AgentImage" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0" Source="Assets/Square44x44Logo.scale-200.png"/>
 
             <StackPanel CornerRadius="20" Margin="20" Background="White" Grid.Row="0" Grid.Column="1" Orientation="Vertical">
                 <Grid>
@@ -194,8 +194,8 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource TitleText}" Text="Tipo"/>
-                    <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource NormalText}" x:Name="Tipo" Text="Lorem ipsum"/>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource TitleText}" Text="Clase"/>
+                    <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource NormalText}" x:Name="Clase" Text="Lorem ipsum"/>
                     <TextBlock Grid.Row="2" Grid.Column="0" Style="{StaticResource TitleText}" Text="Arma Principal"/>
                     <TextBlock Grid.Row="3" Grid.Column="0" Style="{StaticResource NormalText}" x:Name="MainGun" Text="Lorem ipsum"/>
                     <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource TitleText}" Text="Nivel"/>

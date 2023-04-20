@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // La plantilla de elemento Página en blanco está documentada en https://go.microsoft.com/fwlink/?LinkId=234238
@@ -62,15 +63,20 @@ namespace ProyectoDSI
         {
             Agente Sel = e.ClickedItem as Agente;
 
-            Tipo.Text = Sel.Nombre.ToString();
-            MainGun.Text = Sel.ArmaPrincipal.ToString();
-            Description.Text=Sel.Descripcion.ToString();
+            Clase.Text = Sel.Clase;
+            MainGun.Text = Sel.ArmaPrincipal;
+            Description.Text = Sel.Descripcion;
             Level.Text = Sel.Nivel.ToString();
             LevelBar.Value = Sel.Nivel;
             LifeStat.Value = Sel.Vida;
             DistanceStat.Value = Sel.AtaqueDistancia;
             MeleeStat.Value = Sel.AtaqueMelee;
             MovementStat.Value = Sel.CasillasMovimiento;
+            string stringPath = Sel.Imagen;
+            Uri imageUri = new Uri(stringPath, UriKind.RelativeOrAbsolute);
+            BitmapImage imageBitmap = new BitmapImage(imageUri);
+            Image myImage = new Image();
+            AgentImage.Source = imageBitmap;
         }
     }
 }

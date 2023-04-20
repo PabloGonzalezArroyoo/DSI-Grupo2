@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,7 @@ namespace ProyectoDSI
         public int Id { get; set; }
         public string Nombre { get; set; }
         public string Imagen { get; set; }
-        public string Tipo { get; set; }
+        public string Clase { get; set; }
         public string Descripcion { get; set; }
         public int Nivel { get; set; }
         public int Experiencia { get; set; }
@@ -23,13 +24,15 @@ namespace ProyectoDSI
         public int AtaqueMelee { get; set; }
         public int AtaqueDistancia { get; set; }
         public int CasillasMovimiento { get; set; }
+        public int Precio { get; set; }
 
         static Random random = new Random();
 
         public Agente(int id) {
             Id = id;
+            Clase= "Clase"+id.ToString();
             Nombre = "Agente" + id.ToString();
-            Imagen = "Assets\\Agentes\\Agente" + id.ToString() + ".png";
+            Imagen = "ms-appx:///Assets/Agentes/Agente" + id.ToString() + ".png";
             Descripcion = "Descripción" + id.ToString();
             Nivel = random.Next(1, 20);
             Experiencia = random.Next(0, 100);
@@ -39,12 +42,17 @@ namespace ProyectoDSI
             AtaqueMelee = random.Next(1, 10);
             AtaqueDistancia = random.Next(1, 50);
             CasillasMovimiento = random.Next(2, 8);
+            Precio = random.Next(150, 251);
             for (int i = 0; i < 4; i++) { estados[i] = 0; }
         }
     }
 
     public class Model
     {
+        public static int money = 400;
+
+        public static int getMoney() { return money; }
+
         public static List<Agente> ListaReclutas = new List<Agente>();
 
         public static List<Agente> ListaAgentes = new List<Agente>()
@@ -77,7 +85,7 @@ namespace ProyectoDSI
 
             while (i < 10)
             {
-                random = random1.Next(0, 30);
+                random = random1.Next(1, 9);
                 ListaReclutas.Add(new Agente(random));
                 ; i++;
             }

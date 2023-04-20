@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // La plantilla de elemento Página en blanco está documentada en https://go.microsoft.com/fwlink/?LinkId=234238
@@ -23,6 +24,7 @@ namespace ProyectoDSI
     /// </summary>
     public sealed partial class Reclutamiento : Page
     {
+        int currentMoney;
         public ObservableCollection<Agente> ListaAgentes { get; } = new ObservableCollection<Agente>();
         public ObservableCollection<Agente> ListaReclutas { get; } = new ObservableCollection<Agente>();
 
@@ -33,6 +35,8 @@ namespace ProyectoDSI
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            currentMoney = Model.getMoney();
+            MoneyText.Text = currentMoney.ToString();
             if (ListaAgentes != null)
             {
                 foreach (Agente ag in Model.GetAllAgentes()) ListaAgentes.Add(ag);
@@ -63,6 +67,36 @@ namespace ProyectoDSI
         {
             gridViewReclutas.ItemsSource = null;
             gridViewReclutas.ItemsSource = Model.shuffleReclutas();
+        }
+
+        private void gridViewReclutas_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Agente Sel = e.ClickedItem as Agente;
+
+            Clase.Text = Sel.Clase;
+            MainGun.Text = Sel.ArmaPrincipal;
+            Description.Text = Sel.Descripcion;
+            Level.Text = Sel.Nivel.ToString();
+            LevelBar.Value = Sel.Nivel;
+            LifeStat.Value = Sel.Vida;
+            DistanceStat.Value = Sel.AtaqueDistancia;
+            MeleeStat.Value = Sel.AtaqueMelee;
+            MovementStat.Value = Sel.CasillasMovimiento;
+            Precio.Text = Sel.Precio.ToString();
+            string stringPath = Sel.Imagen;
+            Uri imageUri = new Uri(stringPath, UriKind.RelativeOrAbsolute);
+            BitmapImage imageBitmap = new BitmapImage(imageUri);
+            Image myImage = new Image();
+            AgentImage.Source = imageBitmap;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (currentMoney - int.Parse(Precio.Text) > 0)
+            {
+                currentMoney -= int.Parse(Precio.Text);
+                MoneyText.Text = currentMoney.ToString();
+            }
         }
     }
 }
