@@ -151,6 +151,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Agentes\Agente1.png" />
+    <Content Include="Assets\Agentes\Agente10.png" />
     <Content Include="Assets\Agentes\Agente2.png" />
     <Content Include="Assets\Agentes\Agente3.png" />
     <Content Include="Assets\Agentes\Agente4.png" />
@@ -158,6 +159,7 @@
     <Content Include="Assets\Agentes\Agente6.png" />
     <Content Include="Assets\Agentes\Agente7.png" />
     <Content Include="Assets\Agentes\Agente8.png" />
+    <Content Include="Assets\Agentes\Agente9.png" />
     <Content Include="Assets\Agentes\Estrella.png" />
     <Content Include="Assets\backButton.png" />
     <Content Include="Assets\Engranaje.png" />
