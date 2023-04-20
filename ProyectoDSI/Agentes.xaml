@@ -144,7 +144,8 @@
                       ItemsSource="{x:Bind ListaSquad}"
                       ItemTemplate="{StaticResource ImageGridView_DefaultItemTemplate}"
                       IsItemClickEnabled="True"
-                      ItemClick="CuartelGridView_ItemClick">
+                      ItemClick="EscuadronGridView_ItemClick"
+                      x:Name="EscuadronGrid">
                 <GridView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <StackPanel Orientation="Horizontal"/>
@@ -161,7 +162,8 @@
                       ItemsSource="{x:Bind ListaAgentes}"
                       ItemTemplate="{StaticResource ImageGridView_DefaultItemTemplate}"
                       IsItemClickEnabled="True"
-                      ItemClick="CuartelGridView_ItemClick">
+                      ItemClick="CuartelGridView_ItemClick"
+                      x:Name="CuartelGrid">
                 <GridView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapGrid Orientation="Horizontal" MaximumRowsOrColumns="4"/>
@@ -228,7 +230,7 @@
                     <ProgressBar Grid.Column="1" Grid.Row="3" Style="{StaticResource Bars}" x:Name="MovementStat" Width="300" Value="80"/>
                 </Grid>
             </StackPanel>
-            <Button Grid.Row="1" Grid.Column="1" Background="Black" CornerRadius="10" Margin="20,25,20,25" HorizontalAlignment="Center">
+            <Button x:Name="BotonAsignar" IsEnabled="False" Click="Button_Click" Grid.Row="1" Grid.Column="1" Background="Black" CornerRadius="10" Margin="20,25,20,25" HorizontalAlignment="Center">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="4*"/>

@@ -24,6 +24,8 @@ namespace ProyectoDSI
     /// </summary>
     public sealed partial class Agentes : Page
     {
+        Agente currentCuartelSel;
+        Agente currentEscuadronSel;
         public ObservableCollection<Agente> ListaAgentes { get; } = new ObservableCollection<Agente>();
         public ObservableCollection<Agente> ListaSquad { get; } = new ObservableCollection<Agente>();
 
@@ -61,22 +63,79 @@ namespace ProyectoDSI
 
         private void CuartelGridView_ItemClick(object sender, ItemClickEventArgs e)
         {
+            BotonAsignar.IsEnabled = true;
             Agente Sel = e.ClickedItem as Agente;
+            currentCuartelSel= Sel;
+            nuevaAsignacion(Sel);
+        }
+        private void EscuadronGridView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            BotonAsignar.IsEnabled = true;
+            Agente Sel = e.ClickedItem as Agente;
+            currentEscuadronSel= Sel;
+            nuevaAsignacion(Sel);
+        }
 
-            Clase.Text = Sel.Clase;
-            MainGun.Text = Sel.ArmaPrincipal;
-            Description.Text = Sel.Descripcion;
-            Level.Text = Sel.Nivel.ToString();
-            LevelBar.Value = Sel.Nivel;
-            LifeStat.Value = Sel.Vida;
-            DistanceStat.Value = Sel.AtaqueDistancia;
-            MeleeStat.Value = Sel.AtaqueMelee;
-            MovementStat.Value = Sel.CasillasMovimiento;
-            string stringPath = Sel.Imagen;
+        private void nuevaAsignacion(Agente agente)
+        {
+            Clase.Text = agente.Clase;
+            MainGun.Text = agente.ArmaPrincipal;
+            Description.Text = agente.Descripcion;
+            Level.Text = agente.Nivel.ToString();
+            LevelBar.Value = agente.Nivel;
+            LifeStat.Value = agente.Vida;
+            DistanceStat.Value = agente.AtaqueDistancia;
+            MeleeStat.Value = agente.AtaqueMelee;
+            MovementStat.Value = agente.CasillasMovimiento;
+            string stringPath = agente.Imagen;
             Uri imageUri = new Uri(stringPath, UriKind.RelativeOrAbsolute);
             BitmapImage imageBitmap = new BitmapImage(imageUri);
             Image myImage = new Image();
             AgentImage.Source = imageBitmap;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            //Si no hay ningun agente de escuadron seleccionado se coge el primero por defecto
+            if(currentEscuadronSel == null)
+            {
+                Model.ListaAgentes.Add(ListaSquad[0]);
+                Model.ListaSquad.Remove(ListaSquad[0]);
+                Model.ListaSquad.Add(currentCuartelSel);
+                Model.ListaAgentes.Remove(currentCuartelSel);
+                CuartelGrid.ItemsSource = null;
+                EscuadronGrid.ItemsSource = null;
+                CuartelGrid.ItemsSource = Model.ListaAgentes;
+                EscuadronGrid.ItemsSource = Model.ListaSquad;
+                currentCuartelSel = null;
+            }
+            //Si no hay ningun agente de cuartel seleccionado se coge el primero por defecto
+            else if (currentCuartelSel == null)
+            {
+                Model.ListaAgentes.Add(currentEscuadronSel);
+                Model.ListaSquad.Add(ListaAgentes[0]);
+                Model.ListaAgentes.Remove(ListaAgentes[0]);
+                Model.ListaSquad.Remove(currentEscuadronSel);
+                CuartelGrid.ItemsSource = null;
+                EscuadronGrid.ItemsSource = null;
+                CuartelGrid.ItemsSource = Model.ListaAgentes;
+                EscuadronGrid.ItemsSource = Model.ListaSquad;
+                currentEscuadronSel = null;
+            }
+            //Si hay dos seleccionados se intercambian ambos
+            else
+            {
+                Model.ListaAgentes.Add(currentEscuadronSel);
+                Model.ListaSquad.Add(currentCuartelSel);
+                Model.ListaAgentes.Remove(currentCuartelSel);
+                Model.ListaSquad.Remove(currentEscuadronSel);
+                CuartelGrid.ItemsSource = null;
+                EscuadronGrid.ItemsSource = null;
+                CuartelGrid.ItemsSource = Model.ListaAgentes;
+                EscuadronGrid.ItemsSource = Model.ListaSquad;
+                currentEscuadronSel= null;
+                currentCuartelSel= null;
+            }
         }
     }
 }

@@ -69,10 +69,10 @@ namespace ProyectoDSI
 
         public static List<Agente> ListaSquad = new List<Agente>()
         {
-            ListaAgentes[0],
-            ListaAgentes[1],
-            ListaAgentes[2],
-            ListaAgentes[3]
+            new Agente(1),
+            new Agente(2),
+            new Agente(3),
+            new Agente(4)
         };
 
         public static IList<Agente> shuffleReclutas()

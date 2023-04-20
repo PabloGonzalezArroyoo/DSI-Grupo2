@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -25,6 +26,7 @@ namespace ProyectoDSI
     public sealed partial class Reclutamiento : Page
     {
         int currentMoney;
+        Agente currentSel;
         public ObservableCollection<Agente> ListaAgentes { get; } = new ObservableCollection<Agente>();
         public ObservableCollection<Agente> ListaReclutas { get; } = new ObservableCollection<Agente>();
 
@@ -71,8 +73,9 @@ namespace ProyectoDSI
 
         private void gridViewReclutas_ItemClick(object sender, ItemClickEventArgs e)
         {
+            BotonComprar.IsEnabled = true;
             Agente Sel = e.ClickedItem as Agente;
-
+            currentSel= Sel;
             Clase.Text = Sel.Clase;
             MainGun.Text = Sel.ArmaPrincipal;
             Description.Text = Sel.Descripcion;
@@ -96,6 +99,11 @@ namespace ProyectoDSI
             {
                 currentMoney -= int.Parse(Precio.Text);
                 MoneyText.Text = currentMoney.ToString();
+                Model.ListaReclutas.Remove(currentSel);
+                Model.ListaAgentes.Add(currentSel);
+                gridViewReclutas.ItemsSource = null;
+                gridViewReclutas.ItemsSource = Model.ListaReclutas;
+                
             }
         }
     }

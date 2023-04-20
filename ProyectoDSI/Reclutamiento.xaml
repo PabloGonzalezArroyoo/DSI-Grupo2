@@ -204,7 +204,7 @@
                 <Image Grid.Column="0" Source="Assets/Reclutamiento/InvertedMedal.png" HorizontalAlignment="Right" Margin="5"/>
                 <TextBlock x:Name="Precio" Grid.Column="1" Text="250" Foreground="Yellow" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" FontSize="40" FontFamily="Alata" />
             </Grid>
-            <Button Click="Button_Click" Grid.Row="1" Grid.Column="1" Background="Black" CornerRadius="10" Margin="20,50,20,50" HorizontalAlignment="Center">
+            <Button x:Name="BotonComprar" IsEnabled="False" Click="Button_Click" Grid.Row="1" Grid.Column="1" Background="Black" CornerRadius="10" Margin="20,50,20,50" HorizontalAlignment="Center">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="4*"/>
