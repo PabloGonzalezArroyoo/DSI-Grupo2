@@ -24,7 +24,7 @@
         <DataTemplate x:Key="ListView_DataTemplate"
                       x:DataType="local:Agente">
             <!-- Grid y definición -->
-            <Grid Height="45" Width="137">
+            <Grid Height="45" Width="Auto">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
@@ -75,11 +75,26 @@
             <ImageBrush Stretch="Fill" ImageSource="Assets/InGame/backgroundSigilo.png"></ImageBrush>
         </Grid.Background>
 
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.65*"/>
+            <RowDefinition Height="0.7*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.8*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.72*"/>
+            <ColumnDefinition Width="0.25*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="0.15*"/>
+            <ColumnDefinition Width="0.7*"/>
+        </Grid.ColumnDefinitions>
+        
         <!-- IINFORMACIÓN INFERIOR IZQUIERDA -->
         <!-- Grid y definición -->
-        <Grid Width="216" Height="125"
-              HorizontalAlignment="Left"
-              VerticalAlignment="Bottom">
+        <Grid Grid.Row="3" Grid.RowSpan="2" Grid.ColumnSpan="2"
+              HorizontalAlignment="Stretch"
+              VerticalAlignment="Stretch">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
@@ -129,9 +144,9 @@
 
         <!-- INFORMACIÓN SUPERIOR DERECHA -->
         <!-- Grid y definición -->
-        <Grid Width="190" Height="90"
-              HorizontalAlignment="Right"
-              VerticalAlignment="Top">
+        <Grid Grid.Column="3" Grid.ColumnSpan="2"
+              HorizontalAlignment="Stretch"
+              VerticalAlignment="Stretch">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
@@ -145,17 +160,18 @@
             <!-- Texto de restantes -->
             <TextBlock Text="0/10" FontSize="40"
                        HorizontalAlignment="Center" VerticalAlignment="Center"
-                       Margin="10"
                        Grid.Column="1"/>
         </Grid>
 
         <!-- INFORMACIÓN INFERIOR DERECHA -->
         <!-- Grid y definición -->
-        <Grid Width="151" Height="108"
-              HorizontalAlignment="Right"
-              VerticalAlignment="Bottom">
+        <Grid Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="2"
+              HorizontalAlignment="Stretch"
+              VerticalAlignment="Stretch">
             <Grid.RowDefinitions>
-                <RowDefinition Height="80.8"/>
+                <RowDefinition/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
@@ -163,7 +179,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <!-- Botón observar -->
-            <Button Width="60" Height="60"
+            <Button Grid.Row="1" Width="60" Height="60"
                     HorizontalAlignment="Center"
                     BorderBrush="DarkGray"
                     Click="ChangeScene">
@@ -171,9 +187,9 @@
             </Button>
             <TextBlock Text="Observar" FontSize="12"
                        HorizontalAlignment="Center"
-                       Grid.Row="1"/>
+                       Grid.Row="2"/>
             <!-- Botón de arrestar -->
-            <Button Width="60" Height="60"
+            <Button Grid.Row="1" Width="60" Height="60"
                     HorizontalAlignment="Center"
                     BorderBrush="DarkGray"
                     Grid.Column="1"
@@ -182,14 +198,15 @@
             </Button>
             <TextBlock Text="Arrestar" FontSize="12"
                        HorizontalAlignment="Center"
-                       Grid.Row="1" Grid.Column="1"/>
+                       Grid.Row="2" Grid.Column="1"/>
         </Grid>
 
         <!-- INFORMACIÓN SUPERIOR IZQUIERDA -->
-        <ListView x:Name="AgentsListView"
-                  VerticalAlignment="Top" HorizontalAlignment="Left"
-                  Width="160" Height="181"
+        <GridView x:Name="AgentsListView" Grid.RowSpan="2"
+                  VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
                   IsItemClickEnabled="True"
+                  ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                  ScrollViewer.HorizontalScrollBarVisibility="Hidden"
                   ItemClick="AgentsListView_ItemClick"
                   ItemsSource="{x:Bind ListaSquad}"
                   ItemTemplate="{StaticResource ListView_DataTemplate}"/>
