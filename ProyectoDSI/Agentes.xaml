@@ -9,18 +9,6 @@
     Background="DimGray">
 
     <Page.Resources>
-        <Style x:Key="TitleText" TargetType="TextBlock">
-            <Setter Property="Foreground" Value="Black"/>
-            <Setter Property="FontSize" Value="18"/>
-            <Setter Property="FontFamily" Value="Alata"/>
-            <Setter Property="Margin" Value="5"/>
-            <Setter Property="FontWeight" Value="ExtraBlack"/>
-        </Style>
-        <Style x:Key="NormalText" TargetType="TextBlock">
-            <Setter Property="Foreground" Value="Black"/>
-            <Setter Property="FontSize" Value="12"/>
-            <Setter Property="Margin" Value="5"/>
-        </Style>
         <Style x:Key="Bars" TargetType="ProgressBar">
             <Setter Property="Height" Value="20"/>
             <Setter Property="CornerRadius" Value="10"/>
@@ -37,7 +25,7 @@
                     <Image Source="{x:Bind Imagen}" HorizontalAlignment="Center" VerticalAlignment="Center"
                            Width="60" Height="60"/>
                     <TextBlock Text="{x:Bind Nombre}" FontSize="{Binding Value, ElementName=FontSlider}"
-                               VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                               FontFamily="{StaticResource Alata}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 </StackPanel>
             </Grid>
         </DataTemplate>
@@ -64,25 +52,52 @@
             <Image Source="Assets/backButton.png"/>
         </Button>
         <!-- Botón agentes -->
-        <Button Style="{StaticResource StraightButtonInactive}"
-                Content="AGENTES"
-                Grid.Column="1"
-                HorizontalAlignment="Right"/>
+        <StackPanel Orientation="Horizontal" Grid.Column="1"
+                        VerticalAlignment="Center" HorizontalAlignment="Right">
+            <Grid Grid.Column="2"
+                  Background="Black"
+                  CornerRadius="90"
+                  Height="65" Width="65"
+                  Margin="0, 5, 0, 5">
+                <Image Source="Assets/EscudoPolicia.png"
+                       Width="50" Height="50"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
+            <Button Style="{StaticResource StraightButtonInactive}"
+                    Content="AGENTES"
+                    FontFamily="{StaticResource Alata}"
+                    HorizontalAlignment="Right"/>
+        </StackPanel>
         <!-- Botón mapa -->
+        <Rectangle Grid.Column="2" Fill="Black"
+                   HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                   Height="45"/>
         <Button Style="{StaticResource CircleButtonSelected}"
-                    Grid.Column="2"
-                    HorizontalAlignment="Center"
-                    Click="BackButton_OnClick">
+                Grid.Column="2"
+                HorizontalAlignment="Center"
+                Click="BackButton_OnClick">
             <Image Source="Assets/mapButtonGrey.png"
-                       Width="60"
-                       Height="60"
-                       HorizontalAlignment="Center"/>
+                   Width="60"
+                   Height="60"
+                   HorizontalAlignment="Center"/>
         </Button>
         <!-- Botón reclutamiento -->
-        <Button Style="{StaticResource StraightButton}"
-                Content="RECLUTAMIENTO"
-                Click="RecruitmentButton_OnClick"
-                Grid.Column="3"/>
+        <StackPanel Orientation="Horizontal" Grid.Column="3"
+                        VerticalAlignment="Center" HorizontalAlignment="Left">
+            <Button Style="{StaticResource StraightButton}"
+                    Content="RECLUTAMIENTO"
+                    FontFamily="{StaticResource Alata}"
+                    Click="RecruitmentButton_OnClick"/>
+            <Grid Grid.Column="2"
+                  Background="Black"
+                  CornerRadius="90"
+                  Height="65" Width="65"
+                  Margin="0, 5, 0, 5">
+                <Image Source="Assets/ReclutamientoGrey.png"
+                       Width="50" Height="50"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
+        </StackPanel>
         <!-- Botón opciones -->
         <Button Style="{StaticResource CircleButtonNotSelected}"
                     Grid.Column="4"
@@ -100,7 +115,8 @@
             </Grid.RowDefinitions>
             
             <!-- ESCUADRON -->
-            <TextBlock Style="{StaticResource TitleText}" HorizontalAlignment="Center" FontSize="30" Text="ESCUADRÓN"/>
+            <TextBlock Style="{StaticResource RecruitAgentsTitleText}" FontSize="30"
+                       HorizontalAlignment="Center" Text="ESCUADRÓN"/>
             <GridView Grid.Row="1"
                       HorizontalAlignment="Center" VerticalAlignment="Stretch"
                       ItemsSource="{x:Bind ListaSquad}"
@@ -118,7 +134,8 @@
             <Line HorizontalAlignment="Center" Stroke="Black" Height="10" X1="0" X2="500" Grid.Row="2"/>
             
             <!-- CUARTEL -->
-            <TextBlock Style="{StaticResource TitleText}" HorizontalAlignment="Center" FontSize="30" Text="CUARTEL" Grid.Row="3"/>
+            <TextBlock Style="{StaticResource RecruitAgentsTitleText}"
+                       HorizontalAlignment="Center" FontSize="30" Text="CUARTEL" Grid.Row="3"/>
             <GridView Grid.Row="4"
                       HorizontalAlignment="Center" VerticalAlignment="Center"
                       ItemsSource="{x:Bind ListaAgentes}"
@@ -183,10 +200,10 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <TextBlock Grid.ColumnSpan="2"
-                               Text="Clase" Style="{StaticResource TitleText}"
+                               Text="Clase" Style="{StaticResource RecruitAgentsText}"
                                VerticalAlignment="Center"/>
-                    <TextBlock Grid.Row="1" Grid.ColumnSpan="2"
-                               Style="{StaticResource NormalText}" x:Name="Clase"
+                    <TextBlock Grid.Row="1" Grid.ColumnSpan="2" x:Name="Clase"
+                               Style="{StaticResource RecruitAgentsSubtext}" 
                                VerticalAlignment="Center"/>
                 </Grid>
                 <!-- Arma principal-->
@@ -196,9 +213,9 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <TextBlock Grid.ColumnSpan="2"
-                               Text="Arma Principal" Style="{StaticResource TitleText}"/>
+                               Text="Arma Principal" Style="{StaticResource RecruitAgentsText}"/>
                     <TextBlock Grid.Row="1" Grid.ColumnSpan="2" x:Name="MainGun"
-                               Style="{StaticResource NormalText}"/>
+                               Style="{StaticResource RecruitAgentsSubtext}"/>
                 </Grid>
                 <!-- Arma secundaria -->
                 <Grid Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3">
@@ -206,9 +223,9 @@
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <TextBlock Style="{StaticResource TitleText}" Text="Arma Secundaria"/>
+                    <TextBlock Style="{StaticResource RecruitAgentsText}" Text="Arma Secundaria"/>
                     <TextBlock Grid.Row="1" x:Name="SecondaryGun"
-                               Style="{StaticResource NormalText}"/>
+                               Style="{StaticResource RecruitAgentsSubtext}"/>
                 </Grid>
                 <!-- Descripción -->
                 <Grid Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="3">
@@ -216,9 +233,8 @@
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <TextBlock Style="{StaticResource TitleText}" Text="Descripción"/>
-                    <TextBlock Grid.Row="1"
-                               Style="{StaticResource NormalText}" x:Name="Description"/>
+                    <TextBlock Style="{StaticResource RecruitAgentsText}" Text="Descripción"/>
+                    <TextBlock Grid.Row="1" Style="{StaticResource RecruitAgentsSubtext}" x:Name="Description"/>
                 </Grid>
                 <!-- Nivel -->
                 <Grid Grid.Row="1" Grid.Column="3">
@@ -230,10 +246,10 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Row="0" Style="{StaticResource TitleText}" 
+                    <TextBlock Grid.Row="0" Style="{StaticResource RecruitAgentsText}" 
                                Text="Nivel" Margin="5,5,5,4"/>
                     <TextBlock Grid.Row="0" Grid.Column="1" x:Name="Level"
-                               Style="{StaticResource NormalText}" HorizontalAlignment="Center"/>
+                               Style="{StaticResource RecruitAgentsSubtext}" HorizontalAlignment="Center"/>
                     <ProgressBar Grid.Row="2" Grid.ColumnSpan="2" x:Name="LevelBar" 
                                  Background="LightGray" CornerRadius="3" Foreground="Blue"
                                  Margin="10,0,11,0" Height="10"/>
@@ -252,32 +268,35 @@
                         <ColumnDefinition Width="0.5*"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.ColumnSpan="3"
-                               Style="{StaticResource TitleText}" Text="Estadísticas"/>
+                    <TextBlock Grid.ColumnSpan="3" Style="{StaticResource RecruitAgentsText}" Text="Estadísticas"/>
                     <!-- Vida -->
                     <Image Grid.Row="1" Source="Assets/Reclutamiento/Heart.png" Margin="5"/>
                     <ProgressBar Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" x:Name="LifeStat"
                                  Style="{StaticResource Bars}" HorizontalAlignment="Stretch"/>
                     <TextBlock x:Name="HealthPoints" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"
-                               VerticalAlignment="Center" HorizontalAlignment="Left" Margin="15"/>
+                               VerticalAlignment="Center" HorizontalAlignment="Left" Margin="15"
+                               Style="{StaticResource RecruitAgentsSubtext}" Foreground="White"/>
                     <!-- Ataque melee -->
                     <Image Grid.Row="2" Source="Assets/Reclutamiento/Dash.png" Margin="5"/>
                     <ProgressBar Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" x:Name="MeleeStat"
                                  Style="{StaticResource Bars}" HorizontalAlignment="Stretch"/>
                     <TextBlock x:Name="MeleePoints" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"
-                               VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10"/>
+                               VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10"
+                               Style="{StaticResource RecruitAgentsSubtext}" Foreground="White"/>
                     <!-- Ataque distancia -->
                     <Image Grid.Row="3" Source="Assets/Reclutamiento/Shield.png" Margin="5"/>
                     <ProgressBar Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" x:Name="DistanceStat" 
                                  Style="{StaticResource Bars}" HorizontalAlignment="Stretch"/>
                     <TextBlock x:Name="DistPoints" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2"
-                               VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10"/>
+                               VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10"
+                               Style="{StaticResource RecruitAgentsSubtext}" Foreground="White"/>
                     <!-- Movimiento -->
                     <Image Grid.Row="4" Source="Assets/Reclutamiento/Compass.png" Margin="5"/>
                     <ProgressBar Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" x:Name="MovementStat"
                                  Style="{StaticResource Bars}" HorizontalAlignment="Stretch"/>
                     <TextBlock x:Name="MovPoints" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2"
-                               VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10"/>
+                               VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10"
+                               Style="{StaticResource RecruitAgentsSubtext}" Foreground="White"/>
                 </Grid>
             </Grid>
 
@@ -292,7 +311,6 @@
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="7*"/>
                 </Grid.ColumnDefinitions>
-
             </Grid>
 
             <!-- Botón de compra -->
@@ -306,7 +324,7 @@
                     </Grid.ColumnDefinitions>
                     <Image HorizontalAlignment="Right" Margin="5" Source="/Assets/Agentes/Estrella.png"/>
                     <TextBlock Grid.Column="1"  VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10"
-                               Foreground="Yellow" FontSize="30" FontFamily="Alata" Text="ASIGNAR"/>
+                               Foreground="Yellow" FontSize="30" FontFamily="{StaticResource Alata}" Text="ASIGNAR"/>
                 </Grid>
             </Button>
         </Grid>

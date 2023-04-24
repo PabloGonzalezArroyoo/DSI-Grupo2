@@ -165,6 +165,7 @@
     <Content Include="Assets\backButton.png" />
     <Content Include="Assets\Engranaje.png" />
     <Content Include="Assets\EscudoPolicia.png" />
+    <Content Include="Assets\EscudoPoliciaGrey.png" />
     <Content Include="Assets\IconoSalida.png" />
     <Content Include="Assets\InGame\backgroundEnfrentamiento.png" />
     <Content Include="Assets\InGame\backgroundSigilo.png" />
@@ -190,6 +191,8 @@
     <Content Include="Assets\Opciones\cross.png" />
     <Content Include="Assets\Opciones\save.png" />
     <Content Include="Assets\optionsButton.png" />
+    <Content Include="Assets\Reclutamiento.png" />
+    <Content Include="Assets\ReclutamientoGrey.png" />
     <Content Include="Assets\Reclutamiento\Compass.png" />
     <Content Include="Assets\Reclutamiento\Dash.png" />
     <Content Include="Assets\Reclutamiento\Heart.png" />

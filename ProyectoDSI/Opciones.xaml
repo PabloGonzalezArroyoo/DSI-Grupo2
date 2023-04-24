@@ -67,8 +67,8 @@
                     <Image Source="Assets/backButton.png"/>
                 </Button>
                 <!-- Título -->
-                <TextBlock Grid.Row="1" Grid.ColumnSpan="5" Foreground="Black"
-                           Text="Opciones" FontSize="55" FontFamily="Amarnath" FontWeight="ExtraBold"
+                <TextBlock Grid.Row="1" Grid.ColumnSpan="5" Foreground="Black" FontFamily="{StaticResource Alata}"
+                           Text="Opciones" FontSize="55" FontWeight="ExtraBold"
                            HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <!-- Botón pantalla completa -->
                 <Button Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2"
@@ -84,7 +84,7 @@
                 <Border Background="Black"
                         Grid.Row="3" Grid.Column="2"
                         Margin="15" CornerRadius="20"/>
-                <TextBlock Text="MÚSICA" FontSize="25"
+                <TextBlock Text="MÚSICA" FontSize="25" FontFamily="{StaticResource Alata}"
                            Grid.Row="3" Grid.Column="2"
                            Foreground="White"
                            VerticalAlignment="Center" HorizontalAlignment="Center"/>
@@ -95,7 +95,7 @@
                 <Border Background="Black"
                         Grid.Row="4" Grid.Column="2"
                         Margin="15" CornerRadius="20"/>
-                <TextBlock Text="EFECTOS" FontSize="25"
+                <TextBlock Text="EFECTOS" FontSize="25" FontFamily="{StaticResource Alata}"
                            Grid.Row="4" Grid.Column="2"
                            Foreground="White"
                            VerticalAlignment="Center" HorizontalAlignment="Center"/>

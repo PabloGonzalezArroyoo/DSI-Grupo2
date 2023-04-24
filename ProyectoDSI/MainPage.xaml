@@ -53,7 +53,7 @@
                         Click="PlayButton_OnClick">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/Assets/EscudoPolicia.png" Width="50" Height="50"/>
-                        <TextBlock Style="{StaticResource MenuText}" Text="JUGAR"/>
+                        <TextBlock FontFamily="{StaticResource Alata}" Style="{StaticResource MenuText}" Text="JUGAR"/>
                     </StackPanel>
                 </Button>
                 <Button Grid.Row="2" Grid.Column="3" TabIndex="1"
@@ -61,7 +61,7 @@
                         Click="OptionsButton_OnClick">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/Assets/Engranaje.png" Width="50" Height="50"/>
-                        <TextBlock Style="{StaticResource MenuText}" Text="AJUSTES"/>
+                        <TextBlock FontFamily="{StaticResource Alata}" Style="{StaticResource MenuText}" Text="AJUSTES"/>
                     </StackPanel>
                 </Button>
                 <!-- Segunda fila de botones -->
@@ -73,7 +73,7 @@
                         Click="ExitButton_OnClick">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/Assets/IconoSalida.png" Width="50" Height="50"/>
-                        <TextBlock Style="{StaticResource MenuText}" Text="SALIR"/>
+                        <TextBlock FontFamily="{StaticResource Alata}" Style="{StaticResource MenuText}" Text="SALIR"/>
                     </StackPanel>
                 </Button>
             </Grid>

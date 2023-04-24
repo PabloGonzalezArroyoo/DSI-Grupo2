@@ -6,6 +6,8 @@
 
     <Application.Resources>
         <ResourceDictionary>
+            <FontFamily x:Key="Alata">/Assets/Alata-Regular.ttf#Alata</FontFamily>
+            
             <!-- Botones circulares no activos -->
             <Style x:Key="CircleButtonNotSelected" TargetType="Button">
                 <Setter Property="Background" Value="Black"/>
@@ -62,6 +64,33 @@
                 <Setter Property="FontWeight" Value="SemiBold"/>
                 <Setter Property="FontSize" Value="30"/>
                 <Setter Property="Margin" Value="20, 20, 20, 20"/>
+                <Setter Property="FontFamily" Value="{StaticResource Alata}"/>
+            </Style>
+            <!-- Texto de agentes y reclutamiento -->
+            <Style x:Name="RecruitAgentsTitleText" TargetType="TextBlock">
+                <Setter Property="FontFamily" Value="Amarnath"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="FontWeight" Value="ExtraBold"/>
+                <Setter Property="FontSize" Value="30"/>
+                <Setter Property="Foreground" Value="Black"/>
+                <Setter Property="FontFamily" Value="{StaticResource Alata}"/>
+            </Style>
+            <Style x:Name="RecruitAgentsText" TargetType="TextBlock">
+                <Setter Property="FontFamily" Value="Amarnath"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="FontWeight" Value="ExtraBold"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="Foreground" Value="Black"/>
+                <Setter Property="FontFamily" Value="{StaticResource Alata}"/>
+            </Style>
+
+            <Style x:Name="RecruitAgentsSubtext" TargetType="TextBlock">
+                <Setter Property="FontFamily" Value="Amarnath"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="Foreground" Value="Black"/>
+                <Setter Property="FontFamily" Value="{StaticResource Alata}"/>
             </Style>
         </ResourceDictionary>
     </Application.Resources>

@@ -57,25 +57,50 @@
                 <Image Source="Assets/backButton.png"/>
             </Button>
             <!-- Botón agentes -->
-            <Button Style="{StaticResource StraightButton}"
-                    Content="AGENTES"
-                    Click="AgentsButton_OnClick"
-                    Grid.Column="1"
-                    HorizontalAlignment="Right"/>
+            <StackPanel Orientation="Horizontal" Grid.Column="1"
+                        VerticalAlignment="Center" HorizontalAlignment="Right">
+                <Grid Background="Black"
+                      CornerRadius="90"
+                      Height="65" Width="65"
+                      Margin="0, 5, 0, 5">
+                    <Image Source="Assets/EscudoPoliciaGrey.png"
+                           Width="50" Height="50"
+                           HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Grid>
+                <Button Style="{StaticResource StraightButton}"
+                        Content="AGENTES"
+                        FontFamily="{StaticResource Alata}"
+                        Click="AgentsButton_OnClick"
+                        HorizontalAlignment="Right"/>
+            </StackPanel>
             <!-- Botón mapa -->
+            <Rectangle Grid.Column="2" Fill="Black"
+                       HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                       Height="45"/>
             <Grid Grid.Column="2"
                   Background="Black"
                   CornerRadius="90"
                   Margin="0, 5, 0, 5">
                 <Image Source="Assets/Mapa/mapButton.png"
                        Width="60" Height="60"
-                       HorizontalAlignment="Center"/>
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
             </Grid>
             <!-- Botón reclutamiento -->
-            <Button Style="{StaticResource StraightButton}"
-                    Content="RECLUTAMIENTO"
-                    Click="RecruitmentButton_OnClick"
-                    Grid.Column="3"/>
+            <StackPanel Orientation="Horizontal" Grid.Column="3"
+                        VerticalAlignment="Center" HorizontalAlignment="Left">
+                <Button Style="{StaticResource StraightButton}"
+                        Content="RECLUTAMIENTO"
+                        FontFamily="{StaticResource Alata}"
+                        Click="RecruitmentButton_OnClick"/>
+                <Grid Background="Black"
+                      CornerRadius="90"
+                      Height="65" Width="65"
+                      Margin="0, 5, 0, 5">
+                    <Image Source="Assets/ReclutamientoGrey.png"
+                           Width="50" Height="50"
+                           HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Grid>
+            </StackPanel>
             <!-- Botón opciones -->
             <Button Style="{StaticResource CircleButtonNotSelected}"
                     Grid.Column="4"
