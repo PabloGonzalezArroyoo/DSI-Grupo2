@@ -115,7 +115,7 @@ namespace ProyectoDSI
                 string dificulty = "";
                 for (int i = 0; i < caso.Dificultad; i++) dificulty += "★ ";
                 TextoDificultad.Text = dificulty;
-                caso.Completed = true;
+                
 
                 // Abre el popup en relación al botón
                 PopupHint.IsOpen = true;
