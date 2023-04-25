@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Xml.Linq;
+using Windows.ApplicationModel.DataTransfer;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -113,6 +116,60 @@ namespace ProyectoDSI
                 currentEscuadronSel= null;
                 currentCuartelSel= null;
                 BotonAsignar.IsEnabled = false;
+        }
+
+        private void EscuadronGrid_DragItemsStarting(object sender, DragItemsStartingEventArgs e)
+        {
+            Agente agente = e.Items[0] as Agente;
+            e.Data.SetText(Model.ListaSquad.IndexOf(agente).ToString());
+            e.Data.RequestedOperation = DataPackageOperation.Move;
+        }
+
+        private void EscuadronGrid_DragOver(object sender, DragEventArgs e)
+        {
+            e.AcceptedOperation = DataPackageOperation.Move;
+        }
+
+        private async void EscuadronGrid_Drop(object sender, DragEventArgs e)
+        {
+
+            var item = await e.DataView.GetTextAsync();
+            int index = int.Parse(item);
+            Model.ListaSquad.Add(Model.ListaAgentes[index]);
+            Model.ListaAgentes.RemoveAt(index);
+            CuartelGrid.ItemsSource = null;
+            EscuadronGrid.ItemsSource = null;
+            CuartelGrid.ItemsSource = Model.ListaAgentes;
+            EscuadronGrid.ItemsSource = Model.ListaSquad;
+
+        }
+
+        private void CuartelGrid_DragItemsStarting(object sender, DragItemsStartingEventArgs e)
+        {
+            Agente agente = e.Items[0] as Agente;
+            e.Data.SetText(Model.ListaAgentes.IndexOf(agente).ToString());
+            e.Data.RequestedOperation = DataPackageOperation.Move;
+        }
+
+        private void CuartelGrid_DragOver(object sender, DragEventArgs e)
+        {
+            e.AcceptedOperation = DataPackageOperation.Move;
+        }
+
+        private async void CuartelGrid_Drop(object sender, DragEventArgs e)
+        {
+            
+           var item = await e.DataView.GetTextAsync();
+           int index =int.Parse(item);
+           Model.ListaAgentes.Add(Model.ListaAgentes[index]);
+           Model.ListaSquad.RemoveAt(index);
+            CuartelGrid.ItemsSource = null;
+            EscuadronGrid.ItemsSource = null;
+            CuartelGrid.ItemsSource = Model.ListaAgentes;
+            EscuadronGrid.ItemsSource = Model.ListaSquad;
+
+
+
         }
     }
 }

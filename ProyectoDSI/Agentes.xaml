@@ -126,6 +126,11 @@
                       ItemTemplate="{StaticResource ImageGridView_DefaultItemTemplate}"
                       IsItemClickEnabled="True"
                       ItemClick="EscuadronGridView_ItemClick"
+                      CanDragItems="True"
+                      AllowDrop="True"
+                      DragItemsStarting="EscuadronGrid_DragItemsStarting"
+                      DragOver="EscuadronGrid_DragOver"
+                      Drop="EscuadronGrid_Drop"
                       x:Name="EscuadronGrid">
                 <GridView.ItemsPanel>
                     <ItemsPanelTemplate>
@@ -142,9 +147,14 @@
             <GridView Grid.Row="4"
                       HorizontalAlignment="Center" VerticalAlignment="Center"
                       ItemsSource="{x:Bind ListaAgentes}"
+                      CanDragItems="True"
+                      AllowDrop="True"
                       ItemTemplate="{StaticResource ImageGridView_DefaultItemTemplate}"
                       IsItemClickEnabled="True"
                       ItemClick="CuartelGridView_ItemClick"
+                      DragItemsStarting="CuartelGrid_DragItemsStarting"
+                      DragOver="CuartelGrid_DragOver"
+                      Drop="CuartelGrid_Drop"
                       x:Name="CuartelGrid">
                 <GridView.ItemsPanel>
                     <ItemsPanelTemplate>
