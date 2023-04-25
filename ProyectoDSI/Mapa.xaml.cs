@@ -23,12 +23,26 @@ namespace ProyectoDSI
     /// </summary>
     public sealed partial class Mapa : Page
     {
-        Popup popup;
         Button boton;
 
         public Mapa()
         {
             this.InitializeComponent();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            List<Casos> list = Model.ListaCasos;
+            for (int i = 0; i < Model.ListaCasos.Count; i++)
+            {
+                if (Model.ListaCasos[i].Completed)
+                {
+                    string botonName = "Level" + (i + 1);
+                    Button b = (Button) this.FindName(botonName);
+                    Image image = b.Content as Image;
+                    image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Mapa/checkLocation1.png", UriKind.RelativeOrAbsolute));
+                }
+            }
         }
 
         private void Navigate(Type type)
@@ -39,93 +53,97 @@ namespace ProyectoDSI
 
         private void DeactivatePopUp()
         {
-            if (popup != null)
+            if (PopupHint != null)
             {
-                popup.IsOpen = false;
-                popup = null;
+                PopupHint.IsOpen = false;
             }
         }
 
         private void AgentsButton_OnClick(object sender, RoutedEventArgs e)
         {
-            Navigate(typeof(Agentes));
             DeactivatePopUp();
+            Navigate(typeof(Agentes));
         }
 
         private void RecruitmentButton_OnClick(object sender, RoutedEventArgs e)
         {
-            Navigate(typeof(Reclutamiento));
             DeactivatePopUp();
+            Navigate(typeof(Reclutamiento));
         }
 
         private void BackButton_OnClick(object sender, RoutedEventArgs e)
         {
-            Navigate(typeof(MainPage));
             DeactivatePopUp();
+            Navigate(typeof(MainPage));
         }
 
         private void OptionsButton_OnClick(object sender, RoutedEventArgs e)
         {
-            Navigate(typeof(Opciones));
             DeactivatePopUp();
+            Navigate(typeof(Opciones));
         }
 
         private void LevelButton_OnClick(object sender, RoutedEventArgs e)
         {
-            Navigate(typeof(Sigilo));
             DeactivatePopUp();
+
+            // Marcar nivel como completado
+            string[] aux = boton.Name.Split('l');
+            Model.SetCasoComplete(int.Parse(aux[1]));
+
+            Navigate(typeof(Sigilo));
         }
 
         private void NewLevelButton_OnClick(object sender, RoutedEventArgs e)
         {
-            // Crea una nueva instancia del popup
-            if (popup == null) {
-                popup = new Popup();
+            Button b = sender as Button;
+            string[] aux = b.Name.Split('l');
 
-                // Configura el contenido del popup
-                ContentControl cc = new ContentControl();
-                cc.Style = (Style)this.Resources["PopupContentStyle"];
-                cc.ApplyTemplate();
-
-                // Carga el contenido del DataTemplate
-                popup.Child = cc;
-                popup.Width = 500;
-                popup.Height = 500;
-
+            if (!PopupHint.IsOpen) {
                 // Posición del popup en relación al botón
-                boton = sender as Button;
-                Point relativePoint = boton.TransformToVisual(this).TransformPoint(new Point(0, 0));
+                Point relativePoint = b.TransformToVisual(this).TransformPoint(new Point(0, 0));
                 double x = relativePoint.X;
                 double y = relativePoint.Y;
-                popup.HorizontalOffset = x + 100;
-                popup.VerticalOffset = y - 100;
+                PopupHint.HorizontalOffset = x + 100;
+                PopupHint.VerticalOffset = y - 100;
 
-                string[] aux = boton.Name.Split('l');
+                // Rellenar información
                 Casos caso = Model.GetCasoById(int.Parse(aux[1]));
-
-                for (int i = 0; i < VisualTreeHelper.GetChildrenCount(popup); i++)
-                {
-                    DependencyObject child = VisualTreeHelper.GetChild(cc, i);
-
-                    if (i == 1)
-                    {
-                        TextBlock txt = child as TextBlock;
-                        txt.Text = caso.Nombre;
-                    }
-                    // Haz algo con el elemento hijo
-                }
+                TextoCaso.Text = caso.Nombre;
+                TextoUno.Text = caso.Descripcion1;
+                TextoDos.Text = caso.Descripcion2;
+                string dificulty = "";
+                for (int i = 0; i < caso.Dificultad; i++) dificulty += "★ ";
+                TextoDificultad.Text = dificulty;
+                caso.Completed = true;
 
                 // Abre el popup en relación al botón
-                popup.IsOpen = true;
+                PopupHint.IsOpen = true;
 
-                Image image = boton.Content as Image;
+                // Cambiar imagen del botón por la de selección
+                Image image = b.Content as Image;
                 image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Mapa/checkLocation2.png", UriKind.RelativeOrAbsolute));
+                boton = b;
             }
             else
             {
+                // Desactivar popup
                 DeactivatePopUp();
-                Image image = boton.Content as Image;
-                image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Mapa/location.png", UriKind.RelativeOrAbsolute));
+
+                // Asignar imagen de completado o no
+                // NOTA:
+                // - location.png   -> no seleccionado
+                // - checkLocation1 -> completado
+                // - checkLocation2 -> seleccionado
+                Image image;
+                if (boton != null) image = boton.Content as Image;
+                else image = b.Content as Image;
+
+                Casos caso = Model.GetCasoById(int.Parse(aux[1]));
+                if (!caso.Completed)
+                    image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Mapa/location.png", UriKind.RelativeOrAbsolute));
+                else
+                    image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Mapa/checkLocation1.png", UriKind.RelativeOrAbsolute));
             }
         }
     }

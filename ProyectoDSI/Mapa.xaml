@@ -16,72 +16,6 @@
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
         </Style>
-
-        <!-- Estilo -->
-        <Style x:Key="PopupContentStyle" TargetType="ContentControl">
-            <Setter Property="ContentTemplate">
-                <Setter.Value>
-                    <DataTemplate x:DataType="local:Casos"
-                                  x:Name="PopupTemplate">
-                        <Grid Background="CornflowerBlue" Width="300" Height="400" CornerRadius="10">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="4*"/>
-                                <RowDefinition Height="4*"/>
-                                <RowDefinition Height="2*"/>
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <!-- Título -->
-                            <Rectangle Fill="LightGray" Grid.ColumnSpan="2"></Rectangle>
-                            <TextBlock x:Name="TextoCaso"
-                                       Text="{x:Bind Nombre}" VerticalAlignment="Center" HorizontalAlignment="Center"
-                                       FontFamily="{StaticResource Alata}" Grid.ColumnSpan="2" Foreground="Black"/>
-                            <!-- Primera fila -->
-                            <Image Source="Assets/Inicio/wanted.png" Grid.Row="1" Margin="10"/>
-                            <TextBlock Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" 
-                                       Text="{x:Bind Descripcion1}" FontFamily="{StaticResource Alata}" Foreground="Black"/>
-                            <!-- Segunda fila -->
-                            <TextBlock Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" 
-                                       Text="{x:Bind Descripcion2}" FontFamily="{StaticResource Alata}"
-                                       Foreground="Black"/>
-                            <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1"
-                                        HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <Image Source="Assets/Mapa/gun.png" Width="65" Margin="5"/>
-                                <Image Source="Assets/Mapa/questionMark.png" Width="65" Margin="5"/>
-                            </StackPanel>
-                            <!-- Tercera fila -->
-                            <TextBlock Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" 
-                                       Text="{x:Bind Dificultad}" FontFamily="{StaticResource Alata}"
-                                       Foreground="Black"/>
-                            <Button Grid.Row="3" Grid.Column="1" Background="Black"
-                                    CornerRadius="2" HorizontalAlignment="Stretch" Margin="8, 8, 8, 8"
-                                    Click="LevelButton_OnClick">
-                                <TextBlock Text="JUGAR" FontFamily="{StaticResource Alata}"/>
-                            </Button>
-                        </Grid>
-                    </DataTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-        <ControlTemplate x:Key="PopupTemplate" TargetType="Popup">
-            <Grid Background="Blue">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="4*"/>
-                    <RowDefinition Height="4*"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <TextBlock Text="CASO" VerticalAlignment="Center" HorizontalAlignment="Center"
-                           FontFamily="{StaticResource Alata}"/>
-                <Button Content="Cerrar" Margin="10"/>
-            </Grid>
-        </ControlTemplate>
     </Page.Resources>
 
     <Grid>
@@ -192,6 +126,53 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
+            <!-- PISTA - POPUP -->
+                <Popup x:Name="PopupHint">
+                    <Grid BorderBrush="Black" BorderThickness="2" Background="CornflowerBlue"
+                          Width="300" Height="400" CornerRadius="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="4*"/>
+                            <RowDefinition Height="4*"/>
+                            <RowDefinition Height="2*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <!-- Título -->
+                        <Rectangle Fill="LightGray" Grid.ColumnSpan="2"></Rectangle>
+                        <TextBlock x:Name="TextoCaso" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                   FontFamily="{StaticResource Alata}" Grid.ColumnSpan="2" Foreground="Black"
+                                   FontWeight="Bold"/>
+                        <!-- Primera fila -->
+                        <Image Source="Assets/Inicio/wanted.png" Grid.Row="1" Margin="10"/>
+                        <TextBlock Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                                   x:Name="TextoUno" FontFamily="{StaticResource Alata}" Foreground="Black"
+                                   TextWrapping="Wrap" Margin="10"/>
+                        <!-- Segunda fila -->
+                        <TextBlock Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                                   x:Name="TextoDos"  FontFamily="{StaticResource Alata}" Foreground="Black"
+                                   TextWrapping="Wrap" Margin="10"/>
+                        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1"
+                                            HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Image Source="Assets/Mapa/gun.png" Width="60" Margin="3"/>
+                            <Image Source="Assets/Mapa/questionMark.png" Width="55" Margin="3"/>
+                        </StackPanel>
+                        <!-- Tercera fila -->
+                        <Border Background="DarkGray" Grid.Row="3" CornerRadius="0, 10, 0, 10"></Border>
+                        <Border Background="LightGray" Grid.Row="3" Grid.Column="1" CornerRadius="10, 0, 10, 0"></Border>
+                        <TextBlock Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="15, 0, 15, 0"
+                                   x:Name="TextoDificultad"  FontFamily="{StaticResource Alata}"
+                                   Foreground="Black" FontSize="20"
+                                   TextWrapping="Wrap"/>
+                        <Button Grid.Row="3" Grid.Column="1" Background="Black"
+                                CornerRadius="2" HorizontalAlignment="Stretch" Margin="8"
+                                Click="LevelButton_OnClick">
+                            <TextBlock Text="JUGAR" FontFamily="{StaticResource Alata}" FontSize="25"/>
+                        </Button>
+                    </Grid>
+                </Popup>
                 <!-- NIVELES -->
         <!-- Nivel 1 -->
         <Button x:Name="Level1" Click="NewLevelButton_OnClick"

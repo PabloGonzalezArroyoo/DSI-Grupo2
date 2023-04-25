@@ -56,15 +56,15 @@ namespace ProyectoDSI
         public string Descripcion1;
         public string Descripcion2;
         public int Dificultad;
+        public bool Completed;
 
         public Casos(int id, string caso) {
             Id = id;
-            Nombre = "Caso " + caso;
-            Descripcion1 = "Este caso es el caso " + caso + ". Han habido un atraco a un banco y parece ser que no hay" + 
-                "rastro del sospechoso. ¿Cómo puedo escapar tan rápido?";
-            Descripcion2 = "No sabemos qué arma se ha usado en el caso " + caso + ". Hay balas de pistola en el suelo pero" +
-                "no hay daños de bala en la escena del crimen. Hm...";
-            Dificultad = random.Next(0, 6);
+            Nombre = "CASO " + caso;
+            Descripcion1 = "Este caso es el caso " + caso + ". Ha habido un atraco a un banco y no hay rastro del sospechoso.";
+            Descripcion2 = "Hay balas de pistola en el suelo pero la escena del crimen no parece la de un tiroteo...";
+            Dificultad = random.Next(1, 6);
+            Completed = false;
         }
     }
 
@@ -148,6 +148,11 @@ namespace ProyectoDSI
         public static Agente GetAgenteById(int id)
         {
             return ListaAgentes[id - 1];
+        }
+
+        public static void SetCasoComplete(int id)
+        {
+            ListaCasos[id - 1].Completed = true;
         }
 
         public static Casos GetCasoById(int id)
