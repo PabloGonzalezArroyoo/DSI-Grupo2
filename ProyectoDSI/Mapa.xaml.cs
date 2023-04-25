@@ -11,6 +11,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // La plantilla de elemento Página en blanco está documentada en https://go.microsoft.com/fwlink/?LinkId=234238
@@ -22,58 +23,89 @@ namespace ProyectoDSI
     /// </summary>
     public sealed partial class Mapa : Page
     {
+        Popup popup;
+
         public Mapa()
         {
             this.InitializeComponent();
         }
 
-        private void AgentsButton_OnClick(object sender, RoutedEventArgs e)
+        private void Navigate(Type type)
         {
             // Use Frame.Navigate to go to the next page.
-            Frame.Navigate(typeof(Agentes));
+            Frame.Navigate(type);
+        }
+
+        private void DeactivatePopUp()
+        {
+            if (popup != null)
+            {
+                popup.IsOpen = false;
+                popup = null;
+            }
+        }
+
+        private void AgentsButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            Navigate(typeof(Agentes));
+            DeactivatePopUp();
         }
 
         private void RecruitmentButton_OnClick(object sender, RoutedEventArgs e)
         {
-            // Use Frame.Navigate to go to the next page.
-            Frame.Navigate(typeof(Reclutamiento));
+            Navigate(typeof(Reclutamiento));
+            DeactivatePopUp();
         }
 
         private void BackButton_OnClick(object sender, RoutedEventArgs e)
         {
-            // Use Frame.Navigate to go to the next page.
-            Frame.Navigate(typeof(MainPage));
+            Navigate(typeof(MainPage));
+            DeactivatePopUp();
         }
 
         private void OptionsButton_OnClick(object sender, RoutedEventArgs e)
         {
-            // Use Frame.Navigate to go to the next page.
-            Frame.Navigate(typeof(Opciones));
+            Navigate(typeof(Opciones));
+            DeactivatePopUp();
         }
 
         private void LevelButton_OnClick(object sender, RoutedEventArgs e)
         {
-            // Use Frame.Navigate to go to the next page.
-            Frame.Navigate(typeof(Sigilo));
+            Navigate(typeof(Sigilo));
+            DeactivatePopUp();
         }
 
         private void NewLevelButton_OnClick(object sender, RoutedEventArgs e)
         {
             // Crea una nueva instancia del popup
-            Popup myPopup = new Popup();
+            if (popup == null) {
+                popup = new Popup();
 
-            // Configura el contenido del popup
-            myPopup.Child = new TextBlock { Text = "Hola, mundo!" };
-            myPopup.Width = 200;
-            myPopup.Height = 200;
+                // Configura el contenido del popup
+                ContentControl cc = new ContentControl();
+                cc.Style = (Style)this.Resources["PopupContentStyle"];
+                popup.Child = cc;
+                popup.Width = 500;
+                popup.Height = 500;
 
-            // Establece la posición del popup en relación al botón
-            Button boton = sender as Button;
-            myPopup.HorizontalOffset = 20;
-            myPopup.VerticalOffset = 30;
+                // Posición del popup en relación al botón
+                Button boton = sender as Button;
+                Point relativePoint = boton.TransformToVisual(this).TransformPoint(new Point(0, 0));
+                double x = relativePoint.X;
+                double y = relativePoint.Y;
+                popup.HorizontalOffset = x + 100;
+                popup.VerticalOffset = y - 100;
 
-            // Abre el popup en relación al botón
-            myPopup.IsOpen = true;
+                // Abre el popup en relación al botón
+                popup.IsOpen = true;
+
+                Image image = boton.Content as Image;
+                image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Mapa/checkLocation2.png", UriKind.RelativeOrAbsolute));
+            }
+            else
+            {
+                DeactivatePopUp();
+            }
         }
     }
 }

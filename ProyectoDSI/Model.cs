@@ -9,6 +9,8 @@ namespace ProyectoDSI
 {
     public class Agente
     {
+        static Random random = new Random();
+
         public int[] estados = new int[4];
 
         public int Id { get; set; }
@@ -26,8 +28,6 @@ namespace ProyectoDSI
         public int CasillasMovimiento { get; set; }
         public int Precio { get; set; }
 
-        static Random random = new Random();
-
         public Agente(int id) {
             Id = id;
             Clase= "Clase " + id.ToString();
@@ -44,6 +44,27 @@ namespace ProyectoDSI
             CasillasMovimiento = random.Next(2, Constants.MAX_MOVEMENT);
             Precio = random.Next(150, 251);
             for (int i = 0; i < 4; i++) { estados[i] = 0; }
+        }
+    }
+
+    public class Casos
+    {
+        static Random random = new Random();
+
+        public int Id;
+        public string Nombre;
+        public string Descripcion1;
+        public string Descripcion2;
+        public int Dificultad;
+
+        public Casos(int id, string caso) {
+            Id = id;
+            Nombre = "Caso " + caso;
+            Descripcion1 = "Este caso es el caso " + caso + ". Han habido un atraco a un banco y parece ser que no hay" + 
+                "rastro del sospechoso. ¿Cómo puedo escapar tan rápido?";
+            Descripcion2 = "No sabemos qué arma se ha usado en el caso " + caso + ". Hay balas de pistola en el suelo pero" +
+                "no hay daños de bala en la escena del crimen. Hm...";
+            Dificultad = random.Next(0, 6);
         }
     }
 
@@ -73,6 +94,18 @@ namespace ProyectoDSI
             new Agente(2),
             new Agente(3),
             new Agente(4)
+        };
+
+        public static List<Casos> ListaCasos = new List<Casos>()
+        {
+            new Casos(1, "MEOWAL"),
+            new Casos(2, "MEOWDELL"),
+            new Casos(3, "MIAUNGUEN"),
+            new Casos(4, "FRINMIAU"),
+            new Casos(5, "COLMEOW"),
+            new Casos(6, "MIAURPLE"),
+            new Casos(7, "HALF-MEOW"),
+            new Casos(8, "MIAUCITY")
         };
 
         public static IList<Agente> shuffleReclutas()

@@ -187,6 +187,7 @@
     <Content Include="Assets\Mapa\location.png" />
     <Content Include="Assets\Mapa\mapButton.png" />
     <Content Include="Assets\Mapa\mapUpscaled.jpeg" />
+    <Content Include="Assets\Mapa\questionMark.png" />
     <Content Include="Assets\mapButtonGrey.png" />
     <Content Include="Assets\Opciones\cross.png" />
     <Content Include="Assets\Opciones\save.png" />

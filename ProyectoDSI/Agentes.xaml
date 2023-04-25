@@ -120,7 +120,7 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            
+
             <!-- ESCUADRON -->
             <TextBlock Style="{StaticResource RecruitAgentsTitleText}" FontSize="30"
                        HorizontalAlignment="Left" Text="ESCUADRÓN" Margin="10"/>
@@ -145,7 +145,7 @@
             </GridView>
 
             <Line HorizontalAlignment="Center" Stroke="Black" Height="10" X1="0" X2="500" Grid.Row="2" Grid.ColumnSpan="2"/>
-            
+
             <!-- CUARTEL -->
             <TextBlock Style="{StaticResource RecruitAgentsTitleText}"
                        HorizontalAlignment="Left" FontSize="30" Text="CUARTEL" Grid.Row="3" Margin="10"/>
@@ -176,9 +176,9 @@
                 </GridView.ItemsPanel>
             </GridView>
         </Grid>
-        
+
         <!-- Info recluta -->
-        <Grid Background="Gray" Grid.Column="3" Grid.Row="2">
+        <Grid BorderBrush="Black" BorderThickness="2" Background="Gray" Grid.Column="3" Grid.Row="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.05*"/>
                 <RowDefinition Height="4*"/>
@@ -195,9 +195,13 @@
 
             <!-- Imagen agente -->
             <Grid Grid.Column="1" Grid.Row="1" CornerRadius="20" Background="White">
-                <Image x:Name="AgentImage" Grid.Column="1" Grid.Row="1"
-                   VerticalAlignment="Center" HorizontalAlignment="Center"
-                   Source="Assets/Agentes/AgenteQ.png"/>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Image x:Name="AgentImage"
+                   VerticalAlignment="Center" HorizontalAlignment="Left"
+                   Source="Assets/Agentes/AgenteQ.png" Grid.ColumnSpan="2"/>
             </Grid>
 
             <!-- Marco de estadísitca -->

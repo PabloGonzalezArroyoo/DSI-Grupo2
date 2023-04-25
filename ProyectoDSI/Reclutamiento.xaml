@@ -142,7 +142,7 @@
                 <TextBlock Style="{StaticResource RecruitAgentsTitleText}"
                     HorizontalAlignment="Left"
                     Margin="10"
-                    Text="Disponibles"/>
+                    Text="DISPONIBLES"/>
                 <GridView x:Name="gridViewReclutas"
                           Grid.Row="1"
                       HorizontalAlignment="Center" VerticalAlignment="Center"
@@ -156,7 +156,7 @@
                         </ItemsPanelTemplate>
                     </GridView.ItemsPanel>
                 </GridView>
-                <Button Margin="0,20,20,20" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="2"
+                <Button Margin="0,10,0,20" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="2"
                         Background="Black" CornerRadius="10"  HorizontalAlignment="Right"
                         Click="Actualizar_OnClick">
                     <Grid>
@@ -174,7 +174,7 @@
         </Grid>
         
         <!-- Info recluta -->
-        <Grid Background="Gray" Grid.Column="3" Grid.Row="2">
+        <Grid  BorderBrush="Black" BorderThickness="2" Background="Gray" Grid.Column="3" Grid.Row="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.05*"/>
                 <RowDefinition Height="4*"/>
