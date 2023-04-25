@@ -141,7 +141,7 @@ namespace ProyectoDSI
 
         private void EscuadronGrid_DragOver(object sender, DragEventArgs e)
         {
-            e.AcceptedOperation = DataPackageOperation.Move;
+            e.AcceptedOperation = Model.ListaSquad.Count < Constants.SQUAD_LIMIT ? DataPackageOperation.Move : DataPackageOperation.None ;
         }
 
         private async void EscuadronGrid_Drop(object sender, DragEventArgs e)
@@ -149,12 +149,10 @@ namespace ProyectoDSI
 
             var item = await e.DataView.GetTextAsync();
             int index = int.Parse(item);
-            if (Model.ListaSquad.Count < Constants.SQUAD_LIMIT)
-            {
                 Model.ListaSquad.Add(Model.ListaAgentes[index]);
                 Model.ListaAgentes.RemoveAt(index);
                 updateListas();
-            }
+            
         }
 
         private void CuartelGrid_DragItemsStarting(object sender, DragItemsStartingEventArgs e)
