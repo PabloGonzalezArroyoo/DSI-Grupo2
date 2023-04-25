@@ -43,6 +43,7 @@ namespace ProyectoDSI
                     image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Mapa/checkLocation1.png", UriKind.RelativeOrAbsolute));
                 }
             }
+            boton = null;
         }
 
         private void Navigate(Type type)
@@ -104,8 +105,29 @@ namespace ProyectoDSI
                 Point relativePoint = b.TransformToVisual(this).TransformPoint(new Point(0, 0));
                 double x = relativePoint.X;
                 double y = relativePoint.Y;
-                PopupHint.HorizontalOffset = x + 100;
-                PopupHint.VerticalOffset = y - 100;
+                switch (aux[1])
+                {
+                    case "1": case "2": case "4": case "6":
+                        PopupHint.HorizontalOffset = x + 100;
+                        PopupHint.VerticalOffset = y - 100;
+                        break;
+                    case "3":
+                        PopupHint.HorizontalOffset = x + 100;
+                        PopupHint.VerticalOffset = y - 400;
+                        break;
+                    case "5":
+                        PopupHint.HorizontalOffset = x + 100;
+                        PopupHint.VerticalOffset = y - 200;
+                        break;
+                    case "7":
+                        PopupHint.HorizontalOffset = x - 290;
+                        PopupHint.VerticalOffset = y - 400;
+                        break;
+                    case "8":
+                        PopupHint.HorizontalOffset = x - 290;
+                        PopupHint.VerticalOffset = y - 100;
+                        break;
+                }
 
                 // Rellenar información
                 Casos caso = Model.GetCasoById(int.Parse(aux[1]));
@@ -115,7 +137,6 @@ namespace ProyectoDSI
                 string dificulty = "";
                 for (int i = 0; i < caso.Dificultad; i++) dificulty += "★ ";
                 TextoDificultad.Text = dificulty;
-                
 
                 // Abre el popup en relación al botón
                 PopupHint.IsOpen = true;
