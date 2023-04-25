@@ -145,5 +145,10 @@ namespace ProyectoDSI
         {
             return ListaAgentes[id - 1];
         }
+
+        public static Casos GetCasoById(int id)
+        {
+            return ListaCasos[id - 1];
+        }
     }
 }

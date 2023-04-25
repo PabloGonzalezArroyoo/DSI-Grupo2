@@ -24,6 +24,7 @@ namespace ProyectoDSI
     public sealed partial class Mapa : Page
     {
         Popup popup;
+        Button boton;
 
         public Mapa()
         {
@@ -84,17 +85,35 @@ namespace ProyectoDSI
                 // Configura el contenido del popup
                 ContentControl cc = new ContentControl();
                 cc.Style = (Style)this.Resources["PopupContentStyle"];
+                cc.ApplyTemplate();
+
+                // Carga el contenido del DataTemplate
                 popup.Child = cc;
                 popup.Width = 500;
                 popup.Height = 500;
 
                 // Posición del popup en relación al botón
-                Button boton = sender as Button;
+                boton = sender as Button;
                 Point relativePoint = boton.TransformToVisual(this).TransformPoint(new Point(0, 0));
                 double x = relativePoint.X;
                 double y = relativePoint.Y;
                 popup.HorizontalOffset = x + 100;
                 popup.VerticalOffset = y - 100;
+
+                string[] aux = boton.Name.Split('l');
+                Casos caso = Model.GetCasoById(int.Parse(aux[1]));
+
+                for (int i = 0; i < VisualTreeHelper.GetChildrenCount(popup); i++)
+                {
+                    DependencyObject child = VisualTreeHelper.GetChild(cc, i);
+
+                    if (i == 1)
+                    {
+                        TextBlock txt = child as TextBlock;
+                        txt.Text = caso.Nombre;
+                    }
+                    // Haz algo con el elemento hijo
+                }
 
                 // Abre el popup en relación al botón
                 popup.IsOpen = true;
@@ -105,6 +124,8 @@ namespace ProyectoDSI
             else
             {
                 DeactivatePopUp();
+                Image image = boton.Content as Image;
+                image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Mapa/location.png", UriKind.RelativeOrAbsolute));
             }
         }
     }
