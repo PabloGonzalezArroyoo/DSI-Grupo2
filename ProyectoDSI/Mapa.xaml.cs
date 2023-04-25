@@ -146,7 +146,7 @@ namespace ProyectoDSI
                 image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Mapa/checkLocation2.png", UriKind.RelativeOrAbsolute));
                 boton = b;
             }
-            else
+            else if(PopupHint.IsOpen)
             {
                 // Desactivar popup
                 DeactivatePopUp();
