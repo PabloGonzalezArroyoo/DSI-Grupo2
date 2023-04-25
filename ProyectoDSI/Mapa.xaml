@@ -7,21 +7,12 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="Black">
-    
+
     <Page.Resources>
-        <FontFamily x:Key="Alata" >ms-appx:///Assets/Alata-Regular.ttf#Alata</FontFamily>
-        <Style x:Key="StraightButton" TargetType="Button">
-            <Setter Property="FontFamily" Value="Alata"/>
-            <Setter Property="FontSize" Value="20"/>
-            <Setter Property="BorderThickness" Value="2"/>
-            <Setter Property="Background" Value="Black"/>
-            <Setter Property="Width" Value="210"/>
-            <Setter Property="Height" Value="45"/>
-        </Style>
         <!-- BOTÓN DE NIVEL -->
         <Style x:Key="LevelButton" TargetType="Button">
             <Setter Property="CornerRadius" Value="60"/>
-            <Setter Property="Margin" Value="20"/>
+            <Setter Property="Margin" Value="18"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
         </Style>
@@ -59,10 +50,12 @@
             <!-- Botón agentes -->
             <StackPanel Orientation="Horizontal" Grid.Column="1"
                         VerticalAlignment="Center" HorizontalAlignment="Right">
-                <Grid Background="Black"
-                      CornerRadius="90"
-                      Height="65" Width="65"
+                <Grid Height="65" Width="65"
                       Margin="0, 5, 0, 5">
+                    <Border Background="Black" CornerRadius="90"/>
+                    <Rectangle Fill="Black"
+                       HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                       Height="45" Margin="30, 5, 0, 5"></Rectangle>
                     <Image Source="Assets/EscudoPoliciaGrey.png"
                            Width="50" Height="50"
                            HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -92,10 +85,12 @@
                         Content="RECLUTAMIENTO"
                         FontFamily="{StaticResource Alata}"
                         Click="RecruitmentButton_OnClick"/>
-                <Grid Background="Black"
-                      CornerRadius="90"
-                      Height="65" Width="65"
+                <Grid Height="65" Width="65"
                       Margin="0, 5, 0, 5">
+                    <Border Background="Black" CornerRadius="90"/>
+                    <Rectangle Fill="Black"
+                       HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                       Height="45" Margin="0, 5, 20, 5"></Rectangle>
                     <Image Source="Assets/ReclutamientoGrey.png"
                            Width="50" Height="50"
                            HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -118,21 +113,22 @@
                 <RowDefinition Height="2*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <!-- NIVELES -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+                
+        <!-- NIVELES -->
         <!-- Nivel 1 -->
-        <Button Click="LevelButton_OnClick"
+        <Button Click="NewLevelButton_OnClick"
                 Style="{StaticResource LevelButton}"
                 Grid.Column="1" Grid.Row="1">
             <Image Source="Assets/Mapa/location.png"/>

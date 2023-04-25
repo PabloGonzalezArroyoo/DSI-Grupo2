@@ -56,5 +56,24 @@ namespace ProyectoDSI
             // Use Frame.Navigate to go to the next page.
             Frame.Navigate(typeof(Sigilo));
         }
+
+        private void NewLevelButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            // Crea una nueva instancia del popup
+            Popup myPopup = new Popup();
+
+            // Configura el contenido del popup
+            myPopup.Child = new TextBlock { Text = "Hola, mundo!" };
+            myPopup.Width = 200;
+            myPopup.Height = 200;
+
+            // Establece la posición del popup en relación al botón
+            Button boton = sender as Button;
+            myPopup.HorizontalOffset = 20;
+            myPopup.VerticalOffset = 30;
+
+            // Abre el popup en relación al botón
+            myPopup.IsOpen = true;
+        }
     }
 }

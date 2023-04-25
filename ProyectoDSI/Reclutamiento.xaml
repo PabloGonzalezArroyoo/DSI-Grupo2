@@ -67,10 +67,12 @@
         <!-- Botón agentes -->
         <StackPanel Orientation="Horizontal" Grid.Column="1"
                     VerticalAlignment="Center" HorizontalAlignment="Right">
-            <Grid Background="Black"
-                  CornerRadius="90"
-                  Height="65" Width="65"
+            <Grid Height="65" Width="65"
                   Margin="0, 5, 0, 5">
+                <Border Background="Black" CornerRadius="90"/>
+                <Rectangle Fill="Black"
+                       HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                       Height="45" Margin="30, 5, 0, 5"></Rectangle>
                 <Image Source="Assets/EscudoPoliciaGrey.png"
                        Width="50" Height="50"
                        HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -100,10 +102,12 @@
                     Foreground="DimGray"
                     Background="Black"
                     Content="RECLUTAMIENTO" IsEnabled="False"/>
-            <Grid Background="Black"
-                  CornerRadius="90"
-                  Height="65" Width="65"
+            <Grid Height="65" Width="65"
                   Margin="0, 5, 0, 5">
+                <Border Background="Black" CornerRadius="90"/>
+                <Rectangle Fill="Black"
+                       HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                       Height="45" Margin="0, 5, 20, 5"></Rectangle>
                 <Image Source="Assets/Reclutamiento.png"
                        Width="50" Height="50"
                        HorizontalAlignment="Center" VerticalAlignment="Center"/>
