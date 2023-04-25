@@ -185,6 +185,7 @@
     <Content Include="Assets\Mapa\checkLocation2.png" />
     <Content Include="Assets\Mapa\gun.png" />
     <Content Include="Assets\Mapa\location.png" />
+    <Content Include="Assets\Mapa\locationSelected.png" />
     <Content Include="Assets\Mapa\mapButton.png" />
     <Content Include="Assets\Mapa\mapUpscaled.jpeg" />
     <Content Include="Assets\Mapa\questionMark.png" />

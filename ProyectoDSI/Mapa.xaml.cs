@@ -145,7 +145,10 @@ namespace ProyectoDSI
 
                 // Cambiar imagen del botón por la de selección
                 Image image = b.Content as Image;
+                if(casoChange.Completed)
                 image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Mapa/checkLocation2.png", UriKind.RelativeOrAbsolute));
+                else
+                    image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Mapa/locationSelected.png", UriKind.RelativeOrAbsolute));
                 boton = b;
                 caso = casoAux;
             }
