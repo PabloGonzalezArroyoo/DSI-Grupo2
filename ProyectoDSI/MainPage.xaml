@@ -13,7 +13,8 @@
         <Image Source="/Assets/Inicio/Fondo.png" Stretch="Fill"/>
         <TextBlock Text="Crime Studios ©2023" Foreground="Black" Margin="8"
                    VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
-        
+        <MediaPlayerElement x:Name="MainMusic" AutoPlay="False" Source="ms-appx:///Assets/NoGood.mp3"/>
+
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition/>

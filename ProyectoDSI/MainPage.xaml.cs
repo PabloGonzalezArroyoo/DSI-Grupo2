@@ -6,6 +6,9 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Devices.Enumeration;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Media.Core;
+using Windows.Media.Playback;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -23,9 +26,29 @@ namespace ProyectoDSI
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            LoadAndPlaySound();
+        }
+
+        private async void LoadAndPlaySound()
+        {
+            //Si es la inicializacion inicial de la aplicacion se activa la musica
+            if (Model.FirstLog)
+            {
+                App.GlobalMediaPlayer.Source = MediaSource.CreateFromStorageFile(await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/NoGood.mp3")));
+                App.GlobalMediaPlayer.Volume = Model.MusicVolume;
+                App.GlobalMediaPlayer.IsLoopingEnabled= true;
+                App.GlobalMediaPlayer.Play();
+                Model.FirstLog= false;
+            }
+            
+        }
+
         public MainPage()
         {
             this.InitializeComponent();
+            
         }
 
         private void PlayButton_OnClick(object sender, RoutedEventArgs e)

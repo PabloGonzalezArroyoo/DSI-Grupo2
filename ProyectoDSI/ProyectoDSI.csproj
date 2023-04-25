@@ -189,6 +189,7 @@
     <Content Include="Assets\Mapa\mapUpscaled.jpeg" />
     <Content Include="Assets\Mapa\questionMark.png" />
     <Content Include="Assets\mapButtonGrey.png" />
+    <Content Include="Assets\NoGood.mp3" />
     <Content Include="Assets\Opciones\cross.png" />
     <Content Include="Assets\Opciones\save.png" />
     <Content Include="Assets\optionsButton.png" />

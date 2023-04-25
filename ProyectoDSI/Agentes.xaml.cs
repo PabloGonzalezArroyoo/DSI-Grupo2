@@ -90,11 +90,13 @@ namespace ProyectoDSI
             DistanceStat.Value = (agente.AtaqueDistancia * 100) / Constants.MAX_DIST_ATTACK;
             MeleeStat.Value = (agente.AtaqueMelee * 100) / Constants.MAX_MELEE_ATTACK;
             MovementStat.Value = (agente.CasillasMovimiento * 100) / Constants.MAX_MOVEMENT;
+
             string stringPath = agente.Imagen;
             Uri imageUri = new Uri(stringPath, UriKind.RelativeOrAbsolute);
             BitmapImage imageBitmap = new BitmapImage(imageUri);
             Image myImage = new Image();
             AgentImage.Source = imageBitmap;
+
             HealthPoints.Text = agente.Vida.ToString();
             MeleePoints.Text = agente.AtaqueMelee.ToString();
             DistPoints.Text = agente.AtaqueDistancia.ToString();

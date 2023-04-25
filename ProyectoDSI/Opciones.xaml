@@ -17,7 +17,7 @@
             <Setter Property="CornerRadius" Value="60"/>
             <Setter Property="HorizontalAlignment" Value="Stretch"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="TickFrequency" Value="5"/>
+            <Setter Property="TickFrequency" Value="1"/>
             <Setter Property="SnapsTo" Value="Ticks"/>
         </Style>
     </Page.Resources>
@@ -89,8 +89,9 @@
                            Foreground="White"
                            VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 <Slider Grid.Row="3" Grid.Column="3"
+                        x:Name="MusicSlider"
                         Margin="1,0,1,0"
-                        Style="{StaticResource SoundSlider}"/>
+                        Style="{StaticResource SoundSlider}" ValueChanged="MusicSlider_ValueChanged"/>
                 <!-- Efectos -->
                 <Border Background="Black"
                         Grid.Row="4" Grid.Column="2"
@@ -100,8 +101,9 @@
                            Foreground="White"
                            VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 <Slider Grid.Row="4" Grid.Column="3"
+                        x:Name="FXSlider"
                         Margin="1, 10"
-                        Style="{StaticResource SoundSlider}"/>
+                        Style="{StaticResource SoundSlider}" ValueChanged="FXSlider_ValueChanged"/>
                 <!-- Botón guardar -->
                 <Button Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2"
                         Style="{StaticResource MenuButon}" Height="90" Margin="10,0,10,0">

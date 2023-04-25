@@ -37,6 +37,12 @@ namespace ProyectoDSI
             }
         }
 
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            FXSlider.Value = Model.FXVolume*100;
+            MusicSlider.Value = Model.MusicVolume*100;
+        }
+
         private void FullScreenButton_Click(object sender, RoutedEventArgs e)
         {
             if (!ApplicationView.GetForCurrentView().IsFullScreenMode)
@@ -47,6 +53,17 @@ namespace ProyectoDSI
             {
                 ApplicationView.GetForCurrentView().ExitFullScreenMode();
             }
+        }
+
+        private void MusicSlider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
+        {
+            Model.MusicVolume=(double) e.NewValue/100.0f;
+            App.GlobalMediaPlayer.Volume = Model.MusicVolume;
+        }
+
+        private void FXSlider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
+        {
+            Model.FXVolume = (double) e.NewValue / 100.0f;
         }
     }
 }

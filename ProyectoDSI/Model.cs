@@ -70,6 +70,10 @@ namespace ProyectoDSI
 
     public class Model
     {
+        public static double FXVolume = 0.5f;
+        public static double MusicVolume = 0.5f;
+        public static bool FirstLog = true;
+
         public static int money = 400;
 
         public static int getMoney() { return money; }
