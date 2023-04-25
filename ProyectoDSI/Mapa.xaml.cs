@@ -24,6 +24,7 @@ namespace ProyectoDSI
     public sealed partial class Mapa : Page
     {
         Button boton;
+        string caso;
 
         public Mapa()
         {
@@ -99,6 +100,7 @@ namespace ProyectoDSI
         {
             Button b = sender as Button;
             string[] aux = b.Name.Split('l');
+            string casoAux = aux[1];
 
             if (!PopupHint.IsOpen) {
                 // Posición del popup en relación al botón
@@ -130,12 +132,12 @@ namespace ProyectoDSI
                 }
 
                 // Rellenar información
-                Casos caso = Model.GetCasoById(int.Parse(aux[1]));
-                TextoCaso.Text = caso.Nombre;
-                TextoUno.Text = caso.Descripcion1;
-                TextoDos.Text = caso.Descripcion2;
+                Casos casoChange = Model.GetCasoById(int.Parse(aux[1]));
+                TextoCaso.Text = casoChange.Nombre;
+                TextoUno.Text = casoChange.Descripcion1;
+                TextoDos.Text = casoChange.Descripcion2;
                 string dificulty = "";
-                for (int i = 0; i < caso.Dificultad; i++) dificulty += "★ ";
+                for (int i = 0; i < casoChange.Dificultad; i++) dificulty += "★ ";
                 TextoDificultad.Text = dificulty;
 
                 // Abre el popup en relación al botón
@@ -145,6 +147,7 @@ namespace ProyectoDSI
                 Image image = b.Content as Image;
                 image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Mapa/checkLocation2.png", UriKind.RelativeOrAbsolute));
                 boton = b;
+                caso = casoAux;
             }
             else if(PopupHint.IsOpen)
             {
@@ -156,15 +159,28 @@ namespace ProyectoDSI
                 // - location.png   -> no seleccionado
                 // - checkLocation1 -> completado
                 // - checkLocation2 -> seleccionado
-                Image image;
-                if (boton != null) image = boton.Content as Image;
-                else image = b.Content as Image;
+                Image imagePrevButton, imageNewButton;
+                imagePrevButton = boton.Content as Image;
+                imageNewButton = b.Content as Image;
 
-                Casos caso = Model.GetCasoById(int.Parse(aux[1]));
-                if (!caso.Completed)
-                    image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Mapa/location.png", UriKind.RelativeOrAbsolute));
+                if (caso != casoAux)
+                {
+                    Casos casoChange = Model.GetCasoById(int.Parse(caso));
+                    if (!casoChange.Completed)
+                        imagePrevButton.Source = new BitmapImage(new Uri("ms-appx:///Assets/Mapa/location.png", UriKind.RelativeOrAbsolute));
+                    else
+                        imagePrevButton.Source = new BitmapImage(new Uri("ms-appx:///Assets/Mapa/checkLocation1.png", UriKind.RelativeOrAbsolute));
+                }
                 else
-                    image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Mapa/checkLocation1.png", UriKind.RelativeOrAbsolute));
+                {
+                    Casos casoChange = Model.GetCasoById(int.Parse(casoAux));
+                    if (!casoChange.Completed)
+                        imageNewButton.Source = new BitmapImage(new Uri("ms-appx:///Assets/Mapa/location.png", UriKind.RelativeOrAbsolute));
+                    else
+                        imageNewButton.Source = new BitmapImage(new Uri("ms-appx:///Assets/Mapa/checkLocation1.png", UriKind.RelativeOrAbsolute));
+                }
+
+                
             }
         }
     }
