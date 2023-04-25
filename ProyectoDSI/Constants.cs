@@ -13,5 +13,6 @@ namespace ProyectoDSI
         public static int MAX_DIST_ATTACK = 50;
         public static int MAX_MOVEMENT = 8;
         public static int MIN_LIFE = 50;
+        public static int SQUAD_LIMIT = 4;
     }
 }

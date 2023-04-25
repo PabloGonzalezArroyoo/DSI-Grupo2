@@ -29,6 +29,7 @@ namespace ProyectoDSI
     {
         Agente currentCuartelSel;
         Agente currentEscuadronSel;
+
         public ObservableCollection<Agente> ListaAgentes { get; } = new ObservableCollection<Agente>();
         public ObservableCollection<Agente> ListaSquad { get; } = new ObservableCollection<Agente>();
 
@@ -94,28 +95,41 @@ namespace ProyectoDSI
             BitmapImage imageBitmap = new BitmapImage(imageUri);
             Image myImage = new Image();
             AgentImage.Source = imageBitmap;
-            if(currentCuartelSel != null && currentEscuadronSel != null)
-            BotonAsignar.IsEnabled = true;
-
             HealthPoints.Text = agente.Vida.ToString();
             MeleePoints.Text = agente.AtaqueMelee.ToString();
             DistPoints.Text = agente.AtaqueDistancia.ToString();
             MovPoints.Text = agente.CasillasMovimiento.ToString();
+
+            if ((currentCuartelSel != null && Model.ListaSquad.Count < Constants.SQUAD_LIMIT) || currentEscuadronSel != null)
+            BotonAsignar.IsEnabled = true;
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            if (currentCuartelSel == null)
+            {
+                Model.ListaAgentes.Add(currentEscuadronSel);
+                Model.ListaSquad.Remove(currentEscuadronSel);
+                currentEscuadronSel = null;
+            }
+            else if (currentEscuadronSel == null && Model.ListaSquad.Count < Constants.SQUAD_LIMIT)
+            {
+                Model.ListaSquad.Add(currentCuartelSel);
+                Model.ListaAgentes.Remove(currentCuartelSel);
+                currentCuartelSel = null;
+            }
+            else if(currentEscuadronSel!=null&&currentCuartelSel!=null)
+            {
                 Model.ListaAgentes.Add(currentEscuadronSel);
                 Model.ListaSquad.Add(currentCuartelSel);
                 Model.ListaAgentes.Remove(currentCuartelSel);
                 Model.ListaSquad.Remove(currentEscuadronSel);
-                CuartelGrid.ItemsSource = null;
-                EscuadronGrid.ItemsSource = null;
-                CuartelGrid.ItemsSource = Model.ListaAgentes;
-                EscuadronGrid.ItemsSource = Model.ListaSquad;
-                currentEscuadronSel= null;
-                currentCuartelSel= null;
-                BotonAsignar.IsEnabled = false;
+                currentEscuadronSel = null;
+                currentCuartelSel = null;
+            }
+            BotonAsignar.IsEnabled = false;
+            updateListas();
         }
 
         private void EscuadronGrid_DragItemsStarting(object sender, DragItemsStartingEventArgs e)
@@ -135,13 +149,12 @@ namespace ProyectoDSI
 
             var item = await e.DataView.GetTextAsync();
             int index = int.Parse(item);
-            Model.ListaSquad.Add(Model.ListaAgentes[index]);
-            Model.ListaAgentes.RemoveAt(index);
-            CuartelGrid.ItemsSource = null;
-            EscuadronGrid.ItemsSource = null;
-            CuartelGrid.ItemsSource = Model.ListaAgentes;
-            EscuadronGrid.ItemsSource = Model.ListaSquad;
-
+            if (Model.ListaSquad.Count < Constants.SQUAD_LIMIT)
+            {
+                Model.ListaSquad.Add(Model.ListaAgentes[index]);
+                Model.ListaAgentes.RemoveAt(index);
+                updateListas();
+            }
         }
 
         private void CuartelGrid_DragItemsStarting(object sender, DragItemsStartingEventArgs e)
@@ -163,13 +176,16 @@ namespace ProyectoDSI
            int index =int.Parse(item);
            Model.ListaAgentes.Add(Model.ListaAgentes[index]);
            Model.ListaSquad.RemoveAt(index);
+            updateListas();
+        }
+
+        private void updateListas()
+        {
+            CountText.Text = Model.ListaSquad.Count.ToString()+"/4";
             CuartelGrid.ItemsSource = null;
             EscuadronGrid.ItemsSource = null;
             CuartelGrid.ItemsSource = Model.ListaAgentes;
             EscuadronGrid.ItemsSource = Model.ListaSquad;
-
-
-
         }
     }
 }

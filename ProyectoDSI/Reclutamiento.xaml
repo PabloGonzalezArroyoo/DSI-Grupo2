@@ -132,13 +132,19 @@
         </Grid>
         
         <!-- Agentes de reclutamiento -->
-        <Grid Background="Gray" Grid.Column="1" Grid.Row="2">
+        <Grid BorderBrush="Black" BorderThickness="2" Background="Gray" Grid.Column="1" Grid.Row="2">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="6*"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
+                <TextBlock Style="{StaticResource RecruitAgentsTitleText}"
+                    HorizontalAlignment="Left"
+                    Margin="10"
+                    Text="Disponibles"/>
                 <GridView x:Name="gridViewReclutas"
+                          Grid.Row="1"
                       HorizontalAlignment="Center" VerticalAlignment="Center"
                       ItemsSource="{x:Bind ListaReclutas}"
                       ItemTemplate="{StaticResource ImageGridView_DefaultItemTemplate}"
