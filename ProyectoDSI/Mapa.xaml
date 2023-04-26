@@ -42,9 +42,10 @@
             <!-- BOTONES -->
             <!-- Botón atrás -->
             <Button Style="{StaticResource CircleButtonNotSelected}"
-                    Grid.Column="0"
+                    x:Name="BackButton" Grid.Column="0"
                     HorizontalAlignment="Center"
-                    Click="BackButton_OnClick">
+                    Click="BackButton_OnClick"
+                    TabIndex="0">
                 <Image Source="Assets/backButton.png"/>
             </Button>
             <!-- Botón agentes -->
@@ -61,10 +62,11 @@
                            HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </Grid>
                 <Button Style="{StaticResource StraightButton}"
-                        Content="AGENTES"
+                        x:Name="AgentesButton" Content="AGENTES"
                         FontFamily="{StaticResource Alata}"
                         Click="AgentsButton_OnClick"
-                        HorizontalAlignment="Right"/>
+                        HorizontalAlignment="Right"
+                        TabIndex="1"/>
             </StackPanel>
             <!-- Botón mapa -->
             <Rectangle Grid.Column="2" Fill="Black"
@@ -82,9 +84,10 @@
             <StackPanel Orientation="Horizontal" Grid.Column="3"
                         VerticalAlignment="Center" HorizontalAlignment="Left">
                 <Button Style="{StaticResource StraightButton}"
-                        Content="RECLUTAMIENTO"
+                        x:Name="ReclutamientoButton" Content="RECLUTAMIENTO"
                         FontFamily="{StaticResource Alata}"
-                        Click="RecruitmentButton_OnClick"/>
+                        Click="RecruitmentButton_OnClick"
+                        TabIndex="2"/>
                 <Grid Height="65" Width="65"
                       Margin="0, 5, 0, 5">
                     <Border Background="Black" CornerRadius="90"/>
@@ -98,134 +101,175 @@
             </StackPanel>
             <!-- Botón opciones -->
             <Button Style="{StaticResource CircleButtonNotSelected}"
-                    Grid.Column="4"
+                    x:Name="OptionsButton" Grid.Column="4"
                     HorizontalAlignment="Center"
-                    Click="OptionsButton_OnClick">
+                    Click="OptionsButton_OnClick"
+                    TabIndex="3">
                 <Image Source="Assets/optionsButton.png"/>
             </Button>
-        
-        <Grid Grid.Row="1" Grid.ColumnSpan="5">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
 
-            <!-- PISTA - POPUP -->
-                <Popup x:Name="PopupHint">
-                    <Grid BorderBrush="Black" BorderThickness="2" Background="CornflowerBlue"
-                          Width="300" Height="400" CornerRadius="10">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="4*"/>
-                            <RowDefinition Height="4*"/>
-                            <RowDefinition Height="2*"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <!-- Título -->
-                        <Rectangle Fill="LightGray" Grid.ColumnSpan="2"></Rectangle>
-                        <TextBlock x:Name="TextoCaso" VerticalAlignment="Center" HorizontalAlignment="Center"
-                                   FontFamily="{StaticResource Alata}" Grid.ColumnSpan="2" Foreground="Black"
-                                   FontWeight="Bold"/>
-                        <!-- Primera fila -->
-                        <Image Source="Assets/Inicio/wanted.png" Grid.Row="1" Margin="10"/>
-                        <TextBlock Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" 
-                                   x:Name="TextoUno" FontFamily="{StaticResource Alata}" Foreground="Black"
-                                   TextWrapping="Wrap" Margin="10"/>
-                        <!-- Segunda fila -->
-                        <TextBlock Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" 
-                                   x:Name="TextoDos"  FontFamily="{StaticResource Alata}" Foreground="Black"
-                                   TextWrapping="Wrap" Margin="10"/>
-                        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1"
-                                            HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Source="Assets/Mapa/gun.png" Width="60" Margin="3"/>
-                            <Image Source="Assets/Mapa/questionMark.png" Width="55" Margin="3"/>
-                        </StackPanel>
-                        <!-- Tercera fila -->
-                        <Border Background="DarkGray" Grid.Row="3" CornerRadius="0, 10, 0, 10"></Border>
-                        <Border Background="LightGray" Grid.Row="3" Grid.Column="1" CornerRadius="10, 0, 10, 0"></Border>
-                        <TextBlock Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="15, 0, 15, 0"
-                                   x:Name="TextoDificultad"  FontFamily="{StaticResource Alata}"
-                                   Foreground="Black" FontSize="20"
-                                   TextWrapping="Wrap"/>
-                        <Button Grid.Row="3" Grid.Column="1" Background="Black"
-                                CornerRadius="2" HorizontalAlignment="Stretch" Margin="8"
-                                Click="LevelButton_OnClick"
-                                x:Name="JugarButton">
-                            <TextBlock Text="JUGAR" FontFamily="{StaticResource Alata}" FontSize="25"/>
-                        </Button>
-                    </Grid>
-                </Popup>
+            <Grid Grid.Row="1" Grid.ColumnSpan="5" XYFocusKeyboardNavigation="Enabled">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                <!-- PISTA - POPUP -->
+                    <Popup x:Name="PopupHint">
+                        <Grid BorderBrush="Black" BorderThickness="2" Background="CornflowerBlue"
+                              Width="300" Height="400" CornerRadius="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="4*"/>
+                                <RowDefinition Height="4*"/>
+                                <RowDefinition Height="2*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <!-- Título -->
+                            <Rectangle Fill="LightGray" Grid.ColumnSpan="2"></Rectangle>
+                            <TextBlock x:Name="TextoCaso" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                       FontFamily="{StaticResource Alata}" Grid.ColumnSpan="2" Foreground="Black"
+                                       FontWeight="Bold"/>
+                            <!-- Primera fila -->
+                            <Image Source="Assets/Inicio/wanted.png" Grid.Row="1" Margin="10"/>
+                            <TextBlock Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                                       x:Name="TextoUno" FontFamily="{StaticResource Alata}" Foreground="Black"
+                                       TextWrapping="Wrap" Margin="10"/>
+                            <!-- Segunda fila -->
+                            <TextBlock Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                                       x:Name="TextoDos"  FontFamily="{StaticResource Alata}" Foreground="Black"
+                                       TextWrapping="Wrap" Margin="10"/>
+                            <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1"
+                                                HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Image Source="Assets/Mapa/gun.png" Width="60" Margin="3"/>
+                                <Image Source="Assets/Mapa/questionMark.png" Width="55" Margin="3"/>
+                            </StackPanel>
+                            <!-- Tercera fila -->
+                            <Border Background="DarkGray" Grid.Row="3" CornerRadius="0, 10, 0, 10"></Border>
+                            <Border Background="LightGray" Grid.Row="3" Grid.Column="1" CornerRadius="10, 0, 10, 0"></Border>
+                            <TextBlock Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="15, 0, 15, 0"
+                                       x:Name="TextoDificultad"  FontFamily="{StaticResource Alata}"
+                                       Foreground="Black" FontSize="20"
+                                       TextWrapping="Wrap"/>
+                            <Button Grid.Row="3" Grid.Column="1" Background="Black"
+                                    CornerRadius="2" HorizontalAlignment="Stretch" Margin="8"
+                                    Click="LevelButton_OnClick"
+                                    x:Name="JugarButton" PreviewKeyDown="OnPreviewKeyDown"
+                                    XYFocusUp="{Binding ElementName=JugarButton}"
+                                    XYFocusDown="{Binding ElementName=JugarButton}"
+                                    XYFocusLeft="{Binding ElementName=JugarButton}"
+                                    XYFocusRight="{Binding ElementName=JugarButton}">
+                                <TextBlock Text="JUGAR" FontFamily="{StaticResource Alata}" FontSize="25"/>
+                            </Button>
+                        </Grid>
+                    </Popup>
+
                 <!-- NIVELES -->
         <!-- Nivel 1 -->
         <Button x:Name="Level1" Click="NewLevelButton_OnClick"
                 Style="{StaticResource LevelButton}"
-                Grid.Column="1" Grid.Row="1">
+                Grid.Column="1" Grid.Row="1"
+                TabIndex="4" IsTabStop="True"
+                XYFocusUp="{Binding ElementName=BackButton}"
+                XYFocusDown="{Binding ElementName=Level2}"
+                XYFocusLeft="{Binding ElementName=BackButton}"
+                XYFocusRight="{Binding ElementName=Level2}">
             <Image Source="Assets/Mapa/location.png"/>
         </Button>
         <!-- Nivel 2 -->
         <Button x:Name="Level2" Click="NewLevelButton_OnClick"
                 Style="{StaticResource LevelButton}"
-                Grid.Column="3"
-                Grid.Row="2">
+                Grid.Column="2" Grid.Row="4"
+                TabIndex="5" IsTabStop="True"
+                XYFocusUp="{Binding ElementName=Level3}"
+                XYFocusDown="{x:Null}"
+                XYFocusLeft="{Binding ElementName=Level1}"
+                XYFocusRight="{Binding ElementName=Level3}">
             <Image Source="Assets/Mapa/location.png"/>
         </Button>
         <!-- Nivel 3 -->
         <Button x:Name="Level3" Click="NewLevelButton_OnClick"
                 Style="{StaticResource LevelButton}"
-                Grid.Column="2"
-                Grid.Row="4">
+                Grid.Column="3" Grid.Row="2"
+                TabIndex="6" IsTabStop="True"
+                XYFocusUp="{Binding ElementName=Level4}"
+                XYFocusDown="{Binding ElementName=Level2}"
+                XYFocusLeft="{Binding ElementName=Level2}"
+                XYFocusRight="{Binding ElementName=Level4}">
             <Image Source="Assets/Mapa/location.png"/>
         </Button>
         <!-- Nivel 4 -->
         <Button x:Name="Level4" Click="NewLevelButton_OnClick"
                 Style="{StaticResource LevelButton}"
-                Grid.Column="4"
-                Grid.Row="1">
+                Grid.Column="4" Grid.Row="1"
+                TabIndex="7" IsTabStop="True"
+                XYFocusUp="{Binding ElementName=AgentesButton}"
+                XYFocusDown="{Binding ElementName=Level5}"
+                XYFocusLeft="{Binding ElementName=Level3}"
+                XYFocusRight="{Binding ElementName=Level5}">
             <Image Source="Assets/Mapa/location.png"/>
         </Button>
         <!-- Nivel 5 -->
         <Button x:Name="Level5" Click="NewLevelButton_OnClick"
                 Style="{StaticResource LevelButton}"
-                Grid.Column="5"
-                Grid.Row="3">
+                Grid.Column="5" Grid.Row="3"
+                TabIndex="8" IsTabStop="True"
+                XYFocusUp="{Binding ElementName=Level6}"
+                XYFocusDown="{x:Null}"
+                XYFocusLeft="{Binding ElementName=Level4}"
+                XYFocusRight="{Binding ElementName=Level6}">
             <Image Source="Assets/Mapa/location.png"/>
         </Button>
         <!-- Nivel 6 -->
         <Button x:Name="Level6" Click="NewLevelButton_OnClick"
                 Style="{StaticResource LevelButton}"
-                Grid.Column="6"
-                Grid.Row="1">
+                Grid.Column="6" Grid.Row="1"
+                TabIndex="9" IsTabStop="True"
+                XYFocusUp="{Binding ElementName=ReclutamientoButton}"
+                XYFocusDown="{Binding ElementName=Level7}"
+                XYFocusLeft="{Binding ElementName=Level5}"
+                XYFocusRight="{Binding ElementName=Level7}">
             <Image Source="Assets/Mapa/location.png" />
         </Button>
         <!-- Nivel 7 -->
         <Button x:Name="Level7" Click="NewLevelButton_OnClick"
                 Style="{StaticResource LevelButton}" 
-                Grid.Column="7" Grid.Row="4">
+                Grid.Column="7" Grid.Row="4"
+                TabIndex="10" IsTabStop="True"
+                XYFocusUp="{Binding ElementName=Level8}"
+                XYFocusDown="{x:Null}"
+                XYFocusLeft="{Binding ElementName=Level6}"
+                XYFocusRight="{Binding ElementName=Level8}">
             <Image Source="Assets/Mapa/location.png"/>
         </Button>
         <!-- Nivel 8 -->
         <Button x:Name="Level8" Click="NewLevelButton_OnClick"
                 Style="{StaticResource LevelButton}" 
-                Grid.Column="8" Grid.Row="2">
+                Grid.Column="8" Grid.Row="2"
+                TabIndex="11" IsTabStop="True"
+                XYFocusUp="{Binding ElementName=OptionsButton}"
+                XYFocusDown="{Binding ElementName=Level7}"
+                XYFocusLeft="{Binding ElementName=Level7}"
+                XYFocusRight="{Binding ElementName=OptionsButton}">
             <Image Source="Assets/Mapa/location.png"/>
         </Button>
         </Grid>
