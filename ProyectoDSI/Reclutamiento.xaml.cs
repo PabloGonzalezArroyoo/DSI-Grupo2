@@ -113,6 +113,7 @@ namespace ProyectoDSI
             {
                 App.FXMediaPlayer.Play();
                 currentMoney -= int.Parse(Precio.Text);
+                Model.money = currentMoney;
                 MoneyText.Text = currentMoney.ToString();
                 Model.ListaReclutas.Remove(currentSel);
                 Model.ListaAgentes.Add(currentSel);
