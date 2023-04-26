@@ -51,6 +51,7 @@ namespace ProyectoDSI
             if (rootFrame.CanGoBack)
             {
                 rootFrame.GoBack();
+                Model.money += 200;
             }
         }
 

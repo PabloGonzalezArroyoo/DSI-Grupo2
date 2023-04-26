@@ -27,8 +27,7 @@
             <Grid Height="45" Width="Auto"
                   Background="Black"
                   BorderBrush="#FF0C59CF"
-                  BorderThickness="3"
-                  >
+                  BorderThickness="3">
                 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
