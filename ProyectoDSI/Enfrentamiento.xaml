@@ -24,7 +24,10 @@
         <DataTemplate x:Key="ListView_DataTemplate"
                       x:DataType="local:Agente">
             <!-- Grid y definición -->
-            <Grid Height="45" Width="Auto">
+            <Grid Height="45" Width="Auto"
+                  BorderBrush="Red"
+                  Background="Black"
+                  BorderThickness="3">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
