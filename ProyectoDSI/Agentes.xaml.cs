@@ -9,6 +9,8 @@ using System.Xml.Linq;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Media.Core;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -38,6 +40,11 @@ namespace ProyectoDSI
             this.InitializeComponent();
         }
 
+        private async void LoadFX()
+        {
+            App.FXMediaPlayer.Source = MediaSource.CreateFromStorageFile(await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/Agentes/CatSound.mp3")));
+        }
+
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             if (ListaAgentes != null)
@@ -45,6 +52,7 @@ namespace ProyectoDSI
                 foreach (Agente ag in Model.GetAllAgentes()) ListaAgentes.Add(ag);
                 foreach (Agente ag in Model.GetAllSquad()) ListaSquad.Add(ag);
             }
+            LoadFX();
         }
 
         private void RecruitmentButton_OnClick(object sender, RoutedEventArgs e)
@@ -109,6 +117,7 @@ namespace ProyectoDSI
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            App.FXMediaPlayer.Play();
             if (currentCuartelSel == null)
             {
                 Model.ListaAgentes.Add(currentEscuadronSel);

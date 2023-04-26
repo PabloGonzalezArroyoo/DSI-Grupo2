@@ -64,6 +64,7 @@ namespace ProyectoDSI
         private void FXSlider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
         {
             Model.FXVolume = (double) e.NewValue / 100.0f;
+            App.FXMediaPlayer.Volume = Model.FXVolume;
         }
     }
 }

@@ -29,6 +29,7 @@ namespace ProyectoDSI
         /// ejecutado y, como tal, es el equivalente lógico de main() o WinMain().
         /// </summary>
         public static MediaPlayer GlobalMediaPlayer = new MediaPlayer();
+        public static MediaPlayer FXMediaPlayer = new MediaPlayer();
         public App()
         {
             this.InitializeComponent();

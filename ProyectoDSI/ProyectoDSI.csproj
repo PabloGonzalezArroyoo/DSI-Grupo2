@@ -161,6 +161,7 @@
     <Content Include="Assets\Agentes\Agente8.png" />
     <Content Include="Assets\Agentes\Agente9.png" />
     <Content Include="Assets\Agentes\AgenteQ.png" />
+    <Content Include="Assets\Agentes\CatSound.mp3" />
     <Content Include="Assets\Agentes\Estrella.png" />
     <Content Include="Assets\backButton.png" />
     <Content Include="Assets\Engranaje.png" />

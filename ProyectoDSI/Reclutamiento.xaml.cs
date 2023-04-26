@@ -7,6 +7,8 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Media.Core;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -37,6 +39,7 @@ namespace ProyectoDSI
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            LoadFX();
             currentMoney = Model.getMoney();
             MoneyText.Text = currentMoney.ToString();
             if (ListaAgentes != null)
@@ -45,6 +48,10 @@ namespace ProyectoDSI
                 Model.shuffleReclutas();
                 foreach (Agente ag in Model.GetAllReclutas()) ListaReclutas.Add(ag);
             }
+        }
+        private async void LoadFX()
+        {
+            App.FXMediaPlayer.Source = MediaSource.CreateFromStorageFile(await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/Agentes/CatSound.mp3")));
         }
 
         private void AgentsButton_OnClick(object sender, RoutedEventArgs e)
@@ -104,6 +111,7 @@ namespace ProyectoDSI
         {
             if (currentMoney - int.Parse(Precio.Text) > 0)
             {
+                App.FXMediaPlayer.Play();
                 currentMoney -= int.Parse(Precio.Text);
                 MoneyText.Text = currentMoney.ToString();
                 Model.ListaReclutas.Remove(currentSel);
