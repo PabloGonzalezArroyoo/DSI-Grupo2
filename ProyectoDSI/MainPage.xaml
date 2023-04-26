@@ -45,8 +45,8 @@
                 </Grid.ColumnDefinitions>
                 <!-- Título -->
                 <Rectangle Fill="Black" Grid.Row="1" Grid.ColumnSpan="5"/>
-                <TextBlock Grid.Row="1" Grid.ColumnSpan="5"
-                           Text="Not True But Crime" FontSize="65" FontFamily="Amarnath" FontWeight="ExtraBold"
+                <TextBlock Grid.Row="1" Grid.ColumnSpan="5" FontStyle="Italic"
+                           Text="NOT TRUE BUT CRIME" FontSize="58" FontFamily="Amarnath" FontWeight="ExtraBold"
                            HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <!-- Primera fila de botones -->
                 <Button Grid.Row="2" Grid.Column="1" TabIndex="0"
